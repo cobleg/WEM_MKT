@@ -11,7 +11,7 @@ subdirectory <- c("data")
 wd <- getwd()
 filePath2 <- file.path(wd, subdirectory, paste0("WEM_operational_demand.rds"))
 datalist = list()
-#myMonth = 1
+
 for (myYear in 2018:2022)
 {
   year <- str_pad(myYear, 2, "left", pad="0")
@@ -22,8 +22,12 @@ for (myYear in 2018:2022)
   datalist[[myYear]] <- df # add to list
 }
 
+
 # append files
 WEM_data = do.call(rbind, datalist)
+
+WEM_data$Trading.Interval = as.POSIXct(WEM_data$Trading.Interval, format = "%Y-%m-%d %H:%M:%S", tz = "UTC")
+
 
 # save file
 saveRDS(WEM_data, filePath2)
