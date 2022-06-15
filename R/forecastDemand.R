@@ -36,17 +36,19 @@ demand.daily <- demand.daily %>%
 
 demand.monthly <- demand.daily %>% 
   index_by(Year_Month = ~ yearmonth(.)) %>% 
-  summarise( Demand.Month.GWh = sum(Demand.Daily.MWh/1000)) %>% 
-  filter(lubridate::year(Year_Month) < 2022)
+  summarise( Demand.Month.GWh = sum(Demand.Daily.MWh/1000)) %>%
+  filter_index(~ "2022-05")
 
 gg_season(data = demand, y = Operational.Demand..MW., period = "year") + 
-  labs(y = "MW",
+  labs(x = "Month",
+       y = "MW",
        title = "Seasonal plot: Operational Demand",
        subtitle = "Wholesale Electricity Market (WA)")
 
 demand.monthly %>% 
     gg_subseries(y = Demand.Month.GWh, period = "year") + 
-    labs(y = "GWh",
+    labs(x = "Year",
+         y = "GWh",
        title = "Seasonal plot: Operational Demand",
        subtitle = "Wholesale Electricity Market (WA)")
 
