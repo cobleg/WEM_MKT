@@ -17,5 +17,5 @@ analytics_df <- analytics_df %>%
   left_join( PublicHolidays ) 
 
 analytics_df <- analytics_df %>% 
-  mutate( holiday = ifelse( is.na(analytics_df$Public.Holiday), 0,1 ) )
+  mutate( holiday = ifelse( is.na(analytics_df$Public.Holiday), "Normal", "Holiday" ) )
 

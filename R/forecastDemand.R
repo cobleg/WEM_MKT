@@ -88,6 +88,8 @@ demand.longer %>%
   group_by( Calendar.Year, Calendar.Month, holiday) %>% 
   summarise(Monthly.Demand.GWh = sum(value/2000)) %>% 
   features(Monthly.Demand.GWh, feat_stl) %>% 
-  ggplot(aes(x = trend_strength, y = seasonal_strength_hour, col = c(Calendar.Year))) +
+  ggplot(aes(x = trend_strength, y = seasonal_strength_hour, col = Calendar.Year)) +
   geom_point() + 
-  facet_wrap(vars(Calendar.Month, holiday ))
+  facet_wrap(vars(Calendar.Month, holiday )) +
+  labs(title = "Wholesale Electricity Market",
+       subtitle = "Operational Demand")
