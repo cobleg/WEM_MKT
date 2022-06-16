@@ -52,3 +52,42 @@ demand.monthly %>%
        title = "Seasonal plot: Operational Demand",
        subtitle = "Wholesale Electricity Market (WA)")
 
+year <- 2021
+myTitle <- paste0("Wholesale Electricity Market: ", year)
+demand %>% 
+  filter(year(Trading.Interval) == year) %>% 
+  ggplot(aes(x = AirTemperature, y = Operational.Demand..MW.)) + 
+  geom_point() + 
+  labs( x= "Ambient temperature (degrees Celsius)",
+        y = "Electricity demand (MW)",
+        title = "Wholesale Electricity Market: 2021")
+
+
+
+demand.longer <- demand %>%
+  mutate(Calendar.Year = as.character(Calendar.Year)) %>% 
+  select(!c(Calendar.Day, Trading.Date, Public.Holiday)) %>%
+  group_by(Calendar.Year) %>% 
+  pivot_longer(cols = !c(Trading.Interval, Calendar.Year, Calendar.Month, holiday),
+               names_to = "name",
+               values_to = "value")
+demand.longer %>% 
+  ggplot(aes( x = Trading.Interval, y = value )) + 
+  geom_line() +
+  facet_grid(vars(holiday)) + 
+  labs(title = "Wholesale Electricity Market: Operational Demand",
+       y = "MW")
+
+demand.longer %>% 
+  select(!c("Calendar.Year", "Calendar.Month", "Trading.Interval", "holiday")) %>% 
+  pivot_wider(values_from = value, names_from = name) %>% 
+  GGally::ggpairs() 
+
+demand.longer %>%
+  filter(name == "Operational.Demand..MW.") %>% 
+  group_by( Calendar.Year, Calendar.Month, holiday) %>% 
+  summarise(Monthly.Demand.GWh = sum(value/2000)) %>% 
+  features(Monthly.Demand.GWh, feat_stl) %>% 
+  ggplot(aes(x = trend_strength, y = seasonal_strength_hour, col = c(Calendar.Year))) +
+  geom_point() + 
+  facet_wrap(vars(Calendar.Month, holiday ))
