@@ -1,2 +1,2 @@
 # WEM_MKT
-Modelling electricity market dynamics in the Wholesale Electricity Market
+Modelling electricity market dynamics in the Wholesale Electricity Market (WEM). As the WEM accumulates more Variable Renewable Energy (VRE) resources, we observe evolving market dynamics, which impacts on future investment in large-scale electricity generation. This project provides methods of analysing evolving market dynamics by statistically modelling observed operational demand and balancing prices, controlling for causal drivers such as temperature variation, public and weekend effects, solar irradiance variation as well as latent factors.

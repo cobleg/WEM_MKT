@@ -33,5 +33,5 @@ wd <- getwd()
 filePath2 <- file.path(wd, subdirectory, paste0("weather.rds"))
 
 write.csv(df.30, file = './data/weather.csv')
-saveRDS(WEM_data, filePath2)
+saveRDS(df.30, filePath2)
 
