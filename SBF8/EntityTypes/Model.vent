@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="Model">
+      <Properties>
+        <IsSingular>true</IsSingular>
+        <IsDataEntityType>false</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>false</IsKey>
+          <AutoIncrement>false</AutoIncrement>
+          <Expression>"SWIS"</Expression>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="capacity per panel">
+          <Units>kW/panel</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>0.25</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="total capacity per system" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="cooling degree days">
+          <Units>degree days</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>RandomUniform(0,maximum CDD)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="maximum CDD" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="logarithm of CDD" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" VariableName="degree days" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Logarithm of CDD" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="days in current month">
+          <Units>day</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>if(month == 2 &amp;&amp; leap year flag == 1) {29} else {days in month(month)}</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="month" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="leap year flag" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="days in month" OwnerTag="EntityType:Model" />
+          </Causes>
+        </Auxiliary>
+        <Auxiliary name="degree days">
+          <Units>degree days</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>cooling degree days+heating degree days</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="cooling degree days" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="heating degree days" OwnerTag="EntityType:Model" />
+          </Causes>
+        </Auxiliary>
+        <Auxiliary name="degree days unit">
+          <Units>degree days</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Logarithm of CDD" OwnerTag="Collection:Households.Households[]" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Logarithm of HDD" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="DER capacity increment per system">
+          <Units>kW/system</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>0.05</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Create DER cohort" VariableName="new capacity per system" OwnerTag="Action:Households.Create DER cohort" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="DER initial adoption scale factor">
+          <Units>dmnl</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1.6</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Households" VariableName="initial adoption" OwnerTag="EntityType:Households" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="DER initial capacity per system">
+          <Units>kW/system</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1.5</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort" VariableName="DER capacity per system" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Final Time">
+          <Units>month</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>120</Equation>
+        </Auxiliary>
+        <Auxiliary name="GW per hour">
+          <Units>1/GW</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+        </Auxiliary>
+        <Auxiliary name="heating degree days">
+          <Units>degree days</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>RandomUniform(0,maximum HDD)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="maximum HDD" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="degree days" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Logarithm of HDD" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Initial Time">
+          <Units>month</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>0</Equation>
+        </Auxiliary>
+        <Auxiliary name="kW per GW">
+          <Units>kW/GW</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>1e6</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort[]" VariableName="DER installed capacity GW" OwnerTag="Collection:DER cohort.DER cohort[]" />
+            <Use CausalType="InformationSource" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" Reference="SWIS_DER[]" VariableName="average actual PV capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+            <Use CausalType="InformationSource" Reference="SWIS_DER[]" VariableName="capacity additions" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="kW per hour">
+          <Units>1/kW</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+        </Auxiliary>
+        <Auxiliary name="kWh per connection unit">
+          <Units>kWh/connection</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="temperature responsive load" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="temperature responsive load per connection" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="kWh per GWh">
+          <Units>kWh/GWh</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1e6</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="commercial electricity demand" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Commercial[]" VariableName="WP commercial volume" OwnerTag="Collection:Commercial.Commercial[]" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Household electricity demand" OwnerTag="Collection:Households.Households[]" />
+            <Use CausalType="InformationSource" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" Reference="SWIS" VariableName="WP total volume" OwnerTag="EntityType:SWIS" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="leap year flag">
+          <Units>dmnl</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>if (Modulo(SimulationYear(), 4) != 0) {0} 
+else if (Modulo(SimulationYear(), 100) != 0) {1}
+else if (Modulo(SimulationYear(), 400) != 0) {0}
+else {1}</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="days in current month" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="maximum CDD">
+          <Units>degree days</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Max bin CDD(month)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Max bin CDD" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="month" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="cooling degree days" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="maximum HDD">
+          <Units>degree days</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Max bin HDD(month)</Equation>
+          <Description>Maximum number of observed heating degree days given the month</Description>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Max bin HDD" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="month" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="heating degree days" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="month">
+          <Units>month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>SimulationMonth()</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="days in current month" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" VariableName="maximum CDD" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" VariableName="maximum HDD" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="normalised PV output">
+          <Units>GWh/GW/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>reference PV system output per month/kWh per GWh/total capacity per system*kW per GW</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="kWh per GWh" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="total capacity per system" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="kW per GW" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort[]" VariableName="DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+            <Use CausalType="InformationSource" Reference="SWIS_DER[]" VariableName="estimated PV output" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="on site consumption per system">
+          <Units>kWh/month/system</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>reference PV system output per month*site consumption ratio</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="site consumption ratio" OwnerTag="EntityType:Model" />
+          </Causes>
+        </Auxiliary>
+        <Auxiliary name="panels per system">
+          <Units>panel/system</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>20</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="total capacity per system" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="ratio of grid connections to households">
+          <Units>connections/households</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="connection count" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Household electricity demand" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="reference PV system output per month">
+          <Units>kWh/system/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Monthly PV Performance Data(month)*total capacity per system</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Monthly PV Performance Data" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="month" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="total capacity per system" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" VariableName="on site consumption per system" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="site consumption ratio">
+          <Units>dmnl</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>0.45</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort[]" VariableName="DER onsite consumption" OwnerTag="Collection:DER cohort.DER cohort[]" />
+            <Use CausalType="InformationSource" VariableName="on site consumption per system" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="system to household unit">
+          <Units>systems/households</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Households" VariableName="initial adoption" OwnerTag="EntityType:Households" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Time">
+          <Units>month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>0</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Create DER cohort" VariableName="newDER cohort●Vintage Year" OwnerTag="Action:Households.Create DER cohort" />
+            <Use CausalType="InformationSource" Reference="Create vehicle cohort" VariableName="newVehicle cohorts●Model Year" OwnerTag="Action:Households.Create vehicle cohort" />
+            <Use CausalType="InformationSource" Reference="DER cohort" VariableName="nominal age" OwnerTag="EntityType:DER cohort" />
+            <Use CausalType="InformationSource" Reference="DER cohort" VariableName="Vintage Year" OwnerTag="EntityType:DER cohort" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="create DER cohort" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="create vehicle cohort" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" VariableName="time index" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" Reference="Vehicle cohorts" VariableName="Model Year" OwnerTag="EntityType:Vehicle cohorts" />
+            <Use CausalType="InformationSource" Reference="Vehicle cohorts" VariableName="nominal age" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="time index">
+          <Units>dmnl</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Time/Time Step</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Time" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="Time Step" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="non temperature load growth equation" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="ratio of firms to households predicted" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="considering DER adoption" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="hazard function of adoption" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="nonlinear time index" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="non temperature load growth equation" OwnerTag="Collection:Households.Households[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Time Step">
+          <Units>month</Units>
+          <IsConstant>true</IsConstant>
+          <Equation>1</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="Commercial" VariableName="commercial electricity demand" OwnerTag="EntityType:Commercial" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="considering DER adoption" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="create DER cohort" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households" VariableName="create vehicle cohort" OwnerTag="EntityType:Households" />
+            <Use CausalType="InformationSource" Reference="Households[]" VariableName="Household electricity demand" OwnerTag="Collection:Households.Households[]" />
+            <Use CausalType="InformationSource" Reference="SWIS" VariableName="WP total volume" OwnerTag="EntityType:SWIS" />
+            <Use CausalType="InformationSource" VariableName="time index" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="total capacity per system">
+          <Units>kW/system</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>panels per system*capacity per panel</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="panels per system" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="capacity per panel" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+            <Use CausalType="InformationSource" VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="year">
+          <Units>year</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>SimulationYear()</Equation>
+        </Auxiliary>
+      </Auxiliaries>
+      <TableFunctions>
+        <TableFunction name="days in month">
+          <Description>Number of days in the month for a common year. For reference, see https://www.timeanddate.com/calendar/months/</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>day</UnitsOut>
+          <Equation>0,12,0,31,1,31,2,28,3,31,4,30,5,31,6,30,7,31,8,31,9,30,10,31,11,30,12,31</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="days in current month" OwnerTag="EntityType:Model" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Max bin CDD">
+          <Description>The maximum number of cooling degree days for a given month</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>degree days</UnitsOut>
+          <Equation>0,12,0,251,1,190,2,240,3,250,4,170,5,90,6,20,7,10,8,0.1,9,10,11,40,12,100</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="maximum CDD" OwnerTag="EntityType:Model" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Max bin HDD">
+          <Description>Maximum heating degree days by month</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>degree days</UnitsOut>
+          <Equation>0,13,0,216,1,33.5,2,7.25,3,9.6,4,17.35,5,68.65,6,144.5,7,203.9,8,215.2,9,214.65,10,158.05,11,117.5,12,67</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="maximum HDD" OwnerTag="EntityType:Model" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Monthly PV Performance Data">
+          <Description>Source: https://pvwatts.nrel.gov/pvwatts.php</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>kWh/kW/month</UnitsOut>
+          <Equation>0,12,0,186,1,184.8416,2,160.0864,3,157.9923,4,121.5079,5,107.7425,6,84.8009,7,91.67235,8,117.3804,9,138.4932,10,163.6893,11,156.4073,12,175.6211</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+          </Uses>
+        </TableFunction>
+        <TableFunction name="Sun hours per month">
+          <Description>Number of hours of sunlight per month</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>hours</UnitsOut>
+          <Equation>0,12,0,559,1,558.47,2,430.9,3,490.22,4,422.69,5,419.44,6,378.35,7,412.35,8,440.47,9,447.14,10,516.63,11,516.19,12,550.41</Equation>
+        </TableFunction>
+      </TableFunctions>
+      <Charts>
+        <Chart name="Plot1">
+          <PlotedItems>
+            <PlottedItem VariableName="reference PV system output per month" OwnerTag="EntityType:Model" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="06/01/2006 00:00:00" />
+                <Max Value="06/01/2030 00:00:00" />
+              </VisualRange>
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="06/01/2006 00:00:00" />
+                  <Max Value="06/01/2030 00:00:00" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="41.58936">
+                  <Min Value="0" />
+                  <Max Value="415.8936" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+        </Chart>
+      </Charts>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="1" NodeType="TableFunction" MemberName="Max bin CDD" IsMidLabel="False" LabelText="Max bin CDD" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="108" LocationY="60" Height="55" Width="103.2688" />
+              <Label LocationX="58.3656" LocationY="52.45443" Height="15.09114" Width="99.2688" />
+            </Node>
+            <Node PartID="5" NodeType="TableFunction" MemberName="Max bin HDD" IsMidLabel="False" LabelText="Max bin HDD" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="125" LocationY="225" Height="55" Width="103.2686" />
+              <Label LocationX="75.36571" LocationY="217.4544" Height="15.09114" Width="99.26859" />
+            </Node>
+            <Node PartID="9" NodeType="Auxiliary" MemberName="month" IsMidLabel="False" LabelText="month" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="425" LocationY="300" Height="52" Width="76" />
+              <Label LocationX="389" LocationY="292.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="13" NodeType="Auxiliary" MemberName="maximum CDD" IsMidLabel="False" LabelText="maximum CDD" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="350" LocationY="125" Height="52" Width="76" />
+              <Label LocationX="314" LocationY="109.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="59" NodeType="Auxiliary" MemberName="maximum HDD" IsMidLabel="False" LabelText="maximum HDD" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="350" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="314" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="98" NodeType="Auxiliary" MemberName="heating degree days" IsMidLabel="False" LabelText="heating degree days" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="500" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="464" LocationY="202.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="136" NodeType="Auxiliary" MemberName="degree days" IsMidLabel="False" LabelText="degree days" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="625" LocationY="175" Height="52" Width="76" />
+              <Label LocationX="589" LocationY="159.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="1745" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="89" LocationY="338" Height="52" Width="76" />
+              <Label LocationX="53" LocationY="330.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="1781" NodeType="Auxiliary" MemberName="Time Step" IsMidLabel="False" LabelText="Time Step" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="87" LocationY="387" Height="52" Width="76" />
+              <Label LocationX="51" LocationY="379.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="2227" NodeType="Note" IsMidLabel="False" LabelText="Captures exogenous variables such as time, weather, sun hours per month etc." IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1219.09" LocationY="125" Height="100" Width="213.8193" />
+              <Label LocationX="1114.18" LocationY="102.3633" Height="45.27343" Width="209.8193" />
+            </Node>
+            <Node PartID="5901" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="850" LocationY="50" Height="40" Width="76" />
+              <Label LocationX="814" LocationY="42.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7858" NodeType="Auxiliary" MemberName="ratio of grid connections to households" IsMidLabel="False" LabelText="ratio of grid connections to households" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="75" LocationY="625" Height="68" Width="81.81683" />
+              <Label LocationX="36.09158" LocationY="594.8177" Height="60.36458" Width="77.81683" />
+            </Node>
+            <Node PartID="8112" NodeType="Auxiliary" MemberName="kWh per GWh" IsMidLabel="False" LabelText="kWh per GWh" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1075" LocationY="775" Height="52" Width="76" />
+              <Label LocationX="1039" LocationY="759.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="9371" NodeType="Auxiliary" MemberName="degree days unit" IsMidLabel="False" LabelText="degree days unit" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="75" LocationY="725" Height="52" Width="76" />
+              <Label LocationX="39" LocationY="709.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="12629" NodeType="Auxiliary" MemberName="cooling degree days" IsMidLabel="False" LabelText="cooling degree days" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="475" LocationY="125" Height="52" Width="76" />
+              <Label LocationX="439" LocationY="102.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="12684" NodeType="Auxiliary" MemberName="time index" IsMidLabel="False" LabelText="time index" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="225" LocationY="350" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="342.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="12763" NodeType="Auxiliary" MemberName="kWh per connection unit" IsMidLabel="False" LabelText="kWh per connection unit" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="100" LocationY="450" Height="52" Width="97.16846" />
+              <Label LocationX="53.41577" LocationY="434.9088" Height="30.18229" Width="93.16846" />
+            </Node>
+            <Node PartID="12783" NodeType="TableFunction" MemberName="Sun hours per month" IsMidLabel="False" LabelText="Sun hours per month" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="850" LocationY="200" Height="55" Width="103.2687" />
+              <Label LocationX="800.3657" LocationY="184.9089" Height="30.18229" Width="99.26868" />
+            </Node>
+            <Node PartID="15973" NodeType="Auxiliary" MemberName="panels per system" IsMidLabel="False" LabelText="panels per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="900" LocationY="450" Height="52" Width="76" />
+              <Label LocationX="864" LocationY="434.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="16073" NodeType="Auxiliary" MemberName="reference PV system output per month" IsMidLabel="False" LabelText="reference PV system output per month" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="881.5" LocationY="550" Height="68" Width="163" />
+              <Label LocationX="802" LocationY="534.9089" Height="30.18229" Width="159" />
+            </Node>
+            <Node PartID="16234" NodeType="Auxiliary" MemberName="site consumption ratio" IsMidLabel="False" LabelText="site consumption ratio" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1025" LocationY="666.875" Height="36" Width="111.1936" />
+              <Label LocationX="971.4032" LocationY="651.7839" Height="30.18229" Width="107.1936" />
+            </Node>
+            <Node PartID="16382" NodeType="Auxiliary" MemberName="on site consumption per system" IsMidLabel="False" LabelText="on site consumption per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1075" LocationY="575" Height="52" Width="137.1936" />
+              <Label LocationX="1008.403" LocationY="559.9089" Height="30.18229" Width="133.1936" />
+            </Node>
+            <Node PartID="16741" NodeType="Auxiliary" MemberName="days in current month" IsMidLabel="False" LabelText="days in current month" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="725" LocationY="650" Height="52" Width="76" />
+              <Label LocationX="689" LocationY="627.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="16945" NodeType="Auxiliary" MemberName="leap year flag" IsMidLabel="False" LabelText="leap year flag" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="575" LocationY="700" Height="52" Width="76" />
+              <Label LocationX="539" LocationY="684.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="17109" NodeType="TableFunction" MemberName="days in month" IsMidLabel="False" LabelText="days in month" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="450" LocationY="575" Height="55" Width="103.2687" />
+              <Label LocationX="400.3657" LocationY="567.4544" Height="15.09114" Width="99.26871" />
+            </Node>
+            <Node PartID="19198" NodeType="Plot" MemberName="Plot1" IsMidLabel="False" LabelText="Plot1" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1200" LocationY="300" Height="348.4177" Width="743" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="19527" NodeType="Auxiliary" MemberName="capacity per panel" IsMidLabel="False" LabelText="capacity per panel" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="916" LocationY="375" Height="52" Width="94" />
+              <Label LocationX="871" LocationY="359.9088" Height="30.18229" Width="90" />
+            </Node>
+            <Node PartID="19656" NodeType="Auxiliary" MemberName="total capacity per system" IsMidLabel="False" LabelText="total capacity per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1063" LocationY="400" Height="52" Width="102" />
+              <Label LocationX="1014" LocationY="384.9088" Height="30.18229" Width="98" />
+            </Node>
+            <Node PartID="23556" NodeType="TableFunction" MemberName="Monthly PV Performance Data" IsMidLabel="False" LabelText="Monthly PV Performance Data" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="700" LocationY="775" Height="55" Width="103.2687" />
+              <Label LocationX="650.3657" LocationY="752.3633" Height="45.27343" Width="99.26868" />
+            </Node>
+            <Node PartID="24138" NodeType="Note" IsMidLabel="False" LabelText="PVWatts: Monthly PV Performance Data&#x9;&#xD;&#xA;Requested Location:&#x9;Perth western australia&#xD;&#xA;Location:&#x9;Lat, Lon: -31.95, 115.86&#xD;&#xA;Lat (deg S):&#x9;31.95&#xD;&#xA;Long (deg E):&#x9;115.86&#xD;&#xA;Elev (m):&#x9;11&#xD;&#xA;DC System Size (kW):&#x9;1&#xD;&#xA;Module Type:&#x9;Standard&#xD;&#xA;Array Type:&#x9;Fixed (open rack)&#xD;&#xA;Array Tilt (deg):&#x9;20&#xD;&#xA;Array Azimuth (deg):&#x9;0&#xD;&#xA;System Losses:&#x9;14.08&#xD;&#xA;Invert Efficiency:&#x9;96&#xD;&#xA;DC to AC Size Ratio:&#x9;1.2&#xD;&#xA;Average Cost of Electricity Purchased from Utility ($/kWh):&#x9;No utility data available&#xD;&#xA;Capacity Factor (%)&#x9;&quot;19.0&#x9;&quot;&#xD;&#xA;&#xD;&#xA;Source: https://pvwatts.nrel.gov/pvwatts.php&#xD;&#xA;" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="375" LocationY="900" Height="317.5" Width="400" />
+              <Label LocationX="177" LocationY="749.0886" Height="301.8229" Width="396" />
+            </Node>
+            <Node PartID="28316" NodeType="Auxiliary" MemberName="year" IsMidLabel="False" LabelText="year" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="75" LocationY="125" Height="52" Width="76" />
+              <Label LocationX="39" LocationY="117.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="41307" NodeType="Auxiliary" MemberName="kW per GW" IsMidLabel="False" LabelText="kW per GW" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1075" LocationY="825" Height="52" Width="76" />
+              <Label LocationX="1039" LocationY="817.4544" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="42823" NodeType="Auxiliary" MemberName="kW per hour" IsMidLabel="False" LabelText="kW per hour" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="225" LocationY="450" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="434.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="43142" NodeType="Auxiliary" MemberName="GW per hour" IsMidLabel="False" LabelText="GW per hour" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="325" LocationY="450" Height="52" Width="76" />
+              <Label LocationX="289" LocationY="434.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="45288" NodeType="Auxiliary" MemberName="DER capacity increment per system" IsMidLabel="False" LabelText="DER capacity increment per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="975" LocationY="850" Height="41.25" Width="145" />
+              <Label LocationX="904.5" LocationY="834.9089" Height="30.18229" Width="141" />
+            </Node>
+            <Node PartID="45460" NodeType="Auxiliary" MemberName="DER initial capacity per system" IsMidLabel="False" LabelText="DER initial capacity per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="982.5" LocationY="925" Height="52" Width="141" />
+              <Label LocationX="914" LocationY="909.9089" Height="30.18229" Width="137" />
+            </Node>
+            <Node PartID="46954" NodeType="Auxiliary" MemberName="DER initial adoption scale factor" IsMidLabel="False" LabelText="DER initial adoption scale factor" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="800" LocationY="925" Height="52" Width="139" />
+              <Label LocationX="732.5" LocationY="909.9089" Height="30.18229" Width="135" />
+            </Node>
+            <Node PartID="49498" NodeType="Auxiliary" MemberName="system to household unit" IsMidLabel="False" LabelText="system to household unit" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="225" LocationY="625" Height="52" Width="76" />
+              <Label LocationX="189" LocationY="602.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="50373" NodeType="Auxiliary" MemberName="normalised PV output" IsMidLabel="False" LabelText="normalised PV output" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Model" />
+              <Position LocationX="1175" LocationY="725" Height="52" Width="76" />
+              <Label LocationX="1139" LocationY="709.9089" Height="30.18229" Width="72" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="15" LinkType="Information" FromNode="9" FromPort="12766" ToNode="13" ToPort="12767" PointCount="4" LabelNodeID="0" Points="410.4635|273|389.7599|234.5451|372.4742|194.2117|358.7674|152" ManualStroke="False" />
+            <Link PartID="19" LinkType="Information" FromNode="1" FromPort="2" ToNode="13" ToPort="14" PointCount="4" LabelNodeID="0" Points="160.6344|64.03955|215.9443|68.28444|266.0662|81.74692|311|104.9024" ManualStroke="False" />
+            <Link PartID="70" LinkType="Information" FromNode="9" FromPort="12766" ToNode="59" ToPort="12768" PointCount="4" LabelNodeID="0" Points="386|283.9131|376.8578|280.1422|369.8578|273.1422|361.1371|252" ManualStroke="False" />
+            <Link PartID="75" LinkType="Information" FromNode="5" FromPort="6" ToNode="59" ToPort="60" PointCount="4" LabelNodeID="0" Points="177.6343|214.1576|222.0896|205|266.5448|205|311|215.6537" ManualStroke="False" />
+            <Link PartID="115" LinkType="Information" FromNode="59" FromPort="60" ToNode="98" ToPort="99" PointCount="4" LabelNodeID="0" Points="389|212.619|413|205|437|205|461|212.619" ManualStroke="False" />
+            <Link PartID="164" LinkType="Information" FromNode="98" FromPort="99" ToNode="136" ToPort="137" PointCount="4" LabelNodeID="0" Points="531.5423|198|547.2389|184.5638|562.9055|178.2972|586|177.0709" ManualStroke="False" />
+            <Link PartID="12649" LinkType="Information" FromNode="13" FromPort="8116" ToNode="12629" ToPort="12630" PointCount="4" LabelNodeID="0" Points="389|110.7317|404.6667|105|420.3333|105|436|110.7317" ManualStroke="False" />
+            <Link PartID="12657" LinkType="Information" FromNode="12629" FromPort="12630" ToNode="136" ToPort="8120" PointCount="4" LabelNodeID="0" Points="514|126.1399|544.3246|127.0262|568.3246|135.0262|586.719|148" ManualStroke="False" />
+            <Link PartID="12710" LinkType="Information" FromNode="1745" FromPort="8122" ToNode="12684" ToPort="12685" PointCount="4" LabelNodeID="0" Points="128|328.4105|149.0912|323.2244|168.4246|324.9303|186|332.7183" ManualStroke="False" />
+            <Link PartID="12720" LinkType="Information" FromNode="1781" FromPort="8123" ToNode="12684" ToPort="12685" PointCount="4" LabelNodeID="0" Points="126|361.539|140.8206|351.8634|160.8206|346.5011|186|347.8738" ManualStroke="False" />
+            <Link PartID="16438" LinkType="Information" FromNode="16073" FromPort="16074" ToNode="16382" ToPort="16383" PointCount="4" LabelNodeID="0" Points="964|543.3174|980.545|541.7265|994.3461|543.638|1005.564|548" ManualStroke="False" />
+            <Link PartID="16458" LinkType="Information" FromNode="16234" FromPort="49519" ToNode="16382" ToPort="49520" PointCount="4" LabelNodeID="0" Points="1026.726|648|1028.278|623.7224|1035.945|608.389|1043.418|602" ManualStroke="False" />
+            <Link PartID="17571" LinkType="Information" FromNode="17109" FromPort="24685" ToNode="16741" ToPort="24683" PointCount="4" LabelNodeID="0" Points="502.6344|580.1871|569.0186|586.7292|630.1404|603.3988|686|630.8406" ManualStroke="False" />
+            <Link PartID="17635" LinkType="Information" FromNode="16945" FromPort="16946" ToNode="16741" ToPort="16742" PointCount="4" LabelNodeID="0" Points="613.2811|673|631.6754|660.0262|655.6754|652.0262|686|651.1399" ManualStroke="False" />
+            <Link PartID="19733" LinkType="Information" FromNode="15973" FromPort="49517" ToNode="19656" ToPort="49526" PointCount="4" LabelNodeID="0" Points="938.281|423|956.6754|410.0262|980.6754|402.0262|1011|401.1399" ManualStroke="False" />
+            <Link PartID="19760" LinkType="Information" FromNode="19527" FromPort="49525" ToNode="19656" ToPort="49526" PointCount="4" LabelNodeID="0" Points="964|368.9004|983.1227|366.4704|998.7893|369.2189|1011|375.5136" ManualStroke="False" />
+            <Link PartID="23172" LinkType="Information" FromNode="9" FromPort="12766" ToNode="16741" ToPort="16742" PointCount="4" LabelNodeID="0" Points="428.2784|327|443.8994|455.6508|528.4709|554.3175|686|631.0124" ManualStroke="False" />
+            <Link PartID="24378" LinkType="Documentation" FromNode="24138" FromPort="24139" ToNode="23556" ToPort="23557" PointCount="6" LabelNodeID="0" Points="575|900|575|900|590|900|590|775|648.3657|775|648.3657|775" ManualStroke="False" />
+            <Link PartID="24449" LinkType="Information" FromNode="9" FromPort="12766" ToNode="16073" ToPort="16074" PointCount="4" LabelNodeID="0" Points="464|315.9983|591.6052|368.3437|709.6119|432.8988|830.4755|515" ManualStroke="False" />
+            <Link PartID="24624" LinkType="Information" FromNode="23556" FromPort="23557" ToNode="16073" ToPort="16074" PointCount="4" LabelNodeID="0" Points="715.329|746.5|751.0488|680.0887|794.594|626.2553|841.882|585" ManualStroke="False" />
+            <Link PartID="24660" LinkType="Information" FromNode="19656" FromPort="49526" ToNode="16073" ToPort="49518" PointCount="4" LabelNodeID="0" Points="1041.718|427|1007.286|471.7325|971.8907|501.0659|946.1519|515" ManualStroke="False" />
+            <Link PartID="50438" LinkType="Information" FromNode="19656" FromPort="49526" ToNode="50373" ToPort="50374" PointCount="4" LabelNodeID="0" Points="1077.459|427|1122.344|510.8171|1153.474|601.1505|1170.307|698" ManualStroke="False" />
+            <Link PartID="50461" LinkType="Information" FromNode="16073" FromPort="49518" ToNode="50373" ToPort="50374" PointCount="4" LabelNodeID="0" Points="883.9107|585|892.709|712.7372|957.976|751.6525|1136|729.7896" ManualStroke="False" />
+            <Link PartID="51812" LinkType="Information" FromNode="8112" FromPort="50474" ToNode="50373" ToPort="50500" PointCount="4" LabelNodeID="0" Points="1099.589|748|1112.389|733.9449|1119.722|730.2783|1136|728.724" ManualStroke="False" />
+            <Link PartID="51933" LinkType="Information" FromNode="41307" FromPort="50493" ToNode="50373" ToPort="50500" PointCount="4" LabelNodeID="0" Points="1088.478|798|1103.191|768.5246|1118.525|753.1912|1136|744.4679" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="CER_INSTALLS">
+          <BaseType>EntityType:CER_INSTALLS</BaseType>
+          <Conditions>
+            <Condition Key="Area" Value="Area" />
+          </Conditions>
+        </Reference>
+      </References>
+    </EntityType>
+  </Entities>
+</EntitySet>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelDataFileMapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>cer_installsMapping</Name>
+  <Guid>207be07d-0c80-d43f-dc86-d93fc4be56a3</Guid>
+  <TimeSeriesDataDescription />
+  <Mappings>
+    <IEntityTypeMapping AssemblyQualifiedName="VentityModel.DataEntityTypes.EntityTypeMapping, VentityModel, Version=4.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <EntityTypeMapping>
+        <SourceEntityTypeName>cer</SourceEntityTypeName>
+        <DataEntityTypeName>CER_INSTALLS</DataEntityTypeName>
+        <MappingDataTable>
+          <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+            <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="cer" msdata:UseCurrentLocale="true">
+              <xs:complexType>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="cer">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="dataFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataInterpolationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataAggregationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUnits" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldDescription" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldMeasurementType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldLowerBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUpperBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldKey" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldUnits" type="xs:string" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:schema>
+          <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <DocumentElement>
+              <cer diffgr:id="cer1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                <dataFieldName>AREA</dataFieldName>
+                <dataFieldType>Key</dataFieldType>
+                <dataEntityFieldName>Area</dataEntityFieldName>
+                <dataEntityFieldType>Attribute</dataEntityFieldType>
+                <dataEntityFieldKey>Key</dataEntityFieldKey>
+              </cer>
+              <cer diffgr:id="cer2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+                <dataFieldName>Initial Installations</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Initial Installations</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>systems</dataEntityFieldUnits>
+              </cer>
+              <cer diffgr:id="cer3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+                <dataFieldName>Initial average capacity</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Initial average capacity</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kW</dataEntityFieldUnits>
+              </cer>
+              <cer diffgr:id="cer4" msdata:rowOrder="3" diffgr:hasChanges="inserted">
+                <dataFieldName>Installations</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Installations</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>systems</dataEntityFieldUnits>
+              </cer>
+              <cer diffgr:id="cer5" msdata:rowOrder="4" diffgr:hasChanges="inserted">
+                <dataFieldName>Average capacity</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Average capacity</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kW/system</dataEntityFieldUnits>
+              </cer>
+            </DocumentElement>
+          </diffgr:diffgram>
+        </MappingDataTable>
+      </EntityTypeMapping>
+    </IEntityTypeMapping>
+  </Mappings>
+</ModelDataFileMapping>

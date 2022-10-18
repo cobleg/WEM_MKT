@@ -1,0 +1,2818 @@
+<?xml version="1.0" standalone="yes"?>
+<Entities_x0020_1>
+  <xs:schema id="Entities_x0020_1" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="Entities_x0020_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Commercial" msdata:EntityTypeName="Commercial" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="CommercialID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CommercialID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="autonomous_x0020_demand_x0020_per_x0020_connection" type="xs:double" minOccurs="0" />
+                <xs:element name="trend_x0020_offset" type="xs:double" minOccurs="0" />
+                <xs:element name="average_x0020_temperature_x0020_response_x0020_coefficient" type="xs:double" minOccurs="0" />
+                <xs:element name="temperature_x0020_responsive_x0020_coefficient" type="xs:double" minOccurs="0" />
+                <xs:element name="trend_x0020_demand_x0020_coefficient_x0020_1" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope" type="xs:double" minOccurs="0" />
+                <xs:element name="initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households" type="xs:double" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="trend_x0020_demand_x0020_coefficient_x0020_2" type="xs:double" minOccurs="0" />
+                <xs:element name="autonomous_x0020_growth" type="xs:double" minOccurs="0" />
+                <xs:element name="degree_x0020_days_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="scale_x0020_factor" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Households" msdata:EntityTypeName="Households" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="AreaID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AreaID" type="xs:string" minOccurs="0" />
+                <xs:element name="Head_x0020_Cohort" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_2006" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_Max" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_Min" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_2006" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_Max" type="xs:double" minOccurs="0" />
+                <xs:element name="initial_x0020_vehicle_x0020_count" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_Min" type="xs:double" minOccurs="0" />
+                <xs:element name="drift" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_coefficient_x0020_1" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_coefficient_x0020_2" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_new_x0020_households_x0020_to_x0020_new_x0020_vehicles_x0020_sales_x0020_per_x0020_cohort" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households" type="xs:double" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="cohort_x0020_interval" type="xs:double" minOccurs="0" />
+                <xs:element name="initial_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="replacement_x0020_ratio_x0020_per_x0020_cohort" type="xs:double" minOccurs="0" />
+                <xs:element name="scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_Houses" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="Actual_x0020_DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="Potential_x0020_DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="introduction_x0020_rate_x0020_of_x0020_potential_x0020_buyers_x0020_alpha" type="xs:double" minOccurs="0" />
+                <xs:element name="Head_x0020_DER_x0020_cohort" type="xs:string" minOccurs="0" />
+                <xs:element name="DER_x0020_cohort_x0020_interval" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_squared" type="xs:double" minOccurs="0" />
+                <xs:element name="first_x0020_pulse_x0020_magnitude" type="xs:double" minOccurs="0" />
+                <xs:element name="first_x0020_pulse_x0020_start_x0020_period" type="xs:double" minOccurs="0" />
+                <xs:element name="pulse_x0020_duration" type="xs:double" minOccurs="0" />
+                <xs:element name="second_x0020_pulse_x0020_start_x0020_period" type="xs:double" minOccurs="0" />
+                <xs:element name="second_x0020_pulse_x0020_magnitude" type="xs:double" minOccurs="0" />
+                <xs:element name="adoption_x0020_parameter_x0020_b" type="xs:double" minOccurs="0" />
+                <xs:element name="learning_x0020_parameter_x0020_beta" type="xs:double" minOccurs="0" />
+                <xs:element name="neighbourhood_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="drift2" type="xs:double" minOccurs="0" />
+                <xs:element name="decay_x0020_coefficient" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="Final_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Max_x0020_bin_x0020_CDD" type="xs:string" minOccurs="0" />
+                <xs:element name="Max_x0020_bin_x0020_HDD" type="xs:string" minOccurs="0" />
+                <xs:element name="Time_x0020_Step" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_grid_x0020_connections_x0020_to_x0020_households" type="xs:double" minOccurs="0" />
+                <xs:element name="kWh_x0020_per_x0020_GWh" type="xs:double" minOccurs="0" />
+                <xs:element name="degree_x0020_days_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="kWh_x0020_per_x0020_connection_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="Sun_x0020_hours_x0020_per_x0020_month" type="xs:string" minOccurs="0" />
+                <xs:element name="panels_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="site_x0020_consumption_x0020_ratio" type="xs:double" minOccurs="0" />
+                <xs:element name="days_x0020_in_x0020_month" type="xs:string" minOccurs="0" />
+                <xs:element name="capacity_x0020_per_x0020_panel" type="xs:double" minOccurs="0" />
+                <xs:element name="Monthly_x0020_PV_x0020_Performance_x0020_Data" type="xs:string" minOccurs="0" />
+                <xs:element name="kW_x0020_per_x0020_hour" type="xs:double" minOccurs="0" />
+                <xs:element name="GW_x0020_per_x0020_hour" type="xs:double" minOccurs="0" />
+                <xs:element name="system_x0020_to_x0020_household_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_initial_x0020_capacity_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_initial_x0020_adoption_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_capacity_x0020_increment_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Vehicle_x0020_cohorts" msdata:EntityTypeName="Vehicle cohorts" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="Vehicle cohortsID" msprop:LookupTableFields="Vehicle hazard rate table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Vehicle_x0020_cohortsID" type="xs:string" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="Vehicles" type="xs:double" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Model_x0020_Year" type="xs:double" minOccurs="0" />
+                <xs:element name="Vehicle_x0020_hazard_x0020_rate_x0020_table" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ISWA_NLWA" msdata:EntityTypeName="ISWA_NLWA" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="Area" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="SWIS" msdata:EntityTypeName="SWIS" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="SWISID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SWISID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DER_x0020_cohort" msdata:EntityTypeName="DER cohort" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="DER cohortID" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DER_x0020_cohortID" type="xs:string" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Vintage_x0020_Year" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_installations" type="xs:double" minOccurs="0" />
+                <xs:element name="scrapping_x0020_rate_x0020_by_x0020_age" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_hazard_x0020_function" type="xs:string" minOccurs="0" />
+                <xs:element name="DER_x0020_capacity_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="scrapping" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Commercial>
+    <CommercialID>Large Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>1050000</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <trend_x0020_offset>0</trend_x0020_offset>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>0</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <temperature_x0020_responsive_x0020_coefficient>0</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>1E-08</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>0.0004</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <Area>SWIS</Area>
+    <trend_x0020_demand_x0020_coefficient_x0020_2>0</trend_x0020_demand_x0020_coefficient_x0020_2>
+    <autonomous_x0020_growth>0</autonomous_x0020_growth>
+    <scale_x0020_factor>1</scale_x0020_factor>
+  </Commercial>
+  <Commercial>
+    <CommercialID>Medium Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>50000</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <trend_x0020_offset>0</trend_x0020_offset>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>1.5</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <temperature_x0020_responsive_x0020_coefficient>1</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0.0055</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>2.1E-06</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>0.00347</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <Area>SWIS</Area>
+    <trend_x0020_demand_x0020_coefficient_x0020_2>-1.5E-05</trend_x0020_demand_x0020_coefficient_x0020_2>
+    <autonomous_x0020_growth>0.15</autonomous_x0020_growth>
+    <scale_x0020_factor>1</scale_x0020_factor>
+  </Commercial>
+  <Commercial>
+    <CommercialID>Small Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>2000</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <trend_x0020_offset>0</trend_x0020_offset>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>1.5</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <temperature_x0020_responsive_x0020_coefficient>1</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0.005</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>-0.00014</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>0.12</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <Area>SWIS</Area>
+    <trend_x0020_demand_x0020_coefficient_x0020_2>-3.5E-05</trend_x0020_demand_x0020_coefficient_x0020_2>
+    <autonomous_x0020_growth>0.05</autonomous_x0020_growth>
+    <scale_x0020_factor>1</scale_x0020_factor>
+  </Commercial>
+  <Households>
+    <AreaID>Albany (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>10454</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>20.58333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>17.75</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12057</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>249.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>12927</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>204.4</Total_x0020_households_x0020_Min>
+    <drift>1.28273558</drift>
+    <sigma_x0020_coefficient_x0020_1>4.64E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.284851681</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Armadale (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>16860</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>79.68333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>58.93333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>18744</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1204.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>26670</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>856.4</Total_x0020_households_x0020_Min>
+    <drift>2.586210721</drift>
+    <sigma_x0020_coefficient_x0020_1>0.458110281</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.425725999</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Augusta-Margaret River (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3649</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>14.45</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>10</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>4130</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>188</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>4890</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>117</Total_x0020_households_x0020_Min>
+    <drift>1.813015545</drift>
+    <sigma_x0020_coefficient_x0020_1>0.578705018</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.111506361</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Bassendean (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>4466</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.316666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.066666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>5633</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>60.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>5724</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>47.2</Total_x0020_households_x0020_Min>
+    <drift>0.682785903</drift>
+    <sigma_x0020_coefficient_x0020_1>1.128578358</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>6.67E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Bayswater (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>16912</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>13.63333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>6.416666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>24022</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>296</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>24262</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>182.2</Total_x0020_households_x0020_Min>
+    <drift>2.56207641</drift>
+    <sigma_x0020_coefficient_x0020_1>0.435282099</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.380931721</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Belmont (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>9844</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>12.38333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.016666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>13279</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>340.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>14058</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>270.6</Total_x0020_households_x0020_Min>
+    <drift>6.775943323</drift>
+    <sigma_x0020_coefficient_x0020_1>0.238464863</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.056628696</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Beverley (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>638</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.083333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.233333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>666</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>12.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>637</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>3.8</Total_x0020_households_x0020_Min>
+    <drift>1.169093567</drift>
+    <sigma_x0020_coefficient_x0020_1>0.298408073</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.21E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Boddington (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>494</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.7</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.95</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>535</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>17.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>606</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>15.6</Total_x0020_households_x0020_Min>
+    <drift>0.936953745</drift>
+    <sigma_x0020_coefficient_x0020_1>1.02E-14</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.146573532</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Boyup Brook (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>579</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.166666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.733333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>590</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>16.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>624</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>9</Total_x0020_households_x0020_Min>
+    <drift>0.788132405</drift>
+    <sigma_x0020_coefficient_x0020_1>0.192415288</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.02581959</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Bridgetown-Greenbushes (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1545</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.933333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.333333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1624</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>48.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1798</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>30.8</Total_x0020_households_x0020_Min>
+    <drift>3.054187145</drift>
+    <sigma_x0020_coefficient_x0020_1>0.077018171</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>6.15E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Brookton (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>352</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.766666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.45</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>385</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>9.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>353</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-4</Total_x0020_households_x0020_Min>
+    <drift>0.388066316</drift>
+    <sigma_x0020_coefficient_x0020_1>0.096378868</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>9.73E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Broomehill-Tambellup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>396</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.116666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.016666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>403</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>343</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.6</Total_x0020_households_x0020_Min>
+    <drift>0.079695341</drift>
+    <sigma_x0020_coefficient_x0020_1>0.478196729</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.047004599</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Bruce Rock (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>361</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.35</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.283333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>391</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>3</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>355</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.8</Total_x0020_households_x0020_Min>
+    <drift>0.400365514</drift>
+    <sigma_x0020_coefficient_x0020_1>0.043397018</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>4.89E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Bunbury (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>9095</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>15.78333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-2.1</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12055</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>213.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>11951</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>42.4</Total_x0020_households_x0020_Min>
+    <drift>4.231503909</drift>
+    <sigma_x0020_coefficient_x0020_1>0.292042222</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.32828878</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Busselton (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>8428</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>32.73333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>27.66666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>9551</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>472.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>12533</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>409</Total_x0020_households_x0020_Min>
+    <drift>2.082456611</drift>
+    <sigma_x0020_coefficient_x0020_1>0.57304428</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.275533469</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cambridge (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>7270</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.583333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.3</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>9139</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>103.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>9064</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>34.2</Total_x0020_households_x0020_Min>
+    <drift>2.023121302</drift>
+    <sigma_x0020_coefficient_x0020_1>1.110960461</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>3.28E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Canning (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>23863</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>14.03333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>11.28333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>29311</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>392.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>29940</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>174.8</Total_x0020_households_x0020_Min>
+    <drift>4.510558121</drift>
+    <sigma_x0020_coefficient_x0020_1>0.441762391</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.328976507</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Capel (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3282</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>25.06666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>13.4</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3349</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>303.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>5433</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>206.4</Total_x0020_households_x0020_Min>
+    <drift>0.733190227</drift>
+    <sigma_x0020_coefficient_x0020_1>1.315456746</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.23E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Carnamah (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>273</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.05</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.7</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>293</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>218</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-9.4</Total_x0020_households_x0020_Min>
+    <drift>2.853416034</drift>
+    <sigma_x0020_coefficient_x0020_1>0.044066244</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>8.22E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Chapman Valley (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>321</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.6</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.333333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>365</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>23.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>443</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>12.8</Total_x0020_households_x0020_Min>
+    <drift>0.274480999</drift>
+    <sigma_x0020_coefficient_x0020_1>0.154084963</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.427255901</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Chittering (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1200</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.75</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>5.233333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1241</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>70</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1703</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>66.2</Total_x0020_households_x0020_Min>
+    <drift>3.774586472</drift>
+    <sigma_x0020_coefficient_x0020_1>0.373383092</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>5.56E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Claremont (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>2126</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.316666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-5.5</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3762</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>68</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>3729</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>15.2</Total_x0020_households_x0020_Min>
+    <drift>2.786440995</drift>
+    <sigma_x0020_coefficient_x0020_1>2.5E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.458864099</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cockburn (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>24189</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>69.78333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>47.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>27573</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1125.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>35476</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1100.4</Total_x0020_households_x0020_Min>
+    <drift>4.264053863</drift>
+    <sigma_x0020_coefficient_x0020_1>0.557113259</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.253324792</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Collie (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3017</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>2.95</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.3</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3246</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>36.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>3142</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>17.8</Total_x0020_households_x0020_Min>
+    <drift>1.587503773</drift>
+    <sigma_x0020_coefficient_x0020_1>0.599727</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>7.69E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Coolgardie (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1207</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.45</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.516666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1350</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>19</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1141</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-11.6</Total_x0020_households_x0020_Min>
+    <drift>0.272861951</drift>
+    <sigma_x0020_coefficient_x0020_1>0.2371959</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.629567764</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Coorow (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>448</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.15</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>497</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>416</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-3.2</Total_x0020_households_x0020_Min>
+    <drift>0.633370279</drift>
+    <sigma_x0020_coefficient_x0020_1>0.045611478</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.018003217</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Corrigin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>441</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.116666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.316666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>462</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>0</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>402</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.8</Total_x0020_households_x0020_Min>
+    <drift>1.612059621</drift>
+    <sigma_x0020_coefficient_x0020_1>4.69E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.06904761</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cottesloe (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>2062</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.116666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-1.733333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>2993</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>17.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>2739</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-14.6</Total_x0020_households_x0020_Min>
+    <drift>0.481139984</drift>
+    <sigma_x0020_coefficient_x0020_1>0.598691448</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.227370238</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cranbrook (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>406</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.366666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.483333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>428</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>370</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-2.8</Total_x0020_households_x0020_Min>
+    <drift>1.909684926</drift>
+    <sigma_x0020_coefficient_x0020_1>2.36E-14</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.058889596</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cuballing (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>297</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.733333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.033333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>306</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>9.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>294</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1</Total_x0020_households_x0020_Min>
+    <drift>0.287792156</drift>
+    <sigma_x0020_coefficient_x0020_1>0.052700234</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.77E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Cunderdin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>464</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.316666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>493</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>5.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>465</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>3.8</Total_x0020_households_x0020_Min>
+    <drift>0.382936344</drift>
+    <sigma_x0020_coefficient_x0020_1>0.227463989</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.018272846</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Dalwallinu (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>493</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.366666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>511</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>11.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>475</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1</Total_x0020_households_x0020_Min>
+    <drift>0.165668018</drift>
+    <sigma_x0020_coefficient_x0020_1>0.085068155</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.752236831</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Dandaragan (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1103</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.516666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.316666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1216</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>34.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1180</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>12</Total_x0020_households_x0020_Min>
+    <drift>1.241787954</drift>
+    <sigma_x0020_coefficient_x0020_1>0.317863699</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.303297469</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Dardanup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3373</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>12.18333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>10.7</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3632</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>166.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>4706</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>137.2</Total_x0020_households_x0020_Min>
+    <drift>3.111840004</drift>
+    <sigma_x0020_coefficient_x0020_1>0.366215941</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.218163634</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Denmark (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1764</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>4.883333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>4.166666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1866</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>63</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>2131</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>54.4</Total_x0020_households_x0020_Min>
+    <drift>1.189616266</drift>
+    <sigma_x0020_coefficient_x0020_1>1.052138885</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>7.42E-17</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Donnybrook-Balingup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1691</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>4.95</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>3.966666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1774</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>57.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>2078</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>56</Total_x0020_households_x0020_Min>
+    <drift>2.673055724</drift>
+    <sigma_x0020_coefficient_x0020_1>5.16E-14</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.669165027</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Dowerin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>275</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.05</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.1</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>288</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>0.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>263</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.2</Total_x0020_households_x0020_Min>
+    <drift>0.223679198</drift>
+    <sigma_x0020_coefficient_x0020_1>7.73E-16</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.070053127</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Dumbleyung (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>259</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.566666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.083333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>272</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>7.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>246</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.4</Total_x0020_households_x0020_Min>
+    <drift>0.865178059</drift>
+    <sigma_x0020_coefficient_x0020_1>0.327746771</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.083965973</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>East Fremantle (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1839</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.416666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.716666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>2709</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>23</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>2650</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>8.2</Total_x0020_households_x0020_Min>
+    <drift>1.243907864</drift>
+    <sigma_x0020_coefficient_x0020_1>0.796930299</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.14E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Fremantle (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>7192</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>2.95</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>11295</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>149.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>11122</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>119</Total_x0020_households_x0020_Min>
+    <drift>0.522427927</drift>
+    <sigma_x0020_coefficient_x0020_1>1.269026608</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>4.29E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Gingin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1592</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.983333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.716666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1742</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>56</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1791</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>28.2</Total_x0020_households_x0020_Min>
+    <drift>3.307216814</drift>
+    <sigma_x0020_coefficient_x0020_1>0.619937759</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>5.77E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Gnowangerup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>488</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.083333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.166666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>513</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>0.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>400</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-5</Total_x0020_households_x0020_Min>
+    <drift>0.557882582</drift>
+    <sigma_x0020_coefficient_x0020_1>0.051359986</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.64E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Goomalling (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>359</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.716666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.133333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>386</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>6.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>374</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>4.4</Total_x0020_households_x0020_Min>
+    <drift>0.77818657</drift>
+    <sigma_x0020_coefficient_x0020_1>0.048419555</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.14E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Gosnells (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>30235</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>68.26666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>23.61666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>33200</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>922.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>37920</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>599.4</Total_x0020_households_x0020_Min>
+    <drift>4.890958927</drift>
+    <sigma_x0020_coefficient_x0020_1>0.525936101</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.254094826</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Greater Geraldton (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>10418</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>25.2</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>10.03333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12511</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>330.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>13199</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>169</Total_x0020_households_x0020_Min>
+    <drift>0.555059838</drift>
+    <sigma_x0020_coefficient_x0020_1>1.360536486</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.89E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Harvey (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>6410</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>23.71666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>18.95</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>6866</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>312.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>8707</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>245.4</Total_x0020_households_x0020_Min>
+    <drift>0.624465594</drift>
+    <sigma_x0020_coefficient_x0020_1>1.343554908</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.56E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Irwin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1045</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.833333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.333333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1275</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>43</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1344</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>19.4</Total_x0020_households_x0020_Min>
+    <drift>1.107742163</drift>
+    <sigma_x0020_coefficient_x0020_1>0.358643226</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.19632015</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Jerramungup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>399</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.7</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.133333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>449</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>8.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>374</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-3.4</Total_x0020_households_x0020_Min>
+    <drift>0.518436768</drift>
+    <sigma_x0020_coefficient_x0020_1>7.87E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.080221145</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Joondalup (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>48479</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>19.08333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-4.366666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>53094</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>287</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>52760</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>220.4</Total_x0020_households_x0020_Min>
+    <drift>3.726742633</drift>
+    <sigma_x0020_coefficient_x0020_1>0.609453833</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.245594891</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kalamunda (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>16924</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>26.18333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>20.53333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>18065</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>323.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>19586</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>283</Total_x0020_households_x0020_Min>
+    <drift>4.214521147</drift>
+    <sigma_x0020_coefficient_x0020_1>0.414457718</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.321842676</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kalgoorlie/Boulder (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>8222</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>10.5</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-3.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>10472</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>179</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>9587</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-9.2</Total_x0020_households_x0020_Min>
+    <drift>4.551881246</drift>
+    <sigma_x0020_coefficient_x0020_1>0.697989455</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.46E-13</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Katanning (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1409</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.683333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1583</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>3</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1321</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.4</Total_x0020_households_x0020_Min>
+    <drift>1.011268647</drift>
+    <sigma_x0020_coefficient_x0020_1>0.271896613</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.13E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kellerberrin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>114</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.05</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.7</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>455</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>9</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>420</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.2</Total_x0020_households_x0020_Min>
+    <drift>0.248981377</drift>
+    <sigma_x0020_coefficient_x0020_1>0.141093479</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.1164374</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kent (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>206</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.216666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.166666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>218</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>3</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>185</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1</Total_x0020_households_x0020_Min>
+    <drift>0.022826574</drift>
+    <sigma_x0020_coefficient_x0020_1>6.31E-16</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>6.38E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kojonup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>762</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.7</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.816666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>799</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>8.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>717</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-6.4</Total_x0020_households_x0020_Min>
+    <drift>0.604280833</drift>
+    <sigma_x0020_coefficient_x0020_1>0.177413429</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.15E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kondinin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>323</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.066666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.133333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>376</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>-2.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>293</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-3.2</Total_x0020_households_x0020_Min>
+    <drift>0.10793817</drift>
+    <sigma_x0020_coefficient_x0020_1>0.408366699</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.10829913</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Koorda (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>172</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.2</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>183</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>0.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>165</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0</Total_x0020_households_x0020_Min>
+    <drift>0.080267946</drift>
+    <sigma_x0020_coefficient_x0020_1>0.025668853</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>6.02E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kulin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>320</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.133333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>351</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>0.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>288</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-4.4</Total_x0020_households_x0020_Min>
+    <drift>0.461900649</drift>
+    <sigma_x0020_coefficient_x0020_1>0.079388632</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.139482703</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Kwinana (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>7688</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>45.65</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>32.75</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>8555</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>635</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>12513</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>418.4</Total_x0020_households_x0020_Min>
+    <drift>0.408386979</drift>
+    <sigma_x0020_coefficient_x0020_1>1.198502907</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.04E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Lake Grace (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>552</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.533333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.65</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>610</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>-6.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>450</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-9.8</Total_x0020_households_x0020_Min>
+    <drift>0.186407889</drift>
+    <sigma_x0020_coefficient_x0020_1>0.139809896</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.102669572</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mandurah (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>18536</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>65.41666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>62</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>22201</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1122.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>29470</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>896.4</Total_x0020_households_x0020_Min>
+    <drift>0.180645273</drift>
+    <sigma_x0020_coefficient_x0020_1>1.114570263</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>4.84E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Manjimup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3205</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.066666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.816666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3480</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>45.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>3340</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>27.8</Total_x0020_households_x0020_Min>
+    <drift>1.948939693</drift>
+    <sigma_x0020_coefficient_x0020_1>0.737991234</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>5.91E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Melville (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>28972</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>9.616666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-24.31666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>35865</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>195.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>35053</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>107</Total_x0020_households_x0020_Min>
+    <drift>0.294458123</drift>
+    <sigma_x0020_coefficient_x0020_1>1.220913813</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>3.12E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Menzies (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>60</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.25</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.05</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>83</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>5.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>72</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1.8</Total_x0020_households_x0020_Min>
+  </Households>
+  <Households>
+    <AreaID>Merredin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1186</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.266666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.3</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1319</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>10.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1154</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.4</Total_x0020_households_x0020_Min>
+    <drift>1.386742684</drift>
+    <sigma_x0020_coefficient_x0020_1>0.561690152</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.03E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mingenew (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>172</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.083333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.033333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>189</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>10.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>174</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>2.2</Total_x0020_households_x0020_Min>
+    <drift>0.126331391</drift>
+    <sigma_x0020_coefficient_x0020_1>0.036540948</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>9.01E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Moora (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>857</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.2</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.1</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>936</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>13.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>831</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1</Total_x0020_households_x0020_Min>
+    <drift>0.235496836</drift>
+    <sigma_x0020_coefficient_x0020_1>0.301879822</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.418337805</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Morawa (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>270</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.7</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.466666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>286</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>252</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-4.6</Total_x0020_households_x0020_Min>
+    <drift>0.225464965</drift>
+    <sigma_x0020_coefficient_x0020_1>1.34E-16</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.10295704</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mosman Park (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>2066</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.583333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3482</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>19.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>3211</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-3</Total_x0020_households_x0020_Min>
+    <drift>1.580958266</drift>
+    <sigma_x0020_coefficient_x0020_1>0.625691114</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.27E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mount Marshall (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>218</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.166666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.266666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>228</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>5.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>196</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-4</Total_x0020_households_x0020_Min>
+    <drift>0.132751507</drift>
+    <sigma_x0020_coefficient_x0020_1>6.1E-16</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.029876182</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mukinbudin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>214</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.233333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.4</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>239</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>-0.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>194</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-3.2</Total_x0020_households_x0020_Min>
+    <drift>0.205179962</drift>
+    <sigma_x0020_coefficient_x0020_1>3.84E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.144965019</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Mundaring (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>11843</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>10.31666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>6.9</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12323</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>124</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>12538</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>105.6</Total_x0020_households_x0020_Min>
+    <drift>3.86340086</drift>
+    <sigma_x0020_coefficient_x0020_1>0.385373893</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.317274551</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Murray (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3872</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>19.16666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>12.7</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>4618</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>213.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>5806</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>173.6</Total_x0020_households_x0020_Min>
+    <drift>6.897497297</drift>
+    <sigma_x0020_coefficient_x0020_1>0.187730424</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.116000037</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Nannup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>448</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.966666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.75</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>497</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>13.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>499</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>5.2</Total_x0020_households_x0020_Min>
+    <drift>1.206450904</drift>
+    <sigma_x0020_coefficient_x0020_1>0.017230034</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.88E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Narembeen (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>320</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.216666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.133333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>345</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>-1.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>285</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.8</Total_x0020_households_x0020_Min>
+    <drift>0.332144946</drift>
+    <sigma_x0020_coefficient_x0020_1>7.4E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.108235566</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Narrogin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1720</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.9</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.633333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1836</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>24.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1732</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>11.8</Total_x0020_households_x0020_Min>
+    <drift>1.293162581</drift>
+    <sigma_x0020_coefficient_x0020_1>0.24784543</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.116587909</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Nedlands (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>6026</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>2.033333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-3.116666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>7224</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>31.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>6989</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>9.6</Total_x0020_households_x0020_Min>
+    <drift>1.615808033</drift>
+    <sigma_x0020_coefficient_x0020_1>0.500911916</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.237888112</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Northam (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3542</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>4.2</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>3.266666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>3809</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>52.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>3733</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>36.8</Total_x0020_households_x0020_Min>
+    <drift>2.120753462</drift>
+    <sigma_x0020_coefficient_x0020_1>1.028966529</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.73E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Northampton (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1117</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.033333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.683333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1723</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>50.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1241</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.4</Total_x0020_households_x0020_Min>
+    <drift>1.714533959</drift>
+    <sigma_x0020_coefficient_x0020_1>0.163237274</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>3.57E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Nungarin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>92</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.2</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>96</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>88</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.2</Total_x0020_households_x0020_Min>
+    <drift>0.03833608</drift>
+    <sigma_x0020_coefficient_x0020_1>2.68E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.68E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Peppermint Grove (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>399</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.3</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.033333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>525</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>500</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1.8</Total_x0020_households_x0020_Min>
+    <drift>0.331630294</drift>
+    <sigma_x0020_coefficient_x0020_1>0.385938549</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>5.65E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Perenjori (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>200</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.083333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.283333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>205</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>157</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1</Total_x0020_households_x0020_Min>
+    <drift>1.905218492</drift>
+    <sigma_x0020_coefficient_x0020_1>0.04532187</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.157206525</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Perth (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>249</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-1.033333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-1.283333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>6174</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>593.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>8499</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>348.4</Total_x0020_households_x0020_Min>
+    <drift>0.946224256</drift>
+    <sigma_x0020_coefficient_x0020_1>0.427329254</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.304342948</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Pingelly (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>423</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.716666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.116666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>460</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>7.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>429</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.6</Total_x0020_households_x0020_Min>
+    <drift>0.213415434</drift>
+    <sigma_x0020_coefficient_x0020_1>0.151699897</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.420430377</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Plantagenet (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1626</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.916666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.066666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1714</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>37.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1795</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>31.4</Total_x0020_households_x0020_Min>
+    <drift>1.734355024</drift>
+    <sigma_x0020_coefficient_x0020_1>0.768531697</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>6.66E-17</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Quairading (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>379</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.6</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.233333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>408</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>5</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>375</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>4.8</Total_x0020_households_x0020_Min>
+    <drift>0.258564237</drift>
+    <sigma_x0020_coefficient_x0020_1>2.18E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.089376516</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Rockingham (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>26730</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>123.1833333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>110.2</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>31086</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1470.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>41274</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1357.2</Total_x0020_households_x0020_Min>
+    <drift>0.162934342</drift>
+    <sigma_x0020_coefficient_x0020_1>1.360216586</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.6E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Serpentine-Jarrahdale (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>4168</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>48.7</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>26.71666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>4259</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>601</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>8213</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>317</Total_x0020_households_x0020_Min>
+    <drift>2.561074758</drift>
+    <sigma_x0020_coefficient_x0020_1>0.429984869</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.395216938</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>South Perth (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>8290</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>6.716666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-2.633333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>16940</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>106.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>15948</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>25.4</Total_x0020_households_x0020_Min>
+    <drift>3.644543353</drift>
+    <sigma_x0020_coefficient_x0020_1>0.433365955</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.205756895</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Stirling (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>46383</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>22.23333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-15.08333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>76066</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1143.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>79049</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>926.6</Total_x0020_households_x0020_Min>
+    <drift>2.674329647</drift>
+    <sigma_x0020_coefficient_x0020_1>0.671522905</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.216979206</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Subiaco (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>3653</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>2.116666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-6.3</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>7824</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>81.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>7646</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>56.2</Total_x0020_households_x0020_Min>
+    <drift>1.711306099</drift>
+    <sigma_x0020_coefficient_x0020_1>1.86E-14</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.042813981</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Swan (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>29551</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>103.5666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>75.63333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>32852</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1761.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>43302</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1097.6</Total_x0020_households_x0020_Min>
+    <drift>4.931322211</drift>
+    <sigma_x0020_coefficient_x0020_1>0.747442115</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.069343057</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Tammin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>153</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.033333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.1</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>151</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>132</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.6</Total_x0020_households_x0020_Min>
+    <drift>0.032593441</drift>
+    <sigma_x0020_coefficient_x0020_1>0.009725298</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.72E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Three Springs (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>254</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.116666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.45</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>269</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>-0.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>209</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-6</Total_x0020_households_x0020_Min>
+    <drift>0.216991617</drift>
+    <sigma_x0020_coefficient_x0020_1>0.072113245</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>9.34E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Toodyay (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1569</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>2.233333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>2.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1630</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>29.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1652</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>28.4</Total_x0020_households_x0020_Min>
+    <drift>3.111021912</drift>
+    <sigma_x0020_coefficient_x0020_1>0.271866059</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>3.54E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Trayning (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>158</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.4</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.366666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>162</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>3</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>132</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-2.2</Total_x0020_households_x0020_Min>
+    <drift>0.111600149</drift>
+    <sigma_x0020_coefficient_x0020_1>0.099628401</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.46E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Victoria Park (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>7159</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.566666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>5.233333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12992</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>221.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>13095</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>126.8</Total_x0020_households_x0020_Min>
+    <drift>3.5419959</drift>
+    <sigma_x0020_coefficient_x0020_1>0.221539187</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.345637049</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Victoria Plains (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>355</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.016666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.05</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>365</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>330</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.4</Total_x0020_households_x0020_Min>
+    <drift>1.897798208</drift>
+    <sigma_x0020_coefficient_x0020_1>0.002159372</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>7.5E-16</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Vincent (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>7275</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>5.816666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-6.533333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>12811</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>231.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>13012</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>135</Total_x0020_households_x0020_Min>
+    <drift>1.139731604</drift>
+    <sigma_x0020_coefficient_x0020_1>5.04E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.11154683</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wagin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>704</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.683333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>751</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>10.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>687</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.4</Total_x0020_households_x0020_Min>
+    <drift>0.526751913</drift>
+    <sigma_x0020_coefficient_x0020_1>0.266844014</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.056579363</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wandering (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>145</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.366666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>147</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>6.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>162</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>2.8</Total_x0020_households_x0020_Min>
+    <drift>1.441113003</drift>
+    <sigma_x0020_coefficient_x0020_1>3.61E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.109557256</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wanneroo (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>34595</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>206</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>177.1166667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>38292</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2737.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>59909</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>2543.4</Total_x0020_households_x0020_Min>
+    <drift>9.348796246</drift>
+    <sigma_x0020_coefficient_x0020_1>0.662054214</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.023141088</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Waroona (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1146</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>3.066666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>1.85</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1273</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>43.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1387</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>22.6</Total_x0020_households_x0020_Min>
+    <drift>3.289444033</drift>
+    <sigma_x0020_coefficient_x0020_1>2.52E-14</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.064245601</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>West Arthur (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>330</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.283333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.066666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>356</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>316</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.6</Total_x0020_households_x0020_Min>
+    <drift>0.824789644</drift>
+    <sigma_x0020_coefficient_x0020_1>0.170481452</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.074432547</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Westonia (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>83</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.4</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.183333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>82</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>4.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>82</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.2</Total_x0020_households_x0020_Min>
+    <drift>1.779442502</drift>
+    <sigma_x0020_coefficient_x0020_1>1.1E-15</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.08303472</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wickepin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>282</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.05</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.016666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>290</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>259</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-0.2</Total_x0020_households_x0020_Min>
+    <drift>1.476709083</drift>
+    <sigma_x0020_coefficient_x0020_1>0.349907803</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>2.44E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Williams (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>337</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.366666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.116666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>365</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>340</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.4</Total_x0020_households_x0020_Min>
+    <drift>0.643296712</drift>
+    <sigma_x0020_coefficient_x0020_1>0.037316238</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.41E-14</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wongan-Ballidu (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>539</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.533333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.316666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>568</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>5.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>532</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-1.6</Total_x0020_households_x0020_Min>
+    <drift>0.310140576</drift>
+    <sigma_x0020_coefficient_x0020_1>0.351241318</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.374008669</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Woodanilling (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>143</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.183333333</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.15</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>149</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>139</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1</Total_x0020_households_x0020_Min>
+    <drift>0.637751492</drift>
+    <sigma_x0020_coefficient_x0020_1>0.063143747</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>5.91E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Wyalkatchem (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>221</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.4</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.1</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>240</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.6</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>202</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>1</Total_x0020_households_x0020_Min>
+    <drift>0.049834889</drift>
+    <sigma_x0020_coefficient_x0020_1>6.11E-16</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.14742405</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Yalgoo (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>59</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>0.1</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.066666667</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>77</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>1.2</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>50</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>0.2</Total_x0020_households_x0020_Min>
+    <drift>0.703548943</drift>
+    <sigma_x0020_coefficient_x0020_1>0.072143841</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>1.66E-15</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>Yilgarn (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>484</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>-0.266666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>-0.633333333</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>526</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>4.8</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>391</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>-13</Total_x0020_households_x0020_Min>
+    <drift>0.308423228</drift>
+    <sigma_x0020_coefficient_x0020_1>0.468654235</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.023020818</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Households>
+    <AreaID>York (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Separate_x0020_houses_x0020_total_x0020_2006>1265</Separate_x0020_houses_x0020_total_x0020_2006>
+    <Separate_x0020_houses_x0020_total_x0020_Max>1.966666667</Separate_x0020_houses_x0020_total_x0020_Max>
+    <Separate_x0020_houses_x0020_total_x0020_Min>0.85</Separate_x0020_houses_x0020_total_x0020_Min>
+    <Total_x0020_households_x0020_2006>1299</Total_x0020_households_x0020_2006>
+    <Total_x0020_households_x0020_Max>31.4</Total_x0020_households_x0020_Max>
+    <initial_x0020_vehicle_x0020_count>1337</initial_x0020_vehicle_x0020_count>
+    <Total_x0020_households_x0020_Min>19.4</Total_x0020_households_x0020_Min>
+    <drift>1.74808197</drift>
+    <sigma_x0020_coefficient_x0020_1>0.138869555</sigma_x0020_coefficient_x0020_1>
+    <sigma_x0020_coefficient_x0020_2>0.101898224</sigma_x0020_coefficient_x0020_2>
+  </Households>
+  <Model>
+    <Enabled>true</Enabled>
+  </Model>
+  <Vehicle_x0020_cohorts>
+    <Area>Albany (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>12927</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Armadale (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>26670</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Augusta-Margaret River (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>4890</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Bassendean (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>5724</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Bayswater (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>24262</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Belmont (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>14058</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Beverley (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>637</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Boddington (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>606</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Boyup Brook (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>624</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Bridgetown-Greenbushes (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1798</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Brookton (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>353</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Broomehill-Tambellup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>343</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Bruce Rock (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>355</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Bunbury (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>11951</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Busselton (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>12533</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cambridge (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>9064</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Canning (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>29940</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Capel (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>5433</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Carnamah (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>218</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Chapman Valley (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>443</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Chittering (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1703</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Claremont (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>3729</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cockburn (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>35476</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Collie (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>3142</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Coolgardie (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1141</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Coorow (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>416</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Corrigin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>402</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cottesloe (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>2739</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cranbrook (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>370</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cuballing (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>294</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Cunderdin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>465</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Dalwallinu (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>475</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Dandaragan (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1180</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Dardanup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>4706</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Denmark (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>2131</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Donnybrook-Balingup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>2078</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Dowerin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>263</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Dumbleyung (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>246</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>East Fremantle (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>2650</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Fremantle (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>11122</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Gingin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1791</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Gnowangerup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>400</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Goomalling (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>374</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Gosnells (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>37920</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Greater Geraldton (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>13199</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Harvey (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>8707</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Irwin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1344</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Jerramungup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>374</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Joondalup (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>52760</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kalamunda (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>19586</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kalgoorlie/Boulder (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>9587</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Katanning (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1321</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kellerberrin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>420</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kent (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>185</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kojonup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>717</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kondinin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>293</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Koorda (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>165</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kulin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>288</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Kwinana (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>12513</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Lake Grace (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>450</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mandurah (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>29470</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Manjimup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>3340</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Melville (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>35053</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Menzies (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>72</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Merredin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1154</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mingenew (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>174</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Moora (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>831</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Morawa (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>252</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mosman Park (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>3211</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mount Marshall (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>196</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mukinbudin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>194</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Mundaring (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>12538</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Murray (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>5806</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Nannup (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>499</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Narembeen (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>285</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Narrogin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1732</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Nedlands (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>6989</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Northam (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>3733</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Northampton (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1241</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Nungarin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>88</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Peppermint Grove (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>500</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Perenjori (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>157</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Perth (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>8499</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Pingelly (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>429</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Plantagenet (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1795</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Quairading (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>375</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Rockingham (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>41274</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Serpentine-Jarrahdale (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>8213</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>South Perth (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>15948</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Stirling (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>79049</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Subiaco (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>7646</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Swan (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>43302</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Tammin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>132</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Three Springs (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>209</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Toodyay (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1652</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Trayning (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>132</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Victoria Park (T)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>13095</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Victoria Plains (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>330</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Vincent (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>13012</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wagin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>687</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wandering (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>162</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wanneroo (C)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>59909</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Waroona (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1387</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>West Arthur (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>316</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Westonia (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>82</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wickepin (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>259</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Williams (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>340</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wongan-Ballidu (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>532</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Woodanilling (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>139</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Wyalkatchem (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>202</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Yalgoo (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>50</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>Yilgarn (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>391</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <Area>York (S)</Area>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Vehicles>1337</Vehicles>
+  </Vehicle_x0020_cohorts>
+  <SWIS>
+    <SWISID>SWIS</SWISID>
+    <Enabled>true</Enabled>
+  </SWIS>
+</Entities_x0020_1>

@@ -1,0 +1,2575 @@
+<?xml version="1.0" standalone="yes"?>
+<Entities_x0020_2>
+  <xs:schema id="Entities_x0020_2" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="Entities_x0020_2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Commercial" msdata:EntityTypeName="Commercial" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="CommercialID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CommercialID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="autonomous_x0020_demand_x0020_per_x0020_connection" type="xs:double" minOccurs="0" />
+                <xs:element name="autonomous_x0020_growth" type="xs:double" minOccurs="0" />
+                <xs:element name="average_x0020_temperature_x0020_response_x0020_coefficient" type="xs:double" minOccurs="0" />
+                <xs:element name="degree_x0020_days_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope" type="xs:double" minOccurs="0" />
+                <xs:element name="temperature_x0020_responsive_x0020_coefficient" type="xs:double" minOccurs="0" />
+                <xs:element name="trend_x0020_demand_x0020_coefficient_x0020_1" type="xs:double" minOccurs="0" />
+                <xs:element name="trend_x0020_offset" type="xs:double" minOccurs="0" />
+                <xs:element name="scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="trend_x0020_demand_x0020_coefficient_x0020_2" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DER_x0020_cohort" msdata:EntityTypeName="DER cohort" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="DER cohortID" msprop:LookupTableFields="DER hazard function">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DER_x0020_cohortID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="DER_x0020_capacity_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_hazard_x0020_function" type="xs:string" minOccurs="0" />
+                <xs:element name="DER_x0020_installations" type="xs:double" minOccurs="0" />
+                <xs:element name="Vintage_x0020_Year" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Households" msdata:EntityTypeName="Households" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="AreaID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AreaID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Head_x0020_DER_x0020_cohort" type="xs:string" minOccurs="0" />
+                <xs:element name="Actual_x0020_DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="adoption_x0020_parameter_x0020_b" type="xs:double" minOccurs="0" />
+                <xs:element name="cohort_x0020_interval" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_cohort_x0020_interval" type="xs:double" minOccurs="0" />
+                <xs:element name="drift" type="xs:double" minOccurs="0" />
+                <xs:element name="first_x0020_pulse_x0020_magnitude" type="xs:double" minOccurs="0" />
+                <xs:element name="first_x0020_pulse_x0020_start_x0020_period" type="xs:double" minOccurs="0" />
+                <xs:element name="Head_x0020_Cohort" type="xs:string" minOccurs="0" />
+                <xs:element name="initial_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="initial_x0020_vehicle_x0020_count" type="xs:double" minOccurs="0" />
+                <xs:element name="introduction_x0020_rate_x0020_of_x0020_potential_x0020_buyers_x0020_alpha" type="xs:double" minOccurs="0" />
+                <xs:element name="learning_x0020_parameter_x0020_beta" type="xs:double" minOccurs="0" />
+                <xs:element name="neighbourhood_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="Potential_x0020_DER_x0020_adopters" type="xs:double" minOccurs="0" />
+                <xs:element name="pulse_x0020_duration" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_new_x0020_households_x0020_to_x0020_new_x0020_vehicles_x0020_sales_x0020_per_x0020_cohort" type="xs:double" minOccurs="0" />
+                <xs:element name="replacement_x0020_ratio_x0020_per_x0020_cohort" type="xs:double" minOccurs="0" />
+                <xs:element name="scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="second_x0020_pulse_x0020_magnitude" type="xs:double" minOccurs="0" />
+                <xs:element name="second_x0020_pulse_x0020_start_x0020_period" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_Houses" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_2006" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_Max" type="xs:double" minOccurs="0" />
+                <xs:element name="Separate_x0020_houses_x0020_total_x0020_Min" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_coefficient_x0020_1" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_coefficient_x0020_2" type="xs:double" minOccurs="0" />
+                <xs:element name="sigma_x0020_squared" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_2006" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_Max" type="xs:double" minOccurs="0" />
+                <xs:element name="Total_x0020_households_x0020_Min" type="xs:double" minOccurs="0" />
+                <xs:element name="drift2" type="xs:double" minOccurs="0" />
+                <xs:element name="decay_x0020_coefficient" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="days in month,Max bin CDD,Max bin HDD,Monthly PV Performance Data,Sun hours per month">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="capacity_x0020_per_x0020_panel" type="xs:double" minOccurs="0" />
+                <xs:element name="days_x0020_in_x0020_month" type="xs:string" minOccurs="0" />
+                <xs:element name="degree_x0020_days_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="Final_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="GW_x0020_per_x0020_hour" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="kW_x0020_per_x0020_hour" type="xs:double" minOccurs="0" />
+                <xs:element name="kWh_x0020_per_x0020_connection_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="kWh_x0020_per_x0020_GWh" type="xs:double" minOccurs="0" />
+                <xs:element name="Max_x0020_bin_x0020_CDD" type="xs:string" minOccurs="0" />
+                <xs:element name="Max_x0020_bin_x0020_HDD" type="xs:string" minOccurs="0" />
+                <xs:element name="Monthly_x0020_PV_x0020_Performance_x0020_Data" type="xs:string" minOccurs="0" />
+                <xs:element name="panels_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="ratio_x0020_of_x0020_grid_x0020_connections_x0020_to_x0020_households" type="xs:double" minOccurs="0" />
+                <xs:element name="site_x0020_consumption_x0020_ratio" type="xs:double" minOccurs="0" />
+                <xs:element name="Sun_x0020_hours_x0020_per_x0020_month" type="xs:string" minOccurs="0" />
+                <xs:element name="system_x0020_to_x0020_household_x0020_unit" type="xs:double" minOccurs="0" />
+                <xs:element name="Time_x0020_Step" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_initial_x0020_capacity_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_initial_x0020_adoption_x0020_scale_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="DER_x0020_capacity_x0020_increment_x0020_per_x0020_system" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="SWIS" msdata:EntityTypeName="SWIS" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="SWISID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SWISID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Vehicle_x0020_cohorts" msdata:EntityTypeName="Vehicle cohorts" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="Vehicle cohortsID" msprop:LookupTableFields="Vehicle hazard rate table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Vehicle_x0020_cohortsID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="Area" type="xs:string" minOccurs="0" />
+                <xs:element name="Model_x0020_Year" type="xs:double" minOccurs="0" />
+                <xs:element name="Vehicle_x0020_hazard_x0020_rate_x0020_table" type="xs:string" minOccurs="0" />
+                <xs:element name="Vehicles" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Commercial>
+    <CommercialID>Large Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <Area>1050000</Area>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>0</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <autonomous_x0020_growth>0</autonomous_x0020_growth>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>0</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <degree_x0020_days_x0020_unit>0</degree_x0020_days_x0020_unit>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>1E-08</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>0.0004</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <temperature_x0020_responsive_x0020_coefficient>0</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <trend_x0020_offset>1</trend_x0020_offset>
+  </Commercial>
+  <Commercial>
+    <CommercialID>Medium Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <Area>50000</Area>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>0</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <autonomous_x0020_growth>1.5</autonomous_x0020_growth>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>1</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <degree_x0020_days_x0020_unit>0.0055</degree_x0020_days_x0020_unit>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>2.1E-06</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>0.00347</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <temperature_x0020_responsive_x0020_coefficient>-1.5E-05</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0.15</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <trend_x0020_offset>1</trend_x0020_offset>
+  </Commercial>
+  <Commercial>
+    <CommercialID>Small Business</CommercialID>
+    <CalendarTime>2008-06-01T00:00:00</CalendarTime>
+    <Enabled>true</Enabled>
+    <Area>2000</Area>
+    <autonomous_x0020_demand_x0020_per_x0020_connection>0</autonomous_x0020_demand_x0020_per_x0020_connection>
+    <autonomous_x0020_growth>1.5</autonomous_x0020_growth>
+    <average_x0020_temperature_x0020_response_x0020_coefficient>1</average_x0020_temperature_x0020_response_x0020_coefficient>
+    <degree_x0020_days_x0020_unit>0.005</degree_x0020_days_x0020_unit>
+    <initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>-0.00014</initial_x0020_ratio_x0020_of_x0020_firms_x0020_to_x0020_Households>
+    <ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>0.17</ratio_x0020_of_x0020_firms_x0020_to_x0020_households_x0020_slope>
+    <temperature_x0020_responsive_x0020_coefficient>-3.5E-05</temperature_x0020_responsive_x0020_coefficient>
+    <trend_x0020_demand_x0020_coefficient_x0020_1>0.05</trend_x0020_demand_x0020_coefficient_x0020_1>
+    <trend_x0020_offset>1</trend_x0020_offset>
+  </Commercial>
+  <Households>
+    <AreaID>Albany (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>10454</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>20.58333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>17.75</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12057</cohort_x0020_interval>
+    <DER_x0020_adopters>249.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>12927</DER_x0020_cohort_x0020_interval>
+    <drift>204.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>4.64E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Armadale (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>16860</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>79.68333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>58.93333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>18744</cohort_x0020_interval>
+    <DER_x0020_adopters>1204.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>26670</DER_x0020_cohort_x0020_interval>
+    <drift>856.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.458110281</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Augusta-Margaret River (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3649</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>14.45</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>10</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>4130</cohort_x0020_interval>
+    <DER_x0020_adopters>188</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>4890</DER_x0020_cohort_x0020_interval>
+    <drift>117</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.578705018</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Bassendean (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>4466</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.316666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.066666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>5633</cohort_x0020_interval>
+    <DER_x0020_adopters>60.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>5724</DER_x0020_cohort_x0020_interval>
+    <drift>47.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.128578358</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Bayswater (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>16912</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>13.63333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>6.416666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>24022</cohort_x0020_interval>
+    <DER_x0020_adopters>296</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>24262</DER_x0020_cohort_x0020_interval>
+    <drift>182.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.435282099</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Belmont (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>9844</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>12.38333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.016666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>13279</cohort_x0020_interval>
+    <DER_x0020_adopters>340.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>14058</DER_x0020_cohort_x0020_interval>
+    <drift>270.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.238464863</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Beverley (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>638</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.083333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.233333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>666</cohort_x0020_interval>
+    <DER_x0020_adopters>12.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>637</DER_x0020_cohort_x0020_interval>
+    <drift>3.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.298408073</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Boddington (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>494</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.7</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.95</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>535</cohort_x0020_interval>
+    <DER_x0020_adopters>17.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>606</DER_x0020_cohort_x0020_interval>
+    <drift>15.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.02E-14</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Boyup Brook (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>579</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.166666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.733333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>590</cohort_x0020_interval>
+    <DER_x0020_adopters>16.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>624</DER_x0020_cohort_x0020_interval>
+    <drift>9</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.192415288</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Bridgetown-Greenbushes (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1545</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.933333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.333333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1624</cohort_x0020_interval>
+    <DER_x0020_adopters>48.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1798</DER_x0020_cohort_x0020_interval>
+    <drift>30.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.077018171</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Brookton (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>352</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.766666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.45</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>385</cohort_x0020_interval>
+    <DER_x0020_adopters>9.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>353</DER_x0020_cohort_x0020_interval>
+    <drift>-4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.096378868</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Broomehill-Tambellup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>396</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.116666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.016666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>403</cohort_x0020_interval>
+    <DER_x0020_adopters>2.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>343</DER_x0020_cohort_x0020_interval>
+    <drift>-0.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.478196729</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Bruce Rock (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>361</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.35</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.283333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>391</cohort_x0020_interval>
+    <DER_x0020_adopters>3</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>355</DER_x0020_cohort_x0020_interval>
+    <drift>-0.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.043397018</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Bunbury (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>9095</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>15.78333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-2.1</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12055</cohort_x0020_interval>
+    <DER_x0020_adopters>213.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>11951</DER_x0020_cohort_x0020_interval>
+    <drift>42.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.292042222</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Busselton (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>8428</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>32.73333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>27.66666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>9551</cohort_x0020_interval>
+    <DER_x0020_adopters>472.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>12533</DER_x0020_cohort_x0020_interval>
+    <drift>409</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.57304428</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cambridge (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>7270</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.583333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.3</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>9139</cohort_x0020_interval>
+    <DER_x0020_adopters>103.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>9064</DER_x0020_cohort_x0020_interval>
+    <drift>34.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.110960461</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Canning (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>23863</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>14.03333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>11.28333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>29311</cohort_x0020_interval>
+    <DER_x0020_adopters>392.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>29940</DER_x0020_cohort_x0020_interval>
+    <drift>174.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.441762391</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Capel (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3282</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>25.06666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>13.4</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3349</cohort_x0020_interval>
+    <DER_x0020_adopters>303.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>5433</DER_x0020_cohort_x0020_interval>
+    <drift>206.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.315456746</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Carnamah (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>273</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.05</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.7</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>293</cohort_x0020_interval>
+    <DER_x0020_adopters>2.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>218</DER_x0020_cohort_x0020_interval>
+    <drift>-9.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.044066244</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Chapman Valley (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>321</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.6</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.333333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>365</cohort_x0020_interval>
+    <DER_x0020_adopters>23.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>443</DER_x0020_cohort_x0020_interval>
+    <drift>12.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.154084963</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Chittering (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1200</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.75</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>5.233333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1241</cohort_x0020_interval>
+    <DER_x0020_adopters>70</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1703</DER_x0020_cohort_x0020_interval>
+    <drift>66.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.373383092</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Claremont (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>2126</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.316666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-5.5</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3762</cohort_x0020_interval>
+    <DER_x0020_adopters>68</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>3729</DER_x0020_cohort_x0020_interval>
+    <drift>15.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>2.5E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cockburn (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>24189</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>69.78333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>47.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>27573</cohort_x0020_interval>
+    <DER_x0020_adopters>1125.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>35476</DER_x0020_cohort_x0020_interval>
+    <drift>1100.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.557113259</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Collie (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3017</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>2.95</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.3</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3246</cohort_x0020_interval>
+    <DER_x0020_adopters>36.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>3142</DER_x0020_cohort_x0020_interval>
+    <drift>17.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.599727</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Coolgardie (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1207</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.45</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.516666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1350</cohort_x0020_interval>
+    <DER_x0020_adopters>19</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1141</DER_x0020_cohort_x0020_interval>
+    <drift>-11.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.2371959</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Coorow (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>448</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.15</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>497</cohort_x0020_interval>
+    <DER_x0020_adopters>2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>416</DER_x0020_cohort_x0020_interval>
+    <drift>-3.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.045611478</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Corrigin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>441</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.116666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.316666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>462</cohort_x0020_interval>
+    <DER_x0020_adopters>0</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>402</DER_x0020_cohort_x0020_interval>
+    <drift>-0.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>4.69E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cottesloe (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>2062</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.116666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-1.733333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>2993</cohort_x0020_interval>
+    <DER_x0020_adopters>17.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>2739</DER_x0020_cohort_x0020_interval>
+    <drift>-14.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.598691448</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cranbrook (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>406</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.366666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.483333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>428</cohort_x0020_interval>
+    <DER_x0020_adopters>1.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>370</DER_x0020_cohort_x0020_interval>
+    <drift>-2.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>2.36E-14</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cuballing (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>297</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.733333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.033333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>306</cohort_x0020_interval>
+    <DER_x0020_adopters>9.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>294</DER_x0020_cohort_x0020_interval>
+    <drift>-1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.052700234</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Cunderdin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>464</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.316666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>493</cohort_x0020_interval>
+    <DER_x0020_adopters>5.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>465</DER_x0020_cohort_x0020_interval>
+    <drift>3.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.227463989</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Dalwallinu (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>493</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.366666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>511</cohort_x0020_interval>
+    <DER_x0020_adopters>11.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>475</DER_x0020_cohort_x0020_interval>
+    <drift>-1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.085068155</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Dandaragan (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1103</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.516666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.316666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1216</cohort_x0020_interval>
+    <DER_x0020_adopters>34.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1180</DER_x0020_cohort_x0020_interval>
+    <drift>12</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.317863699</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Dardanup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3373</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>12.18333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>10.7</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3632</cohort_x0020_interval>
+    <DER_x0020_adopters>166.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>4706</DER_x0020_cohort_x0020_interval>
+    <drift>137.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.366215941</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Denmark (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1764</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>4.883333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>4.166666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1866</cohort_x0020_interval>
+    <DER_x0020_adopters>63</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>2131</DER_x0020_cohort_x0020_interval>
+    <drift>54.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.052138885</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Donnybrook-Balingup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1691</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>4.95</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>3.966666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1774</cohort_x0020_interval>
+    <DER_x0020_adopters>57.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>2078</DER_x0020_cohort_x0020_interval>
+    <drift>56</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>5.16E-14</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Dowerin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>275</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.05</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.1</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>288</cohort_x0020_interval>
+    <DER_x0020_adopters>0.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>263</DER_x0020_cohort_x0020_interval>
+    <drift>0.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>7.73E-16</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Dumbleyung (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>259</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.566666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.083333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>272</cohort_x0020_interval>
+    <DER_x0020_adopters>7.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>246</DER_x0020_cohort_x0020_interval>
+    <drift>-1.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.327746771</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>East Fremantle (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1839</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.416666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.716666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>2709</cohort_x0020_interval>
+    <DER_x0020_adopters>23</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>2650</DER_x0020_cohort_x0020_interval>
+    <drift>8.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.796930299</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Fremantle (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>7192</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>2.95</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>11295</cohort_x0020_interval>
+    <DER_x0020_adopters>149.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>11122</DER_x0020_cohort_x0020_interval>
+    <drift>119</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.269026608</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Gingin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1592</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.983333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.716666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1742</cohort_x0020_interval>
+    <DER_x0020_adopters>56</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1791</DER_x0020_cohort_x0020_interval>
+    <drift>28.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.619937759</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Gnowangerup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>488</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.083333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.166666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>513</cohort_x0020_interval>
+    <DER_x0020_adopters>0.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>400</DER_x0020_cohort_x0020_interval>
+    <drift>-5</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.051359986</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Goomalling (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>359</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.716666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.133333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>386</cohort_x0020_interval>
+    <DER_x0020_adopters>6.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>374</DER_x0020_cohort_x0020_interval>
+    <drift>4.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.048419555</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Gosnells (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>30235</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>68.26666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>23.61666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>33200</cohort_x0020_interval>
+    <DER_x0020_adopters>922.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>37920</DER_x0020_cohort_x0020_interval>
+    <drift>599.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.525936101</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Greater Geraldton (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>10418</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>25.2</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>10.03333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12511</cohort_x0020_interval>
+    <DER_x0020_adopters>330.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>13199</DER_x0020_cohort_x0020_interval>
+    <drift>169</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.360536486</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Harvey (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>6410</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>23.71666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>18.95</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>6866</cohort_x0020_interval>
+    <DER_x0020_adopters>312.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>8707</DER_x0020_cohort_x0020_interval>
+    <drift>245.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.343554908</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Irwin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1045</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.833333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.333333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1275</cohort_x0020_interval>
+    <DER_x0020_adopters>43</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1344</DER_x0020_cohort_x0020_interval>
+    <drift>19.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.358643226</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Jerramungup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>399</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.7</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.133333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>449</cohort_x0020_interval>
+    <DER_x0020_adopters>8.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>374</DER_x0020_cohort_x0020_interval>
+    <drift>-3.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>7.87E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Joondalup (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>48479</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>19.08333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-4.366666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>53094</cohort_x0020_interval>
+    <DER_x0020_adopters>287</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>52760</DER_x0020_cohort_x0020_interval>
+    <drift>220.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.609453833</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kalamunda (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>16924</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>26.18333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>20.53333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>18065</cohort_x0020_interval>
+    <DER_x0020_adopters>323.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>19586</DER_x0020_cohort_x0020_interval>
+    <drift>283</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.414457718</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kalgoorlie/Boulder (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>8222</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>10.5</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-3.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>10472</cohort_x0020_interval>
+    <DER_x0020_adopters>179</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>9587</DER_x0020_cohort_x0020_interval>
+    <drift>-9.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.697989455</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Katanning (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1409</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.683333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1583</cohort_x0020_interval>
+    <DER_x0020_adopters>3</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1321</DER_x0020_cohort_x0020_interval>
+    <drift>-0.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.271896613</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kellerberrin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>114</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.05</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.7</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>455</cohort_x0020_interval>
+    <DER_x0020_adopters>9</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>420</DER_x0020_cohort_x0020_interval>
+    <drift>-1.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.141093479</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kent (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>206</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.216666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.166666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>218</cohort_x0020_interval>
+    <DER_x0020_adopters>3</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>185</DER_x0020_cohort_x0020_interval>
+    <drift>-1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>6.31E-16</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kojonup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>762</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.7</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.816666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>799</cohort_x0020_interval>
+    <DER_x0020_adopters>8.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>717</DER_x0020_cohort_x0020_interval>
+    <drift>-6.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.177413429</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kondinin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>323</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.066666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.133333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>376</cohort_x0020_interval>
+    <DER_x0020_adopters>-2.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>293</DER_x0020_cohort_x0020_interval>
+    <drift>-3.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.408366699</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Koorda (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>172</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.2</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>183</cohort_x0020_interval>
+    <DER_x0020_adopters>0.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>165</DER_x0020_cohort_x0020_interval>
+    <drift>0</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.025668853</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kulin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>320</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.133333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>351</cohort_x0020_interval>
+    <DER_x0020_adopters>0.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>288</DER_x0020_cohort_x0020_interval>
+    <drift>-4.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.079388632</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Kwinana (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>7688</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>45.65</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>32.75</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>8555</cohort_x0020_interval>
+    <DER_x0020_adopters>635</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>12513</DER_x0020_cohort_x0020_interval>
+    <drift>418.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.198502907</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Lake Grace (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>552</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.533333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.65</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>610</cohort_x0020_interval>
+    <DER_x0020_adopters>-6.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>450</DER_x0020_cohort_x0020_interval>
+    <drift>-9.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.139809896</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mandurah (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>18536</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>65.41666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>62</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>22201</cohort_x0020_interval>
+    <DER_x0020_adopters>1122.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>29470</DER_x0020_cohort_x0020_interval>
+    <drift>896.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.114570263</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Manjimup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3205</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.066666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.816666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3480</cohort_x0020_interval>
+    <DER_x0020_adopters>45.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>3340</DER_x0020_cohort_x0020_interval>
+    <drift>27.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.737991234</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Melville (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>28972</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>9.616666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-24.31666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>35865</cohort_x0020_interval>
+    <DER_x0020_adopters>195.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>35053</DER_x0020_cohort_x0020_interval>
+    <drift>107</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.220913813</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Menzies (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>60</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.25</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.05</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>83</cohort_x0020_interval>
+    <DER_x0020_adopters>5.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>72</DER_x0020_cohort_x0020_interval>
+    <drift>1.8</drift>
+  </Households>
+  <Households>
+    <AreaID>Merredin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1186</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.266666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.3</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1319</cohort_x0020_interval>
+    <DER_x0020_adopters>10.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1154</DER_x0020_cohort_x0020_interval>
+    <drift>-1.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.561690152</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mingenew (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>172</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.083333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.033333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>189</cohort_x0020_interval>
+    <DER_x0020_adopters>10.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>174</DER_x0020_cohort_x0020_interval>
+    <drift>2.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.036540948</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Moora (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>857</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.2</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.1</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>936</cohort_x0020_interval>
+    <DER_x0020_adopters>13.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>831</DER_x0020_cohort_x0020_interval>
+    <drift>-1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.301879822</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Morawa (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>270</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.7</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.466666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>286</cohort_x0020_interval>
+    <DER_x0020_adopters>8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>252</DER_x0020_cohort_x0020_interval>
+    <drift>-4.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.34E-16</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mosman Park (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>2066</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.583333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3482</cohort_x0020_interval>
+    <DER_x0020_adopters>19.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>3211</DER_x0020_cohort_x0020_interval>
+    <drift>-3</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.625691114</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mount Marshall (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>218</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.166666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.266666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>228</cohort_x0020_interval>
+    <DER_x0020_adopters>5.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>196</DER_x0020_cohort_x0020_interval>
+    <drift>-4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>6.1E-16</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mukinbudin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>214</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.233333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.4</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>239</cohort_x0020_interval>
+    <DER_x0020_adopters>-0.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>194</DER_x0020_cohort_x0020_interval>
+    <drift>-3.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>3.84E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Mundaring (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>11843</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>10.31666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>6.9</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12323</cohort_x0020_interval>
+    <DER_x0020_adopters>124</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>12538</DER_x0020_cohort_x0020_interval>
+    <drift>105.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.385373893</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Murray (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3872</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>19.16666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>12.7</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>4618</cohort_x0020_interval>
+    <DER_x0020_adopters>213.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>5806</DER_x0020_cohort_x0020_interval>
+    <drift>173.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.187730424</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Nannup (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>448</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.966666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.75</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>497</cohort_x0020_interval>
+    <DER_x0020_adopters>13.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>499</DER_x0020_cohort_x0020_interval>
+    <drift>5.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.017230034</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Narembeen (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>320</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.216666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.133333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>345</cohort_x0020_interval>
+    <DER_x0020_adopters>-1.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>285</DER_x0020_cohort_x0020_interval>
+    <drift>-1.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>7.4E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Narrogin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1720</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.9</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.633333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1836</cohort_x0020_interval>
+    <DER_x0020_adopters>24.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1732</DER_x0020_cohort_x0020_interval>
+    <drift>11.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.24784543</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Nedlands (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>6026</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>2.033333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-3.116666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>7224</cohort_x0020_interval>
+    <DER_x0020_adopters>31.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>6989</DER_x0020_cohort_x0020_interval>
+    <drift>9.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.500911916</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Northam (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3542</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>4.2</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>3.266666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>3809</cohort_x0020_interval>
+    <DER_x0020_adopters>52.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>3733</DER_x0020_cohort_x0020_interval>
+    <drift>36.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.028966529</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Northampton (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1117</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.033333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.683333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1723</cohort_x0020_interval>
+    <DER_x0020_adopters>50.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1241</DER_x0020_cohort_x0020_interval>
+    <drift>0.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.163237274</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Nungarin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>92</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.2</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>96</cohort_x0020_interval>
+    <DER_x0020_adopters>1.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>88</DER_x0020_cohort_x0020_interval>
+    <drift>-0.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>2.68E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Peppermint Grove (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>399</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.3</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.033333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>525</cohort_x0020_interval>
+    <DER_x0020_adopters>4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>500</DER_x0020_cohort_x0020_interval>
+    <drift>1.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.385938549</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Perenjori (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>200</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.083333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.283333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>205</cohort_x0020_interval>
+    <DER_x0020_adopters>1.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>157</DER_x0020_cohort_x0020_interval>
+    <drift>-1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.04532187</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Perth (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>249</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-1.033333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-1.283333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>6174</cohort_x0020_interval>
+    <DER_x0020_adopters>593.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>8499</DER_x0020_cohort_x0020_interval>
+    <drift>348.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.427329254</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Pingelly (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>423</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.716666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.116666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>460</cohort_x0020_interval>
+    <DER_x0020_adopters>7.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>429</DER_x0020_cohort_x0020_interval>
+    <drift>0.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.151699897</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Plantagenet (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1626</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.916666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.066666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1714</cohort_x0020_interval>
+    <DER_x0020_adopters>37.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1795</DER_x0020_cohort_x0020_interval>
+    <drift>31.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.768531697</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Quairading (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>379</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.6</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.233333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>408</cohort_x0020_interval>
+    <DER_x0020_adopters>5</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>375</DER_x0020_cohort_x0020_interval>
+    <drift>4.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>2.18E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Rockingham (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>26730</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>123.1833333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>110.2</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>31086</cohort_x0020_interval>
+    <DER_x0020_adopters>1470.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>41274</DER_x0020_cohort_x0020_interval>
+    <drift>1357.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.360216586</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Serpentine-Jarrahdale (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>4168</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>48.7</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>26.71666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>4259</cohort_x0020_interval>
+    <DER_x0020_adopters>601</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>8213</DER_x0020_cohort_x0020_interval>
+    <drift>317</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.429984869</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>South Perth (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>8290</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>6.716666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-2.633333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>16940</cohort_x0020_interval>
+    <DER_x0020_adopters>106.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>15948</DER_x0020_cohort_x0020_interval>
+    <drift>25.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.433365955</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Stirling (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>46383</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>22.23333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-15.08333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>76066</cohort_x0020_interval>
+    <DER_x0020_adopters>1143.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>79049</DER_x0020_cohort_x0020_interval>
+    <drift>926.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.671522905</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Subiaco (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>3653</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>2.116666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-6.3</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>7824</cohort_x0020_interval>
+    <DER_x0020_adopters>81.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>7646</DER_x0020_cohort_x0020_interval>
+    <drift>56.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.86E-14</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Swan (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>29551</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>103.5666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>75.63333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>32852</cohort_x0020_interval>
+    <DER_x0020_adopters>1761.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>43302</DER_x0020_cohort_x0020_interval>
+    <drift>1097.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.747442115</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Tammin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>153</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.033333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.1</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>151</cohort_x0020_interval>
+    <DER_x0020_adopters>1</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>132</DER_x0020_cohort_x0020_interval>
+    <drift>-0.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.009725298</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Three Springs (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>254</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.116666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.45</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>269</cohort_x0020_interval>
+    <DER_x0020_adopters>-0.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>209</DER_x0020_cohort_x0020_interval>
+    <drift>-6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.072113245</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Toodyay (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1569</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>2.233333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>2.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1630</cohort_x0020_interval>
+    <DER_x0020_adopters>29.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1652</DER_x0020_cohort_x0020_interval>
+    <drift>28.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.271866059</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Trayning (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>158</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.4</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.366666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>162</cohort_x0020_interval>
+    <DER_x0020_adopters>3</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>132</DER_x0020_cohort_x0020_interval>
+    <drift>-2.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.099628401</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Victoria Park (T)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>7159</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.566666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>5.233333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12992</cohort_x0020_interval>
+    <DER_x0020_adopters>221.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>13095</DER_x0020_cohort_x0020_interval>
+    <drift>126.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.221539187</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Victoria Plains (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>355</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.016666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.05</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>365</cohort_x0020_interval>
+    <DER_x0020_adopters>2.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>330</DER_x0020_cohort_x0020_interval>
+    <drift>-1.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.002159372</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Vincent (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>7275</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>5.816666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-6.533333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>12811</cohort_x0020_interval>
+    <DER_x0020_adopters>231.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>13012</DER_x0020_cohort_x0020_interval>
+    <drift>135</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>5.04E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wagin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>704</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.683333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>751</cohort_x0020_interval>
+    <DER_x0020_adopters>10.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>687</DER_x0020_cohort_x0020_interval>
+    <drift>0.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.266844014</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wandering (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>145</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.366666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>147</cohort_x0020_interval>
+    <DER_x0020_adopters>6.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>162</DER_x0020_cohort_x0020_interval>
+    <drift>2.8</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>3.61E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wanneroo (C)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>34595</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>206</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>177.1166667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>38292</cohort_x0020_interval>
+    <DER_x0020_adopters>2737.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>59909</DER_x0020_cohort_x0020_interval>
+    <drift>2543.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.662054214</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Waroona (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1146</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>3.066666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>1.85</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1273</cohort_x0020_interval>
+    <DER_x0020_adopters>43.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1387</DER_x0020_cohort_x0020_interval>
+    <drift>22.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>2.52E-14</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>West Arthur (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>330</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.283333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.066666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>356</cohort_x0020_interval>
+    <DER_x0020_adopters>2.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>316</DER_x0020_cohort_x0020_interval>
+    <drift>0.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.170481452</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Westonia (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>83</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.4</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.183333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>82</cohort_x0020_interval>
+    <DER_x0020_adopters>4.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>82</DER_x0020_cohort_x0020_interval>
+    <drift>0.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>1.1E-15</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wickepin (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>282</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.05</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.016666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>290</cohort_x0020_interval>
+    <DER_x0020_adopters>1.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>259</DER_x0020_cohort_x0020_interval>
+    <drift>-0.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.349907803</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Williams (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>337</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.366666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.116666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>365</cohort_x0020_interval>
+    <DER_x0020_adopters>2.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>340</DER_x0020_cohort_x0020_interval>
+    <drift>0.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.037316238</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wongan-Ballidu (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>539</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.533333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.316666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>568</cohort_x0020_interval>
+    <DER_x0020_adopters>5.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>532</DER_x0020_cohort_x0020_interval>
+    <drift>-1.6</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.351241318</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Woodanilling (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>143</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.183333333</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.15</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>149</cohort_x0020_interval>
+    <DER_x0020_adopters>2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>139</DER_x0020_cohort_x0020_interval>
+    <drift>1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.063143747</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Wyalkatchem (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>221</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.4</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.1</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>240</cohort_x0020_interval>
+    <DER_x0020_adopters>1.6</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>202</DER_x0020_cohort_x0020_interval>
+    <drift>1</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>6.11E-16</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Yalgoo (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>59</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>0.1</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.066666667</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>77</cohort_x0020_interval>
+    <DER_x0020_adopters>1.2</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>50</DER_x0020_cohort_x0020_interval>
+    <drift>0.2</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.072143841</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>Yilgarn (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>484</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>-0.266666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>-0.633333333</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>526</cohort_x0020_interval>
+    <DER_x0020_adopters>4.8</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>391</DER_x0020_cohort_x0020_interval>
+    <drift>-13</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.468654235</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <Households>
+    <AreaID>York (S)</AreaID>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Head_x0020_DER_x0020_cohort>1265</Head_x0020_DER_x0020_cohort>
+    <Actual_x0020_DER_x0020_adopters>1.966666667</Actual_x0020_DER_x0020_adopters>
+    <adoption_x0020_parameter_x0020_b>0.85</adoption_x0020_parameter_x0020_b>
+    <cohort_x0020_interval>1299</cohort_x0020_interval>
+    <DER_x0020_adopters>31.4</DER_x0020_adopters>
+    <DER_x0020_cohort_x0020_interval>1337</DER_x0020_cohort_x0020_interval>
+    <drift>19.4</drift>
+    <first_x0020_pulse_x0020_start_x0020_period>0.138869555</first_x0020_pulse_x0020_start_x0020_period>
+  </Households>
+  <SWIS>
+    <SWISID>SWIS</SWISID>
+    <Enabled>true</Enabled>
+  </SWIS>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Albany (C)</Area>
+    <Model_x0020_Year>12927</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Armadale (C)</Area>
+    <Model_x0020_Year>26670</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Augusta-Margaret River (S)</Area>
+    <Model_x0020_Year>4890</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Bassendean (T)</Area>
+    <Model_x0020_Year>5724</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Bayswater (C)</Area>
+    <Model_x0020_Year>24262</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Belmont (C)</Area>
+    <Model_x0020_Year>14058</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Beverley (S)</Area>
+    <Model_x0020_Year>637</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Boddington (S)</Area>
+    <Model_x0020_Year>606</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Boyup Brook (S)</Area>
+    <Model_x0020_Year>624</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Bridgetown-Greenbushes (S)</Area>
+    <Model_x0020_Year>1798</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Brookton (S)</Area>
+    <Model_x0020_Year>353</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Broomehill-Tambellup (S)</Area>
+    <Model_x0020_Year>343</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Bruce Rock (S)</Area>
+    <Model_x0020_Year>355</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Bunbury (C)</Area>
+    <Model_x0020_Year>11951</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Busselton (C)</Area>
+    <Model_x0020_Year>12533</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cambridge (T)</Area>
+    <Model_x0020_Year>9064</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Canning (C)</Area>
+    <Model_x0020_Year>29940</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Capel (S)</Area>
+    <Model_x0020_Year>5433</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Carnamah (S)</Area>
+    <Model_x0020_Year>218</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Chapman Valley (S)</Area>
+    <Model_x0020_Year>443</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Chittering (S)</Area>
+    <Model_x0020_Year>1703</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Claremont (T)</Area>
+    <Model_x0020_Year>3729</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cockburn (C)</Area>
+    <Model_x0020_Year>35476</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Collie (S)</Area>
+    <Model_x0020_Year>3142</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Coolgardie (S)</Area>
+    <Model_x0020_Year>1141</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Coorow (S)</Area>
+    <Model_x0020_Year>416</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Corrigin (S)</Area>
+    <Model_x0020_Year>402</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cottesloe (T)</Area>
+    <Model_x0020_Year>2739</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cranbrook (S)</Area>
+    <Model_x0020_Year>370</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cuballing (S)</Area>
+    <Model_x0020_Year>294</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Cunderdin (S)</Area>
+    <Model_x0020_Year>465</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Dalwallinu (S)</Area>
+    <Model_x0020_Year>475</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Dandaragan (S)</Area>
+    <Model_x0020_Year>1180</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Dardanup (S)</Area>
+    <Model_x0020_Year>4706</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Denmark (S)</Area>
+    <Model_x0020_Year>2131</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Donnybrook-Balingup (S)</Area>
+    <Model_x0020_Year>2078</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Dowerin (S)</Area>
+    <Model_x0020_Year>263</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Dumbleyung (S)</Area>
+    <Model_x0020_Year>246</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>East Fremantle (T)</Area>
+    <Model_x0020_Year>2650</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Fremantle (C)</Area>
+    <Model_x0020_Year>11122</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Gingin (S)</Area>
+    <Model_x0020_Year>1791</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Gnowangerup (S)</Area>
+    <Model_x0020_Year>400</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Goomalling (S)</Area>
+    <Model_x0020_Year>374</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Gosnells (C)</Area>
+    <Model_x0020_Year>37920</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Greater Geraldton (C)</Area>
+    <Model_x0020_Year>13199</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Harvey (S)</Area>
+    <Model_x0020_Year>8707</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Irwin (S)</Area>
+    <Model_x0020_Year>1344</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Jerramungup (S)</Area>
+    <Model_x0020_Year>374</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Joondalup (C)</Area>
+    <Model_x0020_Year>52760</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kalamunda (C)</Area>
+    <Model_x0020_Year>19586</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kalgoorlie/Boulder (C)</Area>
+    <Model_x0020_Year>9587</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Katanning (S)</Area>
+    <Model_x0020_Year>1321</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kellerberrin (S)</Area>
+    <Model_x0020_Year>420</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kent (S)</Area>
+    <Model_x0020_Year>185</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kojonup (S)</Area>
+    <Model_x0020_Year>717</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kondinin (S)</Area>
+    <Model_x0020_Year>293</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Koorda (S)</Area>
+    <Model_x0020_Year>165</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kulin (S)</Area>
+    <Model_x0020_Year>288</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Kwinana (C)</Area>
+    <Model_x0020_Year>12513</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Lake Grace (S)</Area>
+    <Model_x0020_Year>450</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mandurah (C)</Area>
+    <Model_x0020_Year>29470</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Manjimup (S)</Area>
+    <Model_x0020_Year>3340</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Melville (C)</Area>
+    <Model_x0020_Year>35053</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Menzies (S)</Area>
+    <Model_x0020_Year>72</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Merredin (S)</Area>
+    <Model_x0020_Year>1154</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mingenew (S)</Area>
+    <Model_x0020_Year>174</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Moora (S)</Area>
+    <Model_x0020_Year>831</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Morawa (S)</Area>
+    <Model_x0020_Year>252</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mosman Park (T)</Area>
+    <Model_x0020_Year>3211</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mount Marshall (S)</Area>
+    <Model_x0020_Year>196</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mukinbudin (S)</Area>
+    <Model_x0020_Year>194</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Mundaring (S)</Area>
+    <Model_x0020_Year>12538</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Murray (S)</Area>
+    <Model_x0020_Year>5806</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Nannup (S)</Area>
+    <Model_x0020_Year>499</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Narembeen (S)</Area>
+    <Model_x0020_Year>285</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Narrogin (S)</Area>
+    <Model_x0020_Year>1732</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Nedlands (C)</Area>
+    <Model_x0020_Year>6989</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Northam (S)</Area>
+    <Model_x0020_Year>3733</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Northampton (S)</Area>
+    <Model_x0020_Year>1241</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Nungarin (S)</Area>
+    <Model_x0020_Year>88</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Peppermint Grove (S)</Area>
+    <Model_x0020_Year>500</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Perenjori (S)</Area>
+    <Model_x0020_Year>157</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Perth (C)</Area>
+    <Model_x0020_Year>8499</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Pingelly (S)</Area>
+    <Model_x0020_Year>429</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Plantagenet (S)</Area>
+    <Model_x0020_Year>1795</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Quairading (S)</Area>
+    <Model_x0020_Year>375</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Rockingham (C)</Area>
+    <Model_x0020_Year>41274</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Serpentine-Jarrahdale (S)</Area>
+    <Model_x0020_Year>8213</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>South Perth (C)</Area>
+    <Model_x0020_Year>15948</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Stirling (C)</Area>
+    <Model_x0020_Year>79049</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Subiaco (C)</Area>
+    <Model_x0020_Year>7646</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Swan (C)</Area>
+    <Model_x0020_Year>43302</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Tammin (S)</Area>
+    <Model_x0020_Year>132</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Three Springs (S)</Area>
+    <Model_x0020_Year>209</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Toodyay (S)</Area>
+    <Model_x0020_Year>1652</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Trayning (S)</Area>
+    <Model_x0020_Year>132</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Victoria Park (T)</Area>
+    <Model_x0020_Year>13095</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Victoria Plains (S)</Area>
+    <Model_x0020_Year>330</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Vincent (C)</Area>
+    <Model_x0020_Year>13012</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wagin (S)</Area>
+    <Model_x0020_Year>687</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wandering (S)</Area>
+    <Model_x0020_Year>162</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wanneroo (C)</Area>
+    <Model_x0020_Year>59909</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Waroona (S)</Area>
+    <Model_x0020_Year>1387</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>West Arthur (S)</Area>
+    <Model_x0020_Year>316</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Westonia (S)</Area>
+    <Model_x0020_Year>82</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wickepin (S)</Area>
+    <Model_x0020_Year>259</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Williams (S)</Area>
+    <Model_x0020_Year>340</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wongan-Ballidu (S)</Area>
+    <Model_x0020_Year>532</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Woodanilling (S)</Area>
+    <Model_x0020_Year>139</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Wyalkatchem (S)</Area>
+    <Model_x0020_Year>202</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Yalgoo (S)</Area>
+    <Model_x0020_Year>50</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>Yilgarn (S)</Area>
+    <Model_x0020_Year>391</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+  <Vehicle_x0020_cohorts>
+    <CalendarTime>2006-06-01T00:00:00</CalendarTime>
+    <Time>2006</Time>
+    <Enabled>true</Enabled>
+    <Area>York (S)</Area>
+    <Model_x0020_Year>1337</Model_x0020_Year>
+  </Vehicle_x0020_cohorts>
+</Entities_x0020_2>

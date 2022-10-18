@@ -1,0 +1,1122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="DER cohort">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>false</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>false</IsKey>
+          <AutoIncrement>false</AutoIncrement>
+          <BaseType>Households</BaseType>
+        </Attribute>
+        <Attribute name="DER cohortID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>DER cohort</BaseType>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="DER installed capacity">
+          <Units>kW</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>DER installations*DER capacity per system</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="DER installations" OwnerTag="EntityType:DER cohort" />
+            <Cause CausalType="Information" VariableName="DER capacity per system" OwnerTag="EntityType:DER cohort" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort[]" VariableName="Sum DER installed capacity" OwnerTag="Collection:DER cohort.DER cohort[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="nominal age">
+          <Units>month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Model.time-Vintage Year</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="Vintage Year" OwnerTag="EntityType:DER cohort" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping rate by age" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="scrapping rate by age">
+          <Units>1/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>0.02*DER hazard function(nominal age)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="DER hazard function" OwnerTag="EntityType:DER cohort" />
+            <Cause CausalType="Information" VariableName="nominal age" OwnerTag="EntityType:DER cohort" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Auxiliary>
+      </Auxiliaries>
+      <TableFunctions>
+        <TableFunction name="DER hazard function">
+          <Description>Rate of scrapping of old DER systems given age</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>1/month</UnitsOut>
+          <Equation>-1,21,-1,2,0,0.01,10,0.015,15,0.02,20,0.05</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping rate by age" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </TableFunction>
+      </TableFunctions>
+      <Stocks>
+        <Stock name="DER capacity per system">
+          <Units>kW/system</Units>
+          <Equation>Model.DER initial capacity per system</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Model" VariableName="DER initial capacity per system" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="DER installed capacity" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Stock>
+        <Stock name="DER installations">
+          <Units>systems</Units>
+          <Equation>0</Equation>
+          <Causes>
+            <Cause CausalType="InFlow" Reference="DER cohort" VariableName="initial adoption" OwnerTag="EntityType:Households" />
+            <Cause CausalType="InFlow" Reference="DER cohort" VariableName="DER replacing systems" OwnerTag="EntityType:Households" />
+            <Cause CausalType="OutFlow" VariableName="scrapping" OwnerTag="EntityType:DER cohort" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="DER cohort[]" VariableName="Sum DER installations" OwnerTag="Collection:DER cohort.DER cohort[]" />
+            <Use CausalType="InformationSource" Reference="DER cohort[Area]" VariableName="Sum DER installations" OwnerTag="Collection:DER cohort.DER cohort[Area]" />
+            <Use CausalType="InformationSource" VariableName="DER installed capacity" OwnerTag="EntityType:DER cohort" />
+            <Use CausalType="InformationSource" VariableName="scrapping" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Stock>
+        <Stock name="Vintage Year">
+          <Units>month</Units>
+          <Equation>Model.Time</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="nominal age" OwnerTag="EntityType:DER cohort" />
+          </Uses>
+        </Stock>
+      </Stocks>
+      <Flows>
+        <Flow name="scrapping">
+          <Units>systems/month</Units>
+          <From>DER installations</From>
+          <IsConstant>false</IsConstant>
+          <Equation>scrapping rate by age*DER installations</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="scrapping rate by age" OwnerTag="EntityType:DER cohort" />
+            <Cause CausalType="Information" VariableName="DER installations" OwnerTag="EntityType:DER cohort" />
+          </Causes>
+          <Uses>
+            <Use CausalType="OutFlow" Reference="DER cohort" VariableName="DER installations" OwnerTag="EntityType:DER cohort" />
+            <Use CausalType="InformationSource" Reference="DER cohort[Area]" VariableName="Sum scrapping" OwnerTag="Collection:DER cohort.DER cohort[Area]" />
+          </Uses>
+        </Flow>
+      </Flows>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="200" LocationY="100" Height="40" Width="76" />
+              <Label LocationX="164" LocationY="92.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Stock" MemberName="Vintage Year" IsMidLabel="False" LabelText="Vintage Year" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="225" LocationY="325" Height="60" Width="86" />
+              <Label LocationX="184" LocationY="317.4544" Height="15.09114" Width="82" />
+            </Node>
+            <Node PartID="13" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="250" LocationY="450" Height="52" Width="76" />
+              <Label LocationX="214" LocationY="434.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="26" NodeType="Auxiliary" MemberName="nominal age" IsMidLabel="False" LabelText="nominal age" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="425" LocationY="300" Height="52" Width="76" />
+              <Label LocationX="389" LocationY="284.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="56" NodeType="Attribute" MemberName="DER cohortID" IsMidLabel="False" LabelText="DER cohortID" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="190" LocationY="189" Height="40" Width="76" />
+              <Label LocationX="154" LocationY="173.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="192" NodeType="Stock" MemberName="DER installations" IsMidLabel="False" LabelText="DER installations" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="600" LocationY="175" Height="60" Width="86" />
+              <Label LocationX="559" LocationY="159.9089" Height="30.18229" Width="82" />
+            </Node>
+            <Node PartID="205" NodeType="Cloud" IsMidLabel="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="850" LocationY="175" Height="45" Width="50" />
+              <Label LocationX="827" LocationY="167.4544" Height="15.09114" Width="46.00001" />
+            </Node>
+            <Node PartID="211" NodeType="Flow" MemberName="scrapping" IsMidLabel="True" LabelText="scrapping" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="734.8291" LocationY="200.9998" Height="52" Width="68.06683" />
+              <Label LocationX="702.7957" LocationY="193.4542" Height="15.09114" Width="64.06683" />
+            </Node>
+            <Node PartID="224" NodeType="Auxiliary" MemberName="scrapping rate by age" IsMidLabel="False" LabelText="scrapping rate by age" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="625" LocationY="300" Height="52" Width="76" />
+              <Label LocationX="589" LocationY="284.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="362" NodeType="TableFunction" MemberName="DER hazard function" IsMidLabel="False" LabelText="DER hazard function" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="675" LocationY="425" Height="55" Width="103.2687" />
+              <Label LocationX="625.3657" LocationY="409.9088" Height="30.18229" Width="99.26868" />
+            </Node>
+            <Node PartID="504" NodeType="Stock" MemberName="DER capacity per system" IsMidLabel="False" LabelText="DER capacity per system" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="1175" LocationY="300" Height="60" Width="86" />
+              <Label LocationX="1134" LocationY="284.9089" Height="30.18229" Width="82" />
+            </Node>
+            <Node PartID="1106" NodeType="Auxiliary" MemberName="DER installed capacity" IsMidLabel="False" LabelText="DER installed capacity" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:DER cohort" />
+              <Position LocationX="1025" LocationY="150" Height="52" Width="115" />
+              <Label LocationX="969.5" LocationY="134.9088" Height="30.18229" Width="111" />
+            </Node>
+            <Node PartID="3530" NodeType="Auxiliary" MemberName="DER initial capacity per system" IsMidLabel="False" LabelText="DER initial capacity per system" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="1012" LocationY="272" Height="68" Width="140" />
+              <Label LocationX="944" LocationY="249.3633" Height="45.27343" Width="136" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="15" LinkType="Initial" FromNode="13" FromPort="14" ToNode="11" ToPort="12" PointCount="4" LabelNodeID="0" Points="238.7876|423|230.3275|402.6278|225.8609|380.2945|225.4826|356" ManualStroke="False" />
+            <Link PartID="31" LinkType="Information" FromNode="11" FromPort="12" ToNode="26" ToPort="27" PointCount="4" LabelNodeID="0" Points="269|308.486|305.5193|294.7795|344.5193|289.9045|386|295.1078" ManualStroke="False" />
+            <Link PartID="46" LinkType="Information" FromNode="13" FromPort="14" ToNode="26" ToPort="27" PointCount="4" LabelNodeID="0" Points="270.315|423|305.8175|375.8148|343.1508|343.8148|386|320.8772" ManualStroke="False" />
+            <Link PartID="210" LinkType="Flow" FromNode="192" FromPort="193" ToNode="205" ToPort="206" PointCount="6" LabelNodeID="211" Points="643|175|643|175|734.8291|175|734.8291|174.9997|825|174.9997|825|174.9997" ManualStroke="False" />
+            <Link PartID="244" LinkType="Information" FromNode="224" FromPort="225" ToNode="211" ToPort="212" PointCount="4" LabelNodeID="0" Points="640.7679|273|658.2033|243.1444|674.8442|228.1443|699.7957|216.8532" ManualStroke="False" />
+            <Link PartID="289" LinkType="Information" FromNode="192" FromPort="193" ToNode="211" ToPort="212" PointCount="4" LabelNodeID="0" Points="644|156.2324|683.3855|139.4331|701.984|143.0196|719.5339|173.9998" ManualStroke="False" />
+            <Link PartID="335" LinkType="Information" FromNode="26" FromPort="27" ToNode="224" ToPort="225" PointCount="4" LabelNodeID="0" Points="464|295.1046|504.6667|290|545.3333|290|586|295.1046" ManualStroke="False" />
+            <Link PartID="424" LinkType="Information" FromNode="362" FromPort="363" ToNode="224" ToPort="225" PointCount="4" LabelNodeID="0" Points="649.7229|396.5|635.7638|380.7611|626.4971|357.5945|625.7018|327" ManualStroke="False" />
+            <Link PartID="1140" LinkType="Information" FromNode="192" FromPort="430" ToNode="1106" ToPort="1107" PointCount="4" LabelNodeID="0" Points="644|149.5919|738.3256|95.1228|845.8256|88.7993|966.5|130.0181" ManualStroke="False" />
+            <Link PartID="1150" LinkType="Information" FromNode="504" FromPort="505" ToNode="1106" ToPort="1107" PointCount="4" LabelNodeID="0" Points="1131|272.4164|1099.191|252.4754|1068.525|221.8088|1041.365|177" ManualStroke="False" />
+            <Link PartID="3550" LinkType="Initial" FromNode="3530" FromPort="3531" ToNode="504" ToPort="505" PointCount="4" LabelNodeID="0" Points="1083|276.0739|1100.693|277.0891|1116.693|279.8376|1131|284.7849" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Area">
+          <BaseType>EntityType:Households</BaseType>
+          <Conditions>
+            <Condition Key="AreaID" Value="" />
+          </Conditions>
+        </Reference>
+        <Reference name="Model">
+          <BaseType>EntityType:Model</BaseType>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="DER cohort[]">
+          <BaseType>DER cohort</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="average capacity per system">
+              <Units>kW/system</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum DER installed capacity/Sum DER installations</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum DER installed capacity" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Cause CausalType="Information" VariableName="Sum DER installations" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Causes>
+            </Auxiliary>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+            <Auxiliary name="DER installed capacity GW">
+              <Units>GW</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum DER installed capacity/Model.kW per GW</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum DER installed capacity" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="kW per GW" OwnerTag="EntityType:Model" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Uses>
+            </Auxiliary>
+            <Auxiliary name="DER onsite consumption">
+              <Units>GWh/month</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>DER output*Model.site consumption ratio</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="site consumption ratio" OwnerTag="EntityType:Model" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="Exported DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Use CausalType="InformationSource" Reference="Households[]" VariableName="household net demand" OwnerTag="Collection:Households.Households[]" />
+                <Use CausalType="InformationSource" Reference="SWIS" VariableName="Gross electricity demand" OwnerTag="EntityType:SWIS" />
+              </Uses>
+            </Auxiliary>
+            <Auxiliary name="DER output">
+              <Units>GWh/month</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>DER installed capacity GW*Model.normalised PV output</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER installed capacity GW" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="DER onsite consumption" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Use CausalType="InformationSource" VariableName="Exported DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Uses>
+            </Auxiliary>
+            <Auxiliary name="Exported DER output">
+              <Units>GWh/month</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>DER output-DER onsite consumption</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Cause CausalType="Information" VariableName="DER onsite consumption" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Causes>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum DER installations">
+              <Units>systems</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>DER installations</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER installations" OwnerTag="EntityType:DER cohort" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="average capacity per system" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Uses>
+            </Aggregate>
+            <Aggregate name="Sum DER installed capacity">
+              <Units>kW</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>DER installed capacity</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER installed capacity" OwnerTag="EntityType:DER cohort" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="average capacity per system" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <Use CausalType="InformationSource" VariableName="DER installed capacity GW" OwnerTag="Collection:DER cohort.DER cohort[]" />
+              </Uses>
+            </Aggregate>
+          </Aggregates>
+          <Charts>
+            <Chart name="Plot1">
+              <PlotedItems>
+                <PlottedItem VariableName="Sum DER installations" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <PlottedItem VariableName="Installed DER systems" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </PlotedItems>
+              <MainTitleText MainTitleText="" />
+              <ViewType ViewType="Line" />
+              <VChartTitleCollection>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+              </VChartTitleCollection>
+              <VChartArea>
+                <AutoLayout>true</AutoLayout>
+                <BackColor>FFFFFF</BackColor>
+                <ForeColor />
+                <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </EmptyChartText>
+                <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </SmallChartText>
+              </VChartArea>
+              <VChartDiagram>
+                <Rotated>false</Rotated>
+                <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <PaneDistance>10</PaneDistance>
+                <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+                <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+                <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+                <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                    <Min Value="06/01/2006 00:00:00" />
+                    <Max Value="06/01/2030 00:00:00" />
+                  </VisualRange>
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                      <Min Value="06/01/2006 00:00:00" />
+                      <Max Value="06/01/2030 00:00:00" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisX>
+                <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="true" SideMarginsValue="57212.791980724127">
+                      <Min Value="0" />
+                      <Max Value="572127.919807241" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="{V:#,#}" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisY>
+                <SecondaryAxesX />
+                <SecondaryAxesY />
+                <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+                  <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                  <Shadow Size="2" Visible="false" Color="FFFFFF" />
+                  <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+                </DefaultPane>
+              </VChartDiagram>
+              <VChartDataStyleCollection>
+                <VChartDataStyle>
+                  <Variable ParentName="SWIS_DER[]" VariableName="Installed DER systems" />
+                  <EntityName />
+                  <Style Color="000000" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="Sum DER installations" />
+                  <EntityName />
+                  <Style Color="1F497D" DashStyle="DashDotDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+              </VChartDataStyleCollection>
+            </Chart>
+            <Chart name="Plot2">
+              <PlotedItems>
+                <PlottedItem VariableName="DER onsite consumption" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <PlottedItem VariableName="DER output" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <PlottedItem VariableName="estimated PV output" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </PlotedItems>
+              <MainTitleText MainTitleText="" />
+              <ViewType ViewType="Line" />
+              <VChartTitleCollection>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+              </VChartTitleCollection>
+              <VChartLegend>
+                <General Visibility="True" AlignmentHorizontal="Center" AlignmentVertical="BottomOutside" Direction="TopToBottom" EquallySpacedItems="true" UseCheckBoxes="false" MaxHorizontalPercentage="100" MaxVerticalPercentage="100">
+                  <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                </General>
+                <Appearance BackColor="FFFFFF">
+                  <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                </Appearance>
+                <Text TextVisible="true" TextColor="000000" TextOffset="5" EnableAntialiasing="False">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                </Text>
+                <Interior HorizontalIndent="5" VerticalIndent="5">
+                  <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                </Interior>
+                <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                <Shadow Size="2" Visible="false" Color="FFFFFF" />
+                <Marker MarkerVisible="true">
+                  <MarkerSize Height="10" Width="10" />
+                </Marker>
+              </VChartLegend>
+              <VChartArea>
+                <AutoLayout>true</AutoLayout>
+                <BackColor>FFFFFF</BackColor>
+                <ForeColor />
+                <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </EmptyChartText>
+                <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </SmallChartText>
+              </VChartArea>
+              <VChartDiagram>
+                <Rotated>false</Rotated>
+                <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <PaneDistance>10</PaneDistance>
+                <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+                <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+                <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+                <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                    <Min Value="06/01/2006 00:00:00" />
+                    <Max Value="06/01/2030 00:00:00" />
+                  </VisualRange>
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                      <Min Value="06/01/2006 00:00:00" />
+                      <Max Value="06/01/2030 00:00:00" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisX>
+                <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="true" SideMarginsValue="67.584517542489465">
+                      <Min Value="0" />
+                      <Max Value="675.845175424895" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="{V:#,#}" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisY>
+                <SecondaryAxesX />
+                <SecondaryAxesY />
+                <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="104" BackColor="FFFFFF">
+                  <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                  <Shadow Size="2" Visible="false" Color="FFFFFF" />
+                  <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+                </DefaultPane>
+              </VChartDiagram>
+              <VChartDataStyleCollection>
+                <VChartDataStyle>
+                  <Variable ParentName="SWIS_DER[]" VariableName="Actual SWIS DER capacity" />
+                  <EntityName />
+                  <Style Color="000000" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="DER installed capacity GW" />
+                  <EntityName />
+                  <Style Color="1F497D" DashStyle="DashDotDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="DER onsite consumption" />
+                  <EntityName />
+                  <Style Color="F79646" DashStyle="DashDotDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="Exported DER output" />
+                  <EntityName />
+                  <Style Color="1F497D" DashStyle="DashDotDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="SWIS_DER[]" VariableName="estimated PV output" />
+                  <EntityName />
+                  <Style Color="000000" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="DER output" />
+                  <EntityName />
+                  <Style Color="002B5E" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+              </VChartDataStyleCollection>
+            </Chart>
+            <Chart name="Plot3">
+              <PlotedItems>
+                <PlottedItem VariableName="average capacity per system" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <PlottedItem VariableName="average actual PV capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </PlotedItems>
+              <MainTitleText MainTitleText="" />
+              <ViewType ViewType="Point" />
+              <VChartTitleCollection>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+              </VChartTitleCollection>
+              <VChartArea>
+                <AutoLayout>true</AutoLayout>
+                <BackColor>FFFFFF</BackColor>
+                <ForeColor />
+                <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </EmptyChartText>
+                <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </SmallChartText>
+              </VChartArea>
+              <VChartDiagram>
+                <Rotated>false</Rotated>
+                <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <PaneDistance>10</PaneDistance>
+                <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+                <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+                <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+                <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                    <Min Value="09/01/2006 00:00:00" />
+                    <Max Value="06/01/2030 00:00:00" />
+                  </VisualRange>
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                      <Min Value="07/01/2006 00:00:00" />
+                      <Max Value="06/01/2030 00:00:00" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisX>
+                <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.44340554914379959">
+                      <Min Value="0" />
+                      <Max Value="4.434055491438" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisY>
+                <SecondaryAxesX />
+                <SecondaryAxesY />
+                <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+                  <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                  <Shadow Size="2" Visible="false" Color="FFFFFF" />
+                  <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+                </DefaultPane>
+              </VChartDiagram>
+              <VChartDataStyleCollection>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="average capacity per system" />
+                  <EntityName />
+                  <Style Color="002B5E" DashStyle="DashDotDot" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="SWIS_DER[]" VariableName="average actual PV capacity" />
+                  <EntityName />
+                  <Style Color="000000" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+              </VChartDataStyleCollection>
+            </Chart>
+            <Chart name="Plot4">
+              <PlotedItems>
+                <PlottedItem VariableName="DER installed capacity GW" OwnerTag="Collection:DER cohort.DER cohort[]" />
+                <PlottedItem VariableName="Actual SWIS DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </PlotedItems>
+              <MainTitleText MainTitleText="" />
+              <ViewType ViewType="Line" />
+              <VChartTitleCollection>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+                <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+                </VChartTitle>
+              </VChartTitleCollection>
+              <VChartArea>
+                <AutoLayout>true</AutoLayout>
+                <BackColor>FFFFFF</BackColor>
+                <ForeColor />
+                <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </EmptyChartText>
+                <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+                  <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+                </SmallChartText>
+              </VChartArea>
+              <VChartDiagram>
+                <Rotated>false</Rotated>
+                <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+                <PaneDistance>10</PaneDistance>
+                <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+                <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+                <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+                <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="true" AutoSideMargins="false" SideMarginsValue="0" />
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                      <Min Value="06/01/2006 00:00:00" />
+                      <Max Value="06/01/2030 00:00:00" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisX>
+                <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+                  <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+                  <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+                  <WholeRange>
+                    <Range Auto="true" AutoSideMargins="true" SideMarginsValue="0.79983425206232661">
+                      <Min Value="0" />
+                      <Max Value="7.99834252062327" />
+                    </Range>
+                    <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+                  </WholeRange>
+                  <Interlace Enabled="false" Color="FFFFFF">
+                    <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  </Interlace>
+                  <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+                  </Title>
+                  <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+                  <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                    <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                    <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                  </GridLines>
+                  <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                    <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+                  </Label>
+                  <CustomLabels />
+                  <MinorCount>4</MinorCount>
+                </PrimaryAxisY>
+                <SecondaryAxesX />
+                <SecondaryAxesY />
+                <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="178" BackColor="FFFFFF">
+                  <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+                  <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+                  <Shadow Size="2" Visible="false" Color="FFFFFF" />
+                  <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+                </DefaultPane>
+              </VChartDiagram>
+              <VChartDataStyleCollection>
+                <VChartDataStyle>
+                  <Variable ParentName="DER cohort[]" VariableName="DER installed capacity GW" />
+                  <EntityName />
+                  <Style Color="002B5E" DashStyle="DashDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+                <VChartDataStyle>
+                  <Variable ParentName="SWIS_DER[]" VariableName="Actual SWIS DER capacity" />
+                  <EntityName />
+                  <Style Color="000000" DashStyle="Solid" Thickness="1" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+                </VChartDataStyle>
+              </VChartDataStyleCollection>
+            </Chart>
+          </Charts>
+          <Containers>
+            <Container name="Model.DER capacity increment per system_C1">
+              <Container ContainerSource="Model.DER capacity increment per system" />
+              <InitialValue InitialValue="0.5" />
+              <EntityType EntityType="model" />
+              <BackColor BackColor="FFFFFF" />
+              <ForeColor ForeColor="000000" />
+              <Precision Precision="3" />
+              <AutoSetMinMax AutoSetMinMax="True" />
+              <Minimum Minimum="0.02" />
+              <Maximum Maximum="1" />
+              <IgnoreBase IgnoreBase="False" />
+              <Caption Caption="" />
+              <ContainerColumns ContainerColumns="" />
+            </Container>
+          </Containers>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="3" NodeType="Aggregate" MemberName="Sum DER installations" IsMidLabel="False" LabelText="Sum DER installations" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="375" LocationY="125" Height="52" Width="96" />
+                  <Label LocationX="329" LocationY="109.9089" Height="30.18229" Width="92" />
+                </Node>
+                <Node PartID="11" NodeType="Plot" MemberName="Plot1" IsMidLabel="False" LabelText="Plot1" CaptionHidden="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="500" LocationY="78.4" Height="356.6" Width="646" />
+                  <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+                </Node>
+                <Node PartID="15" NodeType="Aggregate" MemberName="Sum DER installed capacity" IsMidLabel="False" LabelText="Sum DER installed capacity" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="300" LocationY="325" Height="52" Width="159" />
+                  <Label LocationX="222.5" LocationY="309.9089" Height="30.18229" Width="155" />
+                </Node>
+                <Node PartID="21" NodeType="Plot" MemberName="Plot2" IsMidLabel="False" LabelText="Plot2" CaptionHidden="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="550" LocationY="800" Height="318" Width="640" />
+                  <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+                </Node>
+                <Node PartID="25" NodeType="Auxiliary" MemberName="DER installed capacity GW" IsMidLabel="False" LabelText="DER installed capacity GW" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="275" LocationY="400" Height="52" Width="126" />
+                  <Label LocationX="214" LocationY="384.9088" Height="30.18229" Width="122" />
+                </Node>
+                <Node PartID="30" NodeType="Auxiliary" MemberName="kW per GW" IsMidLabel="False" LabelText="kW per GW" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="125" LocationY="350" Height="52" Width="76" />
+                  <Label LocationX="89" LocationY="334.9089" Height="30.18229" Width="72" />
+                </Node>
+                <Node PartID="116" NodeType="Auxiliary" MemberName="DER output" IsMidLabel="False" LabelText="DER output" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="250" LocationY="500" Height="52" Width="76" />
+                  <Label LocationX="214" LocationY="492.4544" Height="15.09114" Width="72" />
+                </Node>
+                <Node PartID="558" NodeType="Auxiliary" MemberName="DER onsite consumption" IsMidLabel="False" LabelText="DER onsite consumption" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="325" LocationY="600" Height="52" Width="86.38715" />
+                  <Label LocationX="283.8064" LocationY="584.9089" Height="30.18229" Width="82.38715" />
+                </Node>
+                <Node PartID="631" NodeType="Auxiliary" MemberName="site consumption ratio" IsMidLabel="False" LabelText="site consumption ratio" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="400" LocationY="525" Height="36" Width="154.5968" />
+                  <Label LocationX="324.7016" LocationY="509.9089" Height="30.18229" Width="150.5968" />
+                </Node>
+                <Node PartID="708" NodeType="Auxiliary" MemberName="Exported DER output" IsMidLabel="False" LabelText="Exported DER output" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="250" LocationY="700" Height="52" Width="76" />
+                  <Label LocationX="214" LocationY="684.9089" Height="30.18229" Width="72" />
+                </Node>
+                <Node PartID="1027" NodeType="Auxiliary" MemberName="average capacity per system" IsMidLabel="False" LabelText="average capacity per system" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="126" LocationY="209" Height="36" Width="124" />
+                  <Label LocationX="66" LocationY="193.9089" Height="30.18229" Width="120" />
+                </Node>
+                <Node PartID="1124" NodeType="Plot" MemberName="Plot3" IsMidLabel="False" LabelText="Plot3" CaptionHidden="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="1125" LocationY="450" Height="316" Width="493" />
+                  <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+                </Node>
+                <Node PartID="1190" NodeType="Container" MemberName="Model.DER capacity increment per system_C1" IsMidLabel="False" LabelText="Model.DER capacity increment per system_C1" CaptionHidden="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="25" LocationY="845" Height="110" Width="500" />
+                  <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+                </Node>
+                <Node PartID="6400" NodeType="Plot" MemberName="Plot4" IsMidLabel="False" LabelText="Plot4" CaptionHidden="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[]" />
+                  <Position LocationX="500" LocationY="450" Height="318" Width="619" />
+                  <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+                </Node>
+                <Node PartID="6446" NodeType="Stock" MemberName="Actual SWIS DER capacity" IsMidLabel="False" LabelText="Actual SWIS DER capacity" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" ReferenceName="SWIS_DER Collection" />
+                  <Position LocationX="575" LocationY="500" Height="55" Width="129" />
+                  <Label LocationX="512.5" LocationY="474.5" Height="51" Width="125" />
+                </Node>
+                <Node PartID="6475" NodeType="Auxiliary" MemberName="normalised PV output" IsMidLabel="False" LabelText="normalised PV output" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="93.5" LocationY="403.5" Height="36" Width="151" />
+                  <Label LocationX="20" LocationY="388.4088" Height="30.18229" Width="147" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="27" LinkType="Information" FromNode="15" FromPort="6449" ToNode="25" ToPort="6451" PointCount="4" LabelNodeID="0" Points="305.1157|352|307.6403|365.3246|305.307|372.3246|304.5673|373" ManualStroke="False" />
+                <Link PartID="33" LinkType="Information" FromNode="30" FromPort="6452" ToNode="25" ToPort="6451" PointCount="4" LabelNodeID="0" Points="164|349.5195|185.9912|349.2486|201.6579|354.4708|231.5063|373" ManualStroke="False" />
+                <Link PartID="647" LinkType="Information" FromNode="116" FromPort="6454" ToNode="558" ToPort="6456" PointCount="4" LabelNodeID="0" Points="289|524.7748|297.75|530.3333|309.25|545.6667|317.1733|573" ManualStroke="False" />
+                <Link PartID="656" LinkType="Information" FromNode="631" FromPort="6610" ToNode="558" ToPort="6609" PointCount="4" LabelNodeID="0" Points="393.5535|544|385.4755|567.8088|375.8088|577.4755|369.1936|580.4081" ManualStroke="False" />
+                <Link PartID="734" LinkType="Information" FromNode="116" FromPort="6454" ToNode="708" ToPort="6458" PointCount="4" LabelNodeID="0" Points="257.1366|527|270|575.6667|270|624.3333|257.1365|673" ManualStroke="False" />
+                <Link PartID="744" LinkType="Information" FromNode="558" FromPort="559" ToNode="708" ToPort="709" PointCount="4" LabelNodeID="0" Points="317.1733|627|309.25|654.3333|297.75|669.6667|289|675.2252" ManualStroke="False" />
+                <Link PartID="1059" LinkType="Information" FromNode="3" FromPort="6600" ToNode="1027" ToPort="6612" PointCount="4" LabelNodeID="0" Points="327.411|152|284.0814|176.5834|235.8039|192.7728|189|199.4765" ManualStroke="False" />
+                <Link PartID="1071" LinkType="Information" FromNode="15" FromPort="6602" ToNode="1027" ToPort="6612" PointCount="4" LabelNodeID="0" Points="231.1665|298|213.1991|290.9523|177.8515|267.2856|142.3178|227" ManualStroke="False" />
+                <Link PartID="6544" LinkType="Information" FromNode="25" FromPort="6451" ToNode="116" ToPort="6454" PointCount="4" LabelNodeID="0" Points="280.0468|427|283.8195|447.1841|279.9862|462.5174|271.6001|473" ManualStroke="False" />
+                <Link PartID="6599" LinkType="Information" FromNode="6475" FromPort="6476" ToNode="116" ToPort="6454" PointCount="4" LabelNodeID="0" Points="160.8914|422.5|163.7061|423.2935|192.6016|441.1109|223.6835|473" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+            <Reference name="SWIS_DER Collection">
+              <BaseType>Collection:SWIS_DER.SWIS_DER[]</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+        <Collection name="DER cohort[Area]">
+          <BaseType>DER cohort</BaseType>
+          <Properties />
+          <Attributes>
+            <Attribute name="Area">
+              <IsKey>true</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+              <BaseType>Households</BaseType>
+            </Attribute>
+          </Attributes>
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum DER installations">
+              <Units>systems</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>DER installations</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="DER installations" OwnerTag="EntityType:DER cohort" />
+              </Causes>
+            </Aggregate>
+            <Aggregate name="Sum scrapping">
+              <Units>systems/month</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>scrapping</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="scrapping" OwnerTag="EntityType:DER cohort" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" Reference="Households" VariableName="DER replacing systems" OwnerTag="EntityType:Households" />
+              </Uses>
+            </Aggregate>
+          </Aggregates>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="5" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[Area]" />
+                  <Position LocationX="222" LocationY="90" Height="40" Width="76" />
+                  <Label LocationX="186" LocationY="82.45443" Height="15.09114" Width="72" />
+                </Node>
+                <Node PartID="9" NodeType="Aggregate" MemberName="Sum DER installations" IsMidLabel="False" LabelText="Sum DER installations" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[Area]" />
+                  <Position LocationX="400" LocationY="100" Height="52" Width="96" />
+                  <Label LocationX="354" LocationY="84.90886" Height="30.18229" Width="92" />
+                </Node>
+                <Node PartID="13" NodeType="Aggregate" MemberName="Sum scrapping" IsMidLabel="False" LabelText="Sum scrapping" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:DER cohort.DER cohort[Area]" />
+                  <Position LocationX="625" LocationY="100" Height="52" Width="96" />
+                  <Label LocationX="579" LocationY="92.45443" Height="15.09114" Width="92" />
+                </Node>
+              </Nodes>
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Area">
+              <BaseType>EntityType:Households</BaseType>
+              <Conditions>
+                <Condition Key="AreaID" Value="" />
+              </Conditions>
+            </Reference>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+      <Actions>
+        <Action name="Assign head">
+          <Properties>
+            <Type>Command</Type>
+            <SortOrder>None</SortOrder>
+            <Quantity>1</Quantity>
+          </Properties>
+          <Attributes>
+            <Attribute name="Households●Head Cohort●Head DER cohort">
+              <IsKey>false</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+              <BaseType>Households</BaseType>
+              <Expression>Invoker●DER cohortID</Expression>
+            </Attribute>
+            <Attribute name="Invoker●DER cohortID">
+              <IsKey>true</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+              <BaseType>DER cohort</BaseType>
+            </Attribute>
+          </Attributes>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="1" NodeType="Attribute" MemberName="Invoker●DER cohortID" IsMidLabel="False" LabelText="Invoker●&#xA;DER cohortID" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Action:DER cohort.Assign head" />
+                  <Position LocationX="218" LocationY="124" Height="52" Width="140" />
+                  <Label LocationX="150" LocationY="108.9089" Height="30.18229" Width="136" />
+                </Node>
+                <Node PartID="3" NodeType="Attribute" MemberName="Households●Head Cohort●Head DER cohort" IsMidLabel="False" LabelText="Households●Head Cohort●&#xA;Head DER cohort" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Action:DER cohort.Assign head" />
+                  <Position LocationX="490.4579" LocationY="122" Height="52" Width="201.0842" />
+                  <Label LocationX="391.9158" LocationY="106.9089" Height="30.18229" Width="197.0842" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="5" LinkType="Initial" FromNode="1" FromPort="3" ToNode="3" ToPort="4" PointCount="4" LabelNodeID="0" Points="278.8736|117.6415|321.6324|113.1752|355.2343|112.9075|388.9158|115.6004" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Invoker">
+              <BaseType>EntityType:DER cohort</BaseType>
+              <Conditions>
+                <Condition Key="DER cohortID" Value="" />
+              </Conditions>
+            </Reference>
+            <Reference name="Parent">
+              <BaseType>EntityType:DER cohort</BaseType>
+              <Conditions>
+                <Condition Key="DER cohortID" Value="" />
+              </Conditions>
+            </Reference>
+          </References>
+        </Action>
+      </Actions>
+    </EntityType>
+  </Entities>
+</EntitySet>

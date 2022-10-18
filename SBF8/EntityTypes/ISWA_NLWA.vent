@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="ISWA_NLWA">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>ISWA_NLWA</BaseType>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="total wholesale">
+          <Units>GWh</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>RBU_Gross_ISWA_GWh+RBU_Gross_NLWA_GWh</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="RBU_Gross_ISWA_GWh" OwnerTag="EntityType:ISWA_NLWA" />
+            <Cause CausalType="Information" VariableName="RBU_Gross_NLWA_GWh" OwnerTag="EntityType:ISWA_NLWA" />
+          </Causes>
+        </Auxiliary>
+      </Auxiliaries>
+      <DataVariables>
+        <DataVariable name="FYE">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>FYE</InputVariableName>
+          <Units>year</Units>
+          <Description>Financial Year Ending</Description>
+        </DataVariable>
+        <DataVariable name="MONTH">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>MONTH</InputVariableName>
+          <Units>month</Units>
+        </DataVariable>
+        <DataVariable name="RBU_Gross_ISWA_GWh">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>RBU_Gross_ISWA_GWh</InputVariableName>
+          <Units>GWh</Units>
+        </DataVariable>
+        <DataVariable name="RBU_Gross_NLWA_GWh">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>RBU_Gross_NLWA_GWh</InputVariableName>
+          <Units>GWh</Units>
+        </DataVariable>
+        <DataVariable name="YEAR">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>YEAR</InputVariableName>
+          <Units>year</Units>
+        </DataVariable>
+      </DataVariables>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="150" LocationY="75" Height="40" Width="76" />
+              <Label LocationX="114" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7" NodeType="Data" MemberName="FYE" IsMidLabel="False" LabelText="FYE" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="300" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="264" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Data" MemberName="YEAR" IsMidLabel="False" LabelText="YEAR" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="450" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="414" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="15" NodeType="Data" MemberName="MONTH" IsMidLabel="False" LabelText="MONTH" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="575" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="539" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="19" NodeType="Data" MemberName="RBU_Gross_ISWA_GWh" IsMidLabel="False" LabelText="RBU_Gross_ISWA_GWh" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="725" LocationY="75" Height="52" Width="163.1775" />
+              <Label LocationX="645.4113" LocationY="67.45443" Height="15.09114" Width="159.1775" />
+            </Node>
+            <Node PartID="23" NodeType="Data" MemberName="RBU_Gross_NLWA_GWh" IsMidLabel="False" LabelText="RBU_Gross_NLWA_GWh" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="925" LocationY="75" Height="52" Width="167.7544" />
+              <Label LocationX="843.1228" LocationY="67.45443" Height="15.09114" Width="163.7544" />
+            </Node>
+            <Node PartID="27" NodeType="Auxiliary" MemberName="total wholesale" IsMidLabel="False" LabelText="total wholesale" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ISWA_NLWA" />
+              <Position LocationX="800" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="764" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="29" LinkType="Information" FromNode="19" FromPort="20" ToNode="27" ToPort="28" PointCount="4" LabelNodeID="0" Points="750.5613|102|772.3885|125.0557|788.3885|157.0557|795.3858|198" ManualStroke="False" />
+            <Link PartID="31" LinkType="Information" FromNode="23" FromPort="24" ToNode="27" ToPort="28" PointCount="4" LabelNodeID="0" Points="912.2895|102|891.1977|146.8037|864.5311|178.8037|837.7159|198" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Area">
+          <BaseType>EntityType:ISWA_NLWA</BaseType>
+          <Conditions>
+            <Condition Key="Area" Value="" />
+          </Conditions>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="ISWA_NLWA[]">
+          <BaseType>ISWA_NLWA</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>

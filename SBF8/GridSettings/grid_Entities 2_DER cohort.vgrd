@@ -1,0 +1,96 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="#LayoutScaleFactor">@1,Width=1@1,Height=1</property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="NewItemRowPosition">Bottom</property>
+    <property name="ColumnAutoWidth">false</property>
+    <property name="ColumnHeaderAutoHeight">True</property>
+    <property name="ShowGroupPanel">false</property>
+  </property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="10">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Name">DER cohortID</property>
+      <property name="VisibleIndex">3</property>
+      <property name="Visible">true</property>
+      <property name="Width">84</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Name">CalendarTime</property>
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="Width">84</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Name">Time</property>
+      <property name="VisibleIndex">1</property>
+      <property name="Visible">true</property>
+      <property name="Width">75</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Name">Enabled</property>
+      <property name="VisibleIndex">0</property>
+      <property name="Visible">true</property>
+      <property name="Width">75</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Name">EntityName</property>
+      <property name="Width">75</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Name">Area</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="Width">75</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Name">DER capacity per system</property>
+      <property name="VisibleIndex">5</property>
+      <property name="Visible">true</property>
+      <property name="Width">138</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Name">DER hazard function</property>
+      <property name="VisibleIndex">6</property>
+      <property name="Visible">true</property>
+      <property name="Width">117</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Name">DER installations</property>
+      <property name="VisibleIndex">7</property>
+      <property name="Visible">true</property>
+      <property name="Width">98</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Name">Vintage Year</property>
+      <property name="VisibleIndex">8</property>
+      <property name="Visible">true</property>
+      <property name="Width">80</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+    </property>
+  </property>
+  <property name="GroupSummary" iskey="true" value="0" />
+  <property name="ActiveFilterString" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

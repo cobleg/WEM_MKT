@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelDataFileMapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>ecnMapping</Name>
+  <Guid>a3847660-6813-3d11-209d-94f55c4fc30b</Guid>
+  <TimeSeriesDataDescription />
+  <Mappings>
+    <IEntityTypeMapping AssemblyQualifiedName="VentityModel.DataEntityTypes.EntityTypeMapping, VentityModel, Version=4.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <EntityTypeMapping>
+        <SourceEntityTypeName>wp</SourceEntityTypeName>
+        <DataEntityTypeName>WP_ECN</DataEntityTypeName>
+        <MappingDataTable>
+          <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+            <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="wp" msdata:UseCurrentLocale="true">
+              <xs:complexType>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="wp">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="dataFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataInterpolationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataAggregationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUnits" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldDescription" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldMeasurementType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldLowerBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUpperBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldKey" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldUnits" type="xs:string" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:schema>
+          <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <DocumentElement>
+              <wp diffgr:id="wp1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                <dataFieldName>AREA</dataFieldName>
+                <dataFieldType>Key</dataFieldType>
+                <dataEntityFieldName>Area</dataEntityFieldName>
+                <dataEntityFieldType>Attribute</dataEntityFieldType>
+                <dataEntityFieldKey>Key</dataEntityFieldKey>
+              </wp>
+              <wp diffgr:id="wp2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+                <dataFieldName>Large Business connections</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Large Business connections</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>connections</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+                <dataFieldName>Medium Business connections</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Medium Business connections</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>connections</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp4" msdata:rowOrder="3" diffgr:hasChanges="inserted">
+                <dataFieldName>Residential connections</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Residential connections</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>connections</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp5" msdata:rowOrder="4" diffgr:hasChanges="inserted">
+                <dataFieldName>Small Business connections</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Small Business connections</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>connections</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp6" msdata:rowOrder="5" diffgr:hasChanges="inserted">
+                <dataFieldName>Large Business kWh per NMI</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Large Business per NMI</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kWh/connection</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp7" msdata:rowOrder="6" diffgr:hasChanges="inserted">
+                <dataFieldName>Medium Business kWh per NMI</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Medium Business kWh per NMI</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kWh/connection</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp8" msdata:rowOrder="7" diffgr:hasChanges="inserted">
+                <dataFieldName>Residential kWh per NMI</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Residential kWh per NMI</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kWh/connection</dataEntityFieldUnits>
+              </wp>
+              <wp diffgr:id="wp9" msdata:rowOrder="8" diffgr:hasChanges="inserted">
+                <dataFieldName>Small Business kWh per NMI</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Small Business per NMI</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>kWh/connection</dataEntityFieldUnits>
+              </wp>
+            </DocumentElement>
+          </diffgr:diffgram>
+        </MappingDataTable>
+      </EntityTypeMapping>
+    </IEntityTypeMapping>
+  </Mappings>
+</ModelDataFileMapping>

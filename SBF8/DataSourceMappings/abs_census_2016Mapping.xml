@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelDataFileMapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>abs_census_2016Mapping</Name>
+  <Guid>98ac2fc7-d620-b765-8870-9579ddab5206</Guid>
+  <TimeSeriesDataDescription />
+  <Mappings>
+    <IEntityTypeMapping AssemblyQualifiedName="VentityModel.DataEntityTypes.EntityTypeMapping, VentityModel, Version=4.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <EntityTypeMapping>
+        <SourceEntityTypeName>abs</SourceEntityTypeName>
+        <DataEntityTypeName>ABS_CENSUS_2016</DataEntityTypeName>
+        <MappingDataTable>
+          <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+            <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="abs" msdata:UseCurrentLocale="true">
+              <xs:complexType>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="abs">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="dataFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataInterpolationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataAggregationType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUnits" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldDescription" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldMeasurementType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldLowerBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataFieldUpperBound" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldName" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldType" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldKey" type="xs:string" minOccurs="0" />
+                        <xs:element name="dataEntityFieldUnits" type="xs:string" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:schema>
+          <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <DocumentElement>
+              <abs diffgr:id="abs1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                <dataFieldName>AreaID</dataFieldName>
+                <dataFieldType>Key</dataFieldType>
+                <dataEntityFieldName>AreaID</dataEntityFieldName>
+                <dataEntityFieldType>Attribute</dataEntityFieldType>
+                <dataEntityFieldKey>Key</dataEntityFieldKey>
+              </abs>
+              <abs diffgr:id="abs2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+                <dataFieldName>Separate Houses</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Separate Houses</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>households</dataEntityFieldUnits>
+              </abs>
+              <abs diffgr:id="abs3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+                <dataFieldName>Total households</dataFieldName>
+                <dataFieldType>Variable</dataFieldType>
+                <dataInterpolationType>Straight</dataInterpolationType>
+                <dataEntityFieldName>Total households</dataEntityFieldName>
+                <dataEntityFieldType>Data Variable</dataEntityFieldType>
+                <dataEntityFieldUnits>Households</dataEntityFieldUnits>
+              </abs>
+            </DocumentElement>
+          </diffgr:diffgram>
+        </MappingDataTable>
+      </EntityTypeMapping>
+    </IEntityTypeMapping>
+  </Mappings>
+</ModelDataFileMapping>

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="Vehicle cohorts">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>false</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>false</IsKey>
+          <AutoIncrement>false</AutoIncrement>
+          <BaseType>Vehicle cohorts</BaseType>
+        </Attribute>
+        <Attribute name="Vehicle cohortsID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="is head cohort">
+          <Units>dmnl</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>if(Vehicle cohortsID==Households.Head Cohort){1}else{0}</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Vehicle cohortsID" OwnerTag="EntityType:Vehicle cohorts" />
+            <Cause CausalType="Information" Reference="Households" VariableName="Head Cohort" OwnerTag="EntityType:Households" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Delete" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="minimum population of interest">
+          <Units>vehicles</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>10</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Delete" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="nominal age">
+          <Units>month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Model.Time-Model Year</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" VariableName="Model Year" OwnerTag="EntityType:Vehicle cohorts" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping rate by age" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="scrapping rate by age">
+          <Units>1/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Vehicle hazard rate table(nominal age)</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Vehicle hazard rate table" OwnerTag="EntityType:Vehicle cohorts" />
+            <Cause CausalType="Information" VariableName="nominal age" OwnerTag="EntityType:Vehicle cohorts" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="scrapping rate scale factor">
+          <Units>dmnl</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>3</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Auxiliary>
+      </Auxiliaries>
+      <TableFunctions>
+        <TableFunction name="Vehicle hazard rate table">
+          <Description>The hazard (or loss) rate of vehicles as a function of age</Description>
+          <UnitsIn>month</UnitsIn>
+          <UnitsOut>1/month</UnitsOut>
+          <Equation>-1,241,-1,1,0,0,12,0.01,24,0.015,36,0.02,48,0.025,60,0.03,72,0.035,84,0.05,96,0.07,108,0.1,120,0.12,132,0.14,144,0.17,156,0.2,168,0.22,180,0.25,240,0.35</Equation>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="scrapping rate by age" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </TableFunction>
+      </TableFunctions>
+      <Stocks>
+        <Stock name="Model Year">
+          <Units>month</Units>
+          <Equation>Model.Time</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Model" VariableName="Time" OwnerTag="EntityType:Model" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="nominal age" OwnerTag="EntityType:Vehicle cohorts" />
+          </Uses>
+        </Stock>
+        <Stock name="Vehicles">
+          <Units>vehicles</Units>
+          <Equation>100</Equation>
+          <Causes>
+            <Cause CausalType="OutFlow" VariableName="scrapping" OwnerTag="EntityType:Vehicle cohorts" />
+            <Cause CausalType="InFlow" Reference="Vehicle cohorts" VariableName="acquiring" OwnerTag="EntityType:Households" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Delete" OwnerTag="EntityType:Vehicle cohorts" />
+            <Use CausalType="InformationSource" VariableName="scrapping" OwnerTag="EntityType:Vehicle cohorts" />
+            <Use CausalType="InformationSource" Reference="Vehicle cohorts[]" VariableName="Sum Vehicles" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[]" />
+            <Use CausalType="InformationSource" Reference="Vehicle cohorts[Area]" VariableName="Sum Vehicles" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+          </Uses>
+        </Stock>
+      </Stocks>
+      <Flows>
+        <Flow name="scrapping">
+          <Units>vehicles/month</Units>
+          <From>Vehicles</From>
+          <IsConstant>false</IsConstant>
+          <Equation>Vehicles*scrapping rate by age*scrapping rate scale factor</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Vehicles" OwnerTag="EntityType:Vehicle cohorts" />
+            <Cause CausalType="Information" VariableName="scrapping rate by age" OwnerTag="EntityType:Vehicle cohorts" />
+            <Cause CausalType="Information" VariableName="scrapping rate scale factor" OwnerTag="EntityType:Vehicle cohorts" />
+          </Causes>
+          <Uses>
+            <Use CausalType="OutFlow" Reference="Vehicle cohorts" VariableName="Vehicles" OwnerTag="EntityType:Vehicle cohorts" />
+            <Use CausalType="InformationSource" Reference="Vehicle cohorts[Area]" VariableName="Sum scrapping" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+          </Uses>
+        </Flow>
+      </Flows>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="1" NodeType="Attribute" MemberName="Vehicle cohortsID" IsMidLabel="False" LabelText="Vehicle cohortsID" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="175" LocationY="100" Height="40" Width="76" />
+              <Label LocationX="139" LocationY="84.90886" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="5" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="175" LocationY="50" Height="40" Width="76" />
+              <Label LocationX="139" LocationY="42.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7" NodeType="Auxiliary" MemberName="Time" IsMidLabel="False" LabelText="Time" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="63" LocationY="170" Height="52" Width="76" />
+              <Label LocationX="27" LocationY="154.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Stock" MemberName="Model Year" IsMidLabel="False" LabelText="Model Year" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="175" LocationY="175" Height="60" Width="86" />
+              <Label LocationX="134" LocationY="167.4544" Height="15.09114" Width="82" />
+            </Node>
+            <Node PartID="19" NodeType="Auxiliary" MemberName="nominal age" IsMidLabel="False" LabelText="nominal age" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="250" LocationY="250" Height="52" Width="76" />
+              <Label LocationX="214" LocationY="234.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="56" NodeType="Auxiliary" MemberName="is head cohort" IsMidLabel="False" LabelText="is head cohort" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="375" LocationY="150" Height="52" Width="76" />
+              <Label LocationX="339" LocationY="134.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="90" NodeType="Auxiliary" MemberName="minimum population of interest" IsMidLabel="False" LabelText="minimum population of interest" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="401" LocationY="225" Height="52" Width="128" />
+              <Label LocationX="339" LocationY="209.9089" Height="30.18229" Width="124" />
+            </Node>
+            <Node PartID="119" NodeType="Stock" MemberName="Vehicles" IsMidLabel="False" LabelText="Vehicles" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="650" LocationY="225" Height="60" Width="86" />
+              <Label LocationX="609" LocationY="217.4544" Height="15.09114" Width="82" />
+            </Node>
+            <Node PartID="138" NodeType="Cloud" IsMidLabel="False" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="925" LocationY="225" Height="45" Width="50" />
+              <Label LocationX="902" LocationY="217.4544" Height="15.09114" Width="46.00001" />
+            </Node>
+            <Node PartID="146" NodeType="Flow" MemberName="scrapping" IsMidLabel="True" LabelText="scrapping" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="797.3291" LocationY="250.9974" Height="52" Width="68.06683" />
+              <Label LocationX="765.2957" LocationY="243.4518" Height="15.09114" Width="64.06683" />
+            </Node>
+            <Node PartID="175" NodeType="TableFunction" MemberName="Vehicle hazard rate table" IsMidLabel="False" LabelText="Vehicle hazard rate table" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="550" LocationY="425" Height="55" Width="103.2687" />
+              <Label LocationX="500.3657" LocationY="409.9088" Height="30.18229" Width="99.26868" />
+            </Node>
+            <Node PartID="309" NodeType="Auxiliary" MemberName="scrapping rate by age" IsMidLabel="False" LabelText="scrapping rate by age" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="675" LocationY="350" Height="52" Width="76" />
+              <Label LocationX="639" LocationY="334.9088" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="357" NodeType="Auxiliary" MemberName="scrapping rate scale factor" IsMidLabel="False" LabelText="scrapping rate scale factor" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="800" LocationY="350" Height="52" Width="76" />
+              <Label LocationX="764" LocationY="327.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="1328" NodeType="Trigger" MemberName="Delete" IsMidLabel="False" LabelText="Delete" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:Vehicle cohorts" />
+              <Position LocationX="500" LocationY="167.4544" Height="57.09114" Width="50" />
+              <Label LocationX="480.6901" LocationY="188.4544" Height="15.09114" Width="38.61979" />
+            </Node>
+            <Node PartID="2538" NodeType="Attribute" MemberName="Head Cohort" IsMidLabel="False" LabelText="Head Cohort" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Households" ReferenceName="Households" />
+              <Position LocationX="647.7379" LocationY="114" Height="52" Width="130.5243" />
+              <Label LocationX="584.4757" LocationY="98.90886" Height="30.18229" Width="126.5243" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="13" LinkType="Initial" FromNode="7" FromPort="8" ToNode="11" ToPort="12" PointCount="4" LabelNodeID="0" Points="102|163.7923|112.1126|162.1826|121.7793|162.6142|131|164.7601" ManualStroke="False" />
+            <Link PartID="24" LinkType="Information" FromNode="11" FromPort="12" ToNode="19" ToPort="20" PointCount="4" LabelNodeID="0" Points="219|194.5061|225.8088|197.5245|231.4755|203.1912|239.3148|223" ManualStroke="False" />
+            <Link PartID="27" LinkType="Information" FromNode="7" FromPort="8" ToNode="19" ToPort="20" PointCount="4" LabelNodeID="0" Points="79.36156|197|113.1998|252.8402|149.5332|268.3839|211|257.1364" ManualStroke="False" />
+            <Link PartID="67" LinkType="Information" FromNode="1" FromPort="2" ToNode="56" ToPort="57" PointCount="4" LabelNodeID="0" Points="213.4899|99.54991|253.7771|99.07877|297.3139|109.963|336|129.9006" ManualStroke="False" />
+            <Link PartID="145" LinkType="Flow" FromNode="119" FromPort="120" ToNode="138" ToPort="139" PointCount="6" LabelNodeID="146" Points="693|225|693|225|797.3291|225|797.3291|224.9947|900|224.9947|900|224.9947" ManualStroke="False" />
+            <Link PartID="326" LinkType="Information" FromNode="19" FromPort="20" ToNode="309" ToPort="310" PointCount="4" LabelNodeID="0" Points="289|254.1447|409.2474|266.9239|524.9141|294.1394|636|335.4846" ManualStroke="False" />
+            <Link PartID="333" LinkType="Information" FromNode="175" FromPort="176" ToNode="309" ToPort="310" PointCount="4" LabelNodeID="0" Points="576.7336|396.5|600.0434|371.6501|612.8768|363.9501|636|358.7577" ManualStroke="False" />
+            <Link PartID="380" LinkType="Information" FromNode="357" FromPort="358" ToNode="146" ToPort="147" PointCount="4" LabelNodeID="0" Points="786.2427|323|778.8741|308.5385|778.4694|293.5376|785.359|277.9974" ManualStroke="False" />
+            <Link PartID="389" LinkType="Information" FromNode="309" FromPort="310" ToNode="146" ToPort="147" PointCount="4" LabelNodeID="0" Points="693.4458|323|714.3149|292.4526|732.8503|277.4518|762.2957|265.3709" ManualStroke="False" />
+            <Link PartID="435" LinkType="Information" FromNode="119" FromPort="120" ToNode="146" ToPort="147" PointCount="4" LabelNodeID="0" Points="694|209.3753|734.2407|195.0855|757.0059|199.1026|776.3496|223.9974" ManualStroke="False" />
+            <Link PartID="1360" LinkType="Information" FromNode="119" FromPort="120" ToNode="1328" ToPort="1329" PointCount="4" LabelNodeID="0" Points="606|219.7715|569.1067|215.3875|539.377|203.9821|523.7161|189.4544" ManualStroke="False" />
+            <Link PartID="1405" LinkType="Information" FromNode="90" FromPort="91" ToNode="1328" ToPort="1329" PointCount="4" LabelNodeID="0" Points="426.2293|198|448.3156|174.3637|459.2318|168.0184|486.8929|167.6357" ManualStroke="False" />
+            <Link PartID="1430" LinkType="Information" FromNode="56" FromPort="57" ToNode="1328" ToPort="1329" PointCount="4" LabelNodeID="0" Points="414|143.5901|441.4295|139.0818|466.0931|142.5257|490.9373|160.7913" ManualStroke="False" />
+            <Link PartID="2577" LinkType="Information" FromNode="2538" FromPort="2591" ToNode="56" ToPort="2583" PointCount="4" LabelNodeID="0" Points="581.4757|98.04156|507.2396|80.1627|451.4144|87.4514|407.9854|123" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Area">
+          <BaseType>EntityType:Vehicle cohorts</BaseType>
+          <Conditions>
+            <Condition Key="Vehicle cohortsID" Value="" />
+          </Conditions>
+        </Reference>
+        <Reference name="Households">
+          <BaseType>EntityType:Households</BaseType>
+          <Conditions>
+            <Condition Key="AreaID" Value="Area" />
+          </Conditions>
+        </Reference>
+        <Reference name="Model">
+          <BaseType>EntityType:Model</BaseType>
+        </Reference>
+      </References>
+      <Triggers>
+        <Trigger name="Delete">
+          <SequenceNumber>1</SequenceNumber>
+          <Condition>(Vehicles&lt;minimum population of interest) &amp;&amp; (is head cohort==0)</Condition>
+          <TriggerTime>2000-01-01T00:00:00</TriggerTime>
+          <Schedule>PeriodStart</Schedule>
+          <ActionReference>Delete vehicle cohort</ActionReference>
+        </Trigger>
+      </Triggers>
+      <Collections>
+        <Collection name="Vehicle cohorts[]">
+          <BaseType>Vehicle cohorts</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+            <Auxiliary name="ratio of vehicles to households">
+              <Units>vehicles/households</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum Vehicles/Households Collection.Sum Total households</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum Vehicles" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[]" />
+                <Cause CausalType="Information" Reference="Households Collection" VariableName="Sum Total households" OwnerTag="Collection:Households.Households[]" />
+              </Causes>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum Vehicles">
+              <Units>vehicles</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>Vehicles</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Vehicles" OwnerTag="EntityType:Vehicle cohorts" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="ratio of vehicles to households" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[]" />
+              </Uses>
+            </Aggregate>
+          </Aggregates>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="3" NodeType="Aggregate" MemberName="Sum Vehicles" IsMidLabel="False" LabelText="Sum Vehicles" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[]" />
+                  <Position LocationX="300" LocationY="100" Height="52" Width="96" />
+                  <Label LocationX="254" LocationY="92.45443" Height="15.09114" Width="92" />
+                </Node>
+                <Node PartID="5" NodeType="Aggregate" MemberName="Sum Total households" IsMidLabel="False" LabelText="Sum Total households" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:Households.Households[]" ReferenceName="Households Collection" />
+                  <Position LocationX="325.5" LocationY="225" Height="68" Width="165" />
+                  <Label LocationX="245" LocationY="209.9089" Height="30.18229" Width="161" />
+                </Node>
+                <Node PartID="9" NodeType="Auxiliary" MemberName="ratio of vehicles to households" IsMidLabel="False" LabelText="ratio of vehicles to households" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[]" />
+                  <Position LocationX="559.8075" LocationY="150" Height="52" Width="148.385" />
+                  <Label LocationX="487.615" LocationY="134.9089" Height="30.18229" Width="144.385" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="11" LinkType="Information" FromNode="3" FromPort="4" ToNode="9" ToPort="10" PointCount="4" LabelNodeID="0" Points="349|99.245|397.9846|98.49023|443.1896|107.1899|486.2574|123" ManualStroke="False" />
+                <Link PartID="13" LinkType="Information" FromNode="5" FromPort="6" ToNode="9" ToPort="10" PointCount="4" LabelNodeID="0" Points="392.1983|190|428.1079|171.1564|453.3129|163.0885|484.615|159.2414" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Households Collection">
+              <BaseType>Collection:Households.Households[]</BaseType>
+            </Reference>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+        <Collection name="Vehicle cohorts[Area]">
+          <BaseType>Vehicle cohorts</BaseType>
+          <Properties />
+          <Attributes>
+            <Attribute name="Area">
+              <IsKey>true</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+              <BaseType>Vehicle cohorts</BaseType>
+            </Attribute>
+          </Attributes>
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+            <Auxiliary name="ratio of vehicles to households">
+              <Units>vehicles/households</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum Vehicles/Households Collection.Sum Total households</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum Vehicles" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+                <Cause CausalType="Information" Reference="Households Collection" VariableName="Sum Total households" OwnerTag="Collection:Households.Households[]" />
+              </Causes>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum scrapping">
+              <Units>vehicles/month</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>scrapping</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="scrapping" OwnerTag="EntityType:Vehicle cohorts" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" Reference="Households" VariableName="acquiring" OwnerTag="EntityType:Households" />
+              </Uses>
+            </Aggregate>
+            <Aggregate name="Sum Vehicles">
+              <Units>vehicles</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>Vehicles</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Vehicles" OwnerTag="EntityType:Vehicle cohorts" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" Reference="Households" VariableName="total vehicles" OwnerTag="EntityType:Households" />
+                <Use CausalType="InformationSource" VariableName="ratio of vehicles to households" OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+              </Uses>
+            </Aggregate>
+          </Aggregates>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="3" NodeType="Aggregate" MemberName="Sum scrapping" IsMidLabel="False" LabelText="Sum scrapping" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+                  <Position LocationX="325" LocationY="125" Height="52" Width="96" />
+                  <Label LocationX="279" LocationY="117.4544" Height="15.09114" Width="92" />
+                </Node>
+                <Node PartID="7" NodeType="Aggregate" MemberName="Sum Vehicles" IsMidLabel="False" LabelText="Sum Vehicles" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+                  <Position LocationX="150" LocationY="125" Height="52" Width="96" />
+                  <Label LocationX="104" LocationY="117.4544" Height="15.09114" Width="92" />
+                </Node>
+                <Node PartID="13" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+                  <Position LocationX="134" LocationY="33" Height="40" Width="76" />
+                  <Label LocationX="98" LocationY="25.45443" Height="15.09114" Width="72" />
+                </Node>
+                <Node PartID="17" NodeType="Aggregate" MemberName="Sum Total households" IsMidLabel="False" LabelText="Sum Total households" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="Collection:Households.Households[]" ReferenceName="Households Collection" />
+                  <Position LocationX="171" LocationY="227" Height="68" Width="170" />
+                  <Label LocationX="88" LocationY="211.9089" Height="30.18229" Width="166" />
+                </Node>
+                <Node PartID="21" NodeType="Auxiliary" MemberName="ratio of vehicles to households" IsMidLabel="False" LabelText="ratio of vehicles to households" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:Vehicle cohorts.Vehicle cohorts[Area]" />
+                  <Position LocationX="360.3075" LocationY="225" Height="52" Width="149.385" />
+                  <Label LocationX="287.615" LocationY="209.9089" Height="30.18229" Width="145.385" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="23" LinkType="Information" FromNode="7" FromPort="15" ToNode="21" ToPort="22" PointCount="4" LabelNodeID="0" Points="199|136.559|242.4299|146.804|277.2714|163.371|323.9289|198" ManualStroke="False" />
+                <Link PartID="25" LinkType="Information" FromNode="17" FromPort="18" ToNode="21" ToPort="22" PointCount="4" LabelNodeID="0" Points="257|208.0252|266.205|205.9942|275.41|205.8969|284.615|207.9682" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Area">
+              <BaseType>EntityType:Vehicle cohorts</BaseType>
+              <Conditions>
+                <Condition Key="Vehicle cohortsID" Value="" />
+              </Conditions>
+            </Reference>
+            <Reference name="Households Collection">
+              <BaseType>Collection:Households.Households[]</BaseType>
+            </Reference>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+      <Actions>
+        <Action name="Assign head">
+          <Properties>
+            <Type>Command</Type>
+            <SortOrder>None</SortOrder>
+            <Quantity>1</Quantity>
+          </Properties>
+          <Attributes>
+            <Attribute name="Households●Head Cohort">
+              <IsKey>false</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+              <BaseType>Vehicle cohorts</BaseType>
+              <Expression>Invoker●Vehicle cohortsID</Expression>
+            </Attribute>
+            <Attribute name="Invoker●Vehicle cohortsID">
+              <IsKey>true</IsKey>
+              <AutoIncrement>false</AutoIncrement>
+            </Attribute>
+          </Attributes>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="1" NodeType="Attribute" MemberName="Invoker●Vehicle cohortsID" IsMidLabel="False" LabelText="Invoker●&#xA;Vehicle cohortsID" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Action:Vehicle cohorts.Assign head" />
+                  <Position LocationX="180.5" LocationY="83" Height="52" Width="117" />
+                  <Label LocationX="124" LocationY="67.90886" Height="30.18229" Width="113" />
+                </Node>
+                <Node PartID="3" NodeType="Attribute" MemberName="Households●Head Cohort" IsMidLabel="False" LabelText="Households●&#xA;Head Cohort" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Action:Vehicle cohorts.Assign head" />
+                  <Position LocationX="436.6643" LocationY="78" Height="52" Width="180.6714" />
+                  <Label LocationX="348.3286" LocationY="62.90886" Height="30.18229" Width="176.6714" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="5" LinkType="Initial" FromNode="1" FromPort="6" ToNode="3" ToPort="7" PointCount="4" LabelNodeID="0" Points="231.3648|76.54153|273.8844|71.14265|309.5072|70.43491|345.3286|72.64426" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Invoker">
+              <BaseType>EntityType:Vehicle cohorts</BaseType>
+              <Conditions>
+                <Condition Key="Vehicle cohortsID" Value="" />
+              </Conditions>
+            </Reference>
+            <Reference name="Parent">
+              <BaseType>EntityType:Vehicle cohorts</BaseType>
+              <Conditions>
+                <Condition Key="Vehicle cohortsID" Value="" />
+              </Conditions>
+            </Reference>
+          </References>
+        </Action>
+        <Action name="Delete vehicle cohort">
+          <Properties>
+            <Type>SelfDelete</Type>
+            <SortOrder>None</SortOrder>
+            <Quantity>1</Quantity>
+          </Properties>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Invoker">
+              <BaseType>EntityType:Vehicle cohorts</BaseType>
+              <Conditions>
+                <Condition Key="Vehicle cohortsID" Value="" />
+              </Conditions>
+            </Reference>
+            <Reference name="Parent">
+              <BaseType>EntityType:Vehicle cohorts</BaseType>
+              <Conditions>
+                <Condition Key="Vehicle cohortsID" Value="" />
+              </Conditions>
+            </Reference>
+          </References>
+        </Action>
+      </Actions>
+    </EntityType>
+  </Entities>
+</EntitySet>

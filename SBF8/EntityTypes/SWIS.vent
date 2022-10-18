@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="SWIS">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>false</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="SWISID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>SWIS</BaseType>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="Gross electricity demand">
+          <Units>GWh/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>DER cohort Collection.DER onsite consumption+WEM net electricity demand</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="DER cohort Collection" VariableName="DER onsite consumption" OwnerTag="Collection:DER cohort.DER cohort[]" />
+            <Cause CausalType="Information" VariableName="WEM net electricity demand" OwnerTag="EntityType:SWIS" />
+          </Causes>
+        </Auxiliary>
+        <Auxiliary name="WEM net electricity demand">
+          <Units>GWh/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>(Commercial Collection.Sum commercial electricity demand+Households Collection.Household electricity demand)</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="Commercial Collection" VariableName="Sum commercial electricity demand" OwnerTag="Collection:Commercial.Commercial[]" />
+            <Cause CausalType="Information" Reference="Households Collection" VariableName="Household electricity demand" OwnerTag="Collection:Households.Households[]" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="Gross electricity demand" OwnerTag="EntityType:SWIS" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="WP Res kWh">
+          <Units>kWh</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>WP_ECN.Residential connections*WP_ECN.Residential kWh per NMI</Equation>
+          <Causes>
+            <Cause CausalType="Information" Reference="WP_ECN" VariableName="Residential connections" OwnerTag="EntityType:WP_ECN" />
+            <Cause CausalType="Information" Reference="WP_ECN" VariableName="Residential kWh per NMI" OwnerTag="EntityType:WP_ECN" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" VariableName="WP total volume" OwnerTag="EntityType:SWIS" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="WP total volume">
+          <Units>GWh/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>(WP Res kWh/Model.kWh per GWh+Commercial Collection.WP commercial volume)/Model.Time Step</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="WP Res kWh" OwnerTag="EntityType:SWIS" />
+            <Cause CausalType="Information" Reference="Model" VariableName="kWh per GWh" OwnerTag="EntityType:Model" />
+            <Cause CausalType="Information" Reference="Commercial Collection" VariableName="WP commercial volume" OwnerTag="Collection:Commercial.Commercial[]" />
+            <Cause CausalType="Information" Reference="Model" VariableName="Time Step" OwnerTag="EntityType:Model" />
+          </Causes>
+        </Auxiliary>
+      </Auxiliaries>
+      <Charts>
+        <Chart name="Plot1">
+          <PlotedItems>
+            <PlottedItem VariableName="Gross electricity demand" OwnerTag="EntityType:SWIS" />
+            <PlottedItem VariableName="WEM net electricity demand" OwnerTag="EntityType:SWIS" />
+            <PlottedItem VariableName="WP total volume" OwnerTag="EntityType:SWIS" />
+          </PlotedItems>
+          <MainTitleText MainTitleText="" />
+          <ViewType ViewType="Line" />
+          <VChartTitleCollection>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+            <VChartTitle Text="" Visibility="True" TextColor="000000" EnableAntialiasing="False" Alignment="Near" Dock="Top" WordWrap="false" Indent="5" MaxLineCount="1">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="12" Style="Bold" />
+            </VChartTitle>
+          </VChartTitleCollection>
+          <VChartLegend>
+            <General Visibility="True" AlignmentHorizontal="Center" AlignmentVertical="BottomOutside" Direction="TopToBottom" EquallySpacedItems="true" UseCheckBoxes="false" MaxHorizontalPercentage="100" MaxVerticalPercentage="100">
+              <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            </General>
+            <Appearance BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            </Appearance>
+            <Text TextVisible="true" TextColor="000000" TextOffset="5" EnableAntialiasing="False">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+            </Text>
+            <Interior HorizontalIndent="5" VerticalIndent="5">
+              <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            </Interior>
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Shadow Size="2" Visible="false" Color="FFFFFF" />
+            <Marker MarkerVisible="true">
+              <MarkerSize Height="10" Width="10" />
+            </Marker>
+          </VChartLegend>
+          <VChartArea>
+            <AutoLayout>true</AutoLayout>
+            <BackColor>FFFFFF</BackColor>
+            <ForeColor />
+            <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+            <Padding All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+            <EmptyChartText Text="--" TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </EmptyChartText>
+            <SmallChartText Text="Increase the chart's size, to view its layout." TextColor="000000" EnableAntialiasing="False" Visible="true">
+              <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="16" Style="Regular" />
+            </SmallChartText>
+          </VChartArea>
+          <VChartDiagram>
+            <Rotated>false</Rotated>
+            <Margins All="5" Bottom="5" Left="5" Right="5" Top="5" />
+            <PaneDistance>10</PaneDistance>
+            <PaneLayoutDirection>Vertical</PaneLayoutDirection>
+            <ScrollingOptions EnableAxisXScrolling="true" EnableAxisYScrolling="true" UseScrollBars="true" KeyboardScrolling="true" MouseScrolling="true" TouchDeviceScrolling="true" />
+            <ZoomingOptions EnableAxisXZooming="true" EnableAxisYZooming="true" KeyboardZooming="true" KeyboardWithMouseZooming="true" MouseWheelZooming="false" TouchDeviceZooming="true" AxisXMaxZoomPercent="10000" AxisYMaxZoomPercent="10000" />
+            <PrimaryAxisX Name="Axis X" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="false" AutoSideMargins="false" SideMarginsValue="0">
+                <Min Value="06/01/2015 00:00:00" />
+                <Max Value="06/01/2030 00:00:00" />
+              </VisualRange>
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="false" SideMarginsValue="0">
+                  <Min Value="06/01/2006 00:00:00" />
+                  <Max Value="06/01/2030 00:00:00" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="Time" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisX>
+            <PrimaryAxisY Name="Axis Y" Visibility="True" AxisAlignment="Near" Color="D3D3D3" Thickness="1" Reverse="false" Logarithmic="false" LogarithmicBase="10">
+              <NumericScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="false" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <DateTimeScaleOptions ScaleMode="Continuous" AggregateFunction="None" MeasureUnit="Ones" CustomMeasureUnit="0" AutoGrid="true" GridSpacing="0" GridOffset="0" GridAlignment="Ones" CustomGridAlignment="0" DateTimeMeasureUnit="Millisecond" DateTimeGridAlignment="Millisecond" WorkdaysOnly="false" />
+              <VisualRange Auto="true" AutoSideMargins="true" SideMarginsValue="0" />
+              <WholeRange>
+                <Range Auto="true" AutoSideMargins="true" SideMarginsValue="210.0818638040052">
+                  <Min Value="0" />
+                  <Max Value="2100.81863804005" />
+                </Range>
+                <AlwaysShowZeroLevel>true</AlwaysShowZeroLevel>
+              </WholeRange>
+              <Interlace Enabled="false" Color="FFFFFF">
+                <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              </Interlace>
+              <Title Text="" Visibility="True" TextColor="808080" Alignment="Center" EnableAntialiasing="True">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="10" Style="Regular" />
+              </Title>
+              <Tickmarks CrossAxis="false" Visible="true" Thickness="1" Length="5" MinorVisible="true" MinorThickness="2" MinorLength="1" />
+              <GridLines Visible="true" Color="D3D3D3" MinorVisible="false" MinorColor="D3D3D3">
+                <LineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+                <MinorLineStyle DashStyle="Solid" LineJoin="Round" Thickness="1" />
+              </GridLines>
+              <Label Visible="true" Staggered="false" Angle="0" EnableAntialiasing="False" TextColor="000000" TextAlignment="Center" MaxWidth="0" MaxLineCount="2" TextPattern="{V:#,#}" AllowHide="true" AllowRotate="true" AllowStagger="true" MinIndent="5">
+                <Font FontFamily="Tahoma" GraphicsUnit="Point" Size="8" Style="Regular" />
+              </Label>
+              <CustomLabels />
+              <MinorCount>4</MinorCount>
+            </PrimaryAxisY>
+            <SecondaryAxesX />
+            <SecondaryAxesY />
+            <DefaultPane Name="Default Pane" SizeMode="UseWeight" Weight="1" SizeInPixels="104" BackColor="FFFFFF">
+              <FillStyle FillMode="Solid" Color2="FFFFFF" GradientMode="TopToBottom" HatchStyle="Horizontal" />
+              <Border Visibility="True" Color="D3D3D3" Thickness="1" />
+              <Shadow Size="2" Visible="false" Color="FFFFFF" />
+              <ScrollBarOptions XAxisScrollBarVisible="true" YAxisScrollBarVisible="true" XAxisScrollBarAlignment="Near" YAxisScrollBarAlignment="Near" BarColor="D3D3D3" BackColor="FFFFFF" BorderColor="D3D3D3" BarThickness="7" />
+            </DefaultPane>
+          </VChartDiagram>
+          <VChartDataStyleCollection>
+            <VChartDataStyle>
+              <Variable ParentName="SWIS" VariableName="Gross electricity demand" />
+              <EntityName />
+              <Style Color="1F497D" DashStyle="DashDotDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+            </VChartDataStyle>
+            <VChartDataStyle>
+              <Variable ParentName="SWIS" VariableName="WEM net electricity demand" />
+              <EntityName />
+              <Style Color="F79646" DashStyle="DashDot" Thickness="2" MarkerVisibility="false" MarkerKind="Circle" MarkerSize="1" MarkerColor="" LegendText="" ShowNumbers="false" />
+            </VChartDataStyle>
+          </VChartDataStyleCollection>
+        </Chart>
+      </Charts>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="1" NodeType="Attribute" MemberName="SWISID" IsMidLabel="False" LabelText="SWISID" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="227" LocationY="73" Height="40" Width="76" />
+              <Label LocationX="191" LocationY="65.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="3" NodeType="Aggregate" MemberName="Sum commercial electricity demand" IsMidLabel="False" LabelText="Sum commercial electricity demand" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="Collection:Commercial.Commercial[]" ReferenceName="Commercial Collection" />
+              <Position LocationX="325" LocationY="150" Height="84" Width="242" />
+              <Label LocationX="206" LocationY="134.9089" Height="30.18229" Width="238" />
+            </Node>
+            <Node PartID="5" NodeType="Auxiliary" MemberName="Household electricity demand" IsMidLabel="False" LabelText="Household electricity demand" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="Collection:Households.Households[]" ReferenceName="Households Collection" />
+              <Position LocationX="300" LocationY="225" Height="84" Width="181" />
+              <Label LocationX="211.5" LocationY="209.9089" Height="30.18229" Width="177" />
+            </Node>
+            <Node PartID="9" NodeType="Auxiliary" MemberName="WEM net electricity demand" IsMidLabel="False" LabelText="WEM net electricity demand" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="550" LocationY="200" Height="52" Width="154" />
+              <Label LocationX="475" LocationY="184.9089" Height="30.18229" Width="150" />
+            </Node>
+            <Node PartID="22" NodeType="Plot" MemberName="Plot1" IsMidLabel="False" LabelText="Plot1" CaptionHidden="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="625" LocationY="100" Height="455" Width="747" />
+              <Label LocationX="0" LocationY="0" Height="0" Width="0" />
+            </Node>
+            <Node PartID="676" NodeType="Auxiliary" MemberName="DER onsite consumption" IsMidLabel="False" LabelText="DER onsite consumption" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="Collection:DER cohort.DER cohort[]" ReferenceName="DER cohort Collection" />
+              <Position LocationX="275" LocationY="350" Height="68" Width="167.2904" />
+              <Label LocationX="193.3548" LocationY="334.9088" Height="30.18229" Width="163.2904" />
+            </Node>
+            <Node PartID="692" NodeType="Auxiliary" MemberName="Gross electricity demand" IsMidLabel="False" LabelText="Gross electricity demand" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="500" LocationY="300" Height="52" Width="105" />
+              <Label LocationX="449.5" LocationY="284.9088" Height="30.18229" Width="101" />
+            </Node>
+            <Node PartID="2218" NodeType="Data" MemberName="Residential connections" IsMidLabel="False" LabelText="Residential connections" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:WP_ECN" ReferenceName="WP_ECN" />
+              <Position LocationX="600.9969" LocationY="675" Height="68" Width="178.6155" />
+              <Label LocationX="513.6891" LocationY="659.9089" Height="30.18229" Width="174.6155" />
+            </Node>
+            <Node PartID="2242" NodeType="Data" MemberName="Residential kWh per NMI" IsMidLabel="False" LabelText="Residential kWh per NMI" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:WP_ECN" ReferenceName="WP_ECN" />
+              <Position LocationX="586.0385" LocationY="750" Height="68" Width="148.6986" />
+              <Label LocationX="513.6892" LocationY="727.3633" Height="45.27343" Width="144.6986" />
+            </Node>
+            <Node PartID="2290" NodeType="Auxiliary" MemberName="WP Res kWh" IsMidLabel="False" LabelText="WP Res kWh" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="400" LocationY="700" Height="52" Width="76" />
+              <Label LocationX="364" LocationY="684.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="2380" NodeType="Auxiliary" MemberName="WP total volume" IsMidLabel="False" LabelText="WP total volume" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS" />
+              <Position LocationX="200" LocationY="675" Height="52" Width="76" />
+              <Label LocationX="164" LocationY="659.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="2555" NodeType="Auxiliary" MemberName="kWh per GWh" IsMidLabel="False" LabelText="kWh per GWh" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="50" LocationY="618" Height="52" Width="76" />
+              <Label LocationX="14" LocationY="595.3633" Height="45.27343" Width="72" />
+            </Node>
+            <Node PartID="2737" NodeType="Auxiliary" MemberName="Time Step" IsMidLabel="False" LabelText="Time Step" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+              <Position LocationX="49" LocationY="697" Height="52" Width="76" />
+              <Label LocationX="13" LocationY="681.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="2967" NodeType="Auxiliary" MemberName="WP commercial volume" IsMidLabel="False" LabelText="WP commercial volume" IsEditable="False" IsPrimary="False">
+              <Owner OwnerTag="Collection:Commercial.Commercial[]" ReferenceName="Commercial Collection" />
+              <Position LocationX="400" LocationY="550" Height="68" Width="81.84937" />
+              <Label LocationX="361.0753" LocationY="518" Height="64" Width="77.84937" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="11" LinkType="Information" FromNode="3" FromPort="706" ToNode="9" ToPort="708" PointCount="4" LabelNodeID="0" Points="447|158.551|459.672|159.4392|468.0053|161.291|492.8077|173" ManualStroke="False" />
+            <Link PartID="13" LinkType="Information" FromNode="5" FromPort="707" ToNode="9" ToPort="708" PointCount="4" LabelNodeID="0" Points="391.5|200.0422|416.3433|193.2659|443.1766|190.5825|472|193.1236" ManualStroke="False" />
+            <Link PartID="700" LinkType="Information" FromNode="676" FromPort="710" ToNode="692" ToPort="711" PointCount="4" LabelNodeID="0" Points="359.6452|315.3175|384.2582|305.2326|413.2098|298.7989|446.5|299.2596" ManualStroke="False" />
+            <Link PartID="704" LinkType="Information" FromNode="9" FromPort="708" ToNode="692" ToPort="711" PointCount="4" LabelNodeID="0" Points="548.2739|227|546.7219|251.2776|539.0552|266.6109|531.582|273" ManualStroke="False" />
+            <Link PartID="2325" LinkType="Information" FromNode="2218" FromPort="2219" ToNode="2290" ToPort="2291" PointCount="4" LabelNodeID="0" Points="510.6892|702.5215|489.2614|709.0518|465.365|712.024|439|707.1741" ManualStroke="False" />
+            <Link PartID="2338" LinkType="Information" FromNode="2242" FromPort="2243" ToNode="2290" ToPort="2291" PointCount="4" LabelNodeID="0" Points="510.6892|744.6908|481.6018|742.6412|457.7054|736.2188|439|724.4783" ManualStroke="False" />
+            <Link PartID="2469" LinkType="Information" FromNode="2290" FromPort="2291" ToNode="2380" ToPort="2381" PointCount="4" LabelNodeID="0" Points="361|704.694|317.8527|709.8871|277.186|704.8038|239|690.059" ManualStroke="False" />
+            <Link PartID="2574" LinkType="Information" FromNode="2555" FromPort="2556" ToNode="2380" ToPort="2381" PointCount="4" LabelNodeID="0" Points="89|620.9175|120.1044|623.2443|144.1044|632.3643|164.6028|648" ManualStroke="False" />
+            <Link PartID="3223" LinkType="Information" FromNode="2967" FromPort="2968" ToNode="2380" ToPort="2381" PointCount="4" LabelNodeID="0" Points="363.4314|585|328.9835|617.9703|289.2917|642.7776|239|660.9262" ManualStroke="False" />
+            <Link PartID="3269" LinkType="Information" FromNode="2737" FromPort="3237" ToNode="2380" ToPort="3235" PointCount="4" LabelNodeID="0" Points="88|678.2784|109.4499|667.9816|133.7832|664.4363|161|668.7783" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Commercial Collection">
+          <BaseType>Collection:Commercial.Commercial[]</BaseType>
+        </Reference>
+        <Reference name="DER cohort Collection">
+          <BaseType>Collection:DER cohort.DER cohort[]</BaseType>
+        </Reference>
+        <Reference name="Households Collection">
+          <BaseType>Collection:Households.Households[]</BaseType>
+        </Reference>
+        <Reference name="Model">
+          <BaseType>EntityType:Model</BaseType>
+        </Reference>
+        <Reference name="WP_ECN">
+          <BaseType>EntityType:WP_ECN</BaseType>
+          <Conditions>
+            <Condition Key="Area" Value="SWISID" />
+          </Conditions>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="SWIS[]">
+          <BaseType>SWIS</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>

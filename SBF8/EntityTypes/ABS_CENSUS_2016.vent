@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="ABS_CENSUS_2016">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="AreaID">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>ABS_CENSUS_2016</BaseType>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="separate households">
+          <Units>households</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Separate Houses</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Separate Houses" OwnerTag="EntityType:ABS_CENSUS_2016" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="ABS_CENSUS_2016[]" VariableName="Sum separate households" OwnerTag="Collection:ABS_CENSUS_2016.ABS_CENSUS_2016[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="Total houses">
+          <Units>households</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Total households</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Total households" OwnerTag="EntityType:ABS_CENSUS_2016" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="ABS_CENSUS_2016[]" VariableName="Sum Total houses" OwnerTag="Collection:ABS_CENSUS_2016.ABS_CENSUS_2016[]" />
+          </Uses>
+        </Auxiliary>
+      </Auxiliaries>
+      <DataVariables>
+        <DataVariable name="Separate Houses">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Separate Houses</InputVariableName>
+          <Units>households</Units>
+          <Description>Total number of separate houses as reported in the 2016 Population &amp; Housing Census by local government area</Description>
+        </DataVariable>
+        <DataVariable name="Total households">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Total households</InputVariableName>
+          <Units>Households</Units>
+          <Description>Total number of households as reported in the 2016 Population &amp; Housing Census by local government area</Description>
+        </DataVariable>
+      </DataVariables>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Attribute" MemberName="AreaID" IsMidLabel="False" LabelText="AreaID" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ABS_CENSUS_2016" />
+              <Position LocationX="225" LocationY="75" Height="40" Width="76" />
+              <Label LocationX="189" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7" NodeType="Data" MemberName="Separate Houses" IsMidLabel="False" LabelText="Separate Houses" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ABS_CENSUS_2016" />
+              <Position LocationX="375" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="339" LocationY="59.90886" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Data" MemberName="Total households" IsMidLabel="False" LabelText="Total households" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ABS_CENSUS_2016" />
+              <Position LocationX="525" LocationY="75" Height="52" Width="78.77002" />
+              <Label LocationX="487.615" LocationY="59.90886" Height="30.18229" Width="74.77002" />
+            </Node>
+            <Node PartID="17" NodeType="Auxiliary" MemberName="separate households" IsMidLabel="False" LabelText="separate households" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ABS_CENSUS_2016" />
+              <Position LocationX="400" LocationY="200" Height="52" Width="78.76996" />
+              <Label LocationX="362.615" LocationY="184.9089" Height="30.18229" Width="74.76996" />
+            </Node>
+            <Node PartID="25" NodeType="Auxiliary" MemberName="Total houses" IsMidLabel="False" LabelText="Total houses" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:ABS_CENSUS_2016" />
+              <Position LocationX="550" LocationY="200" Height="52" Width="76" />
+              <Label LocationX="514" LocationY="184.9089" Height="30.18229" Width="72" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="19" LinkType="Information" FromNode="7" FromPort="13" ToNode="17" ToPort="18" PointCount="4" LabelNodeID="0" Points="392.181|102|404.7449|121.7443|409.4783|145.411|404.688|173" ManualStroke="False" />
+            <Link PartID="28" LinkType="Information" FromNode="11" FromPort="14" ToNode="25" ToPort="26" PointCount="4" LabelNodeID="0" Points="542.181|102|554.745|121.7444|559.4783|145.411|554.688|173" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="AreaID">
+          <BaseType>EntityType:ABS_CENSUS_2016</BaseType>
+          <Conditions>
+            <Condition Key="AreaID" Value="" />
+          </Conditions>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="ABS_CENSUS_2016[]">
+          <BaseType>ABS_CENSUS_2016</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum separate households">
+              <Units>households</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>separate households</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="separate households" OwnerTag="EntityType:ABS_CENSUS_2016" />
+              </Causes>
+            </Aggregate>
+            <Aggregate name="Sum Total houses">
+              <Units>households</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>Total houses</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Total houses" OwnerTag="EntityType:ABS_CENSUS_2016" />
+              </Causes>
+            </Aggregate>
+          </Aggregates>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="3" NodeType="Aggregate" MemberName="Sum separate households" IsMidLabel="False" LabelText="Sum separate households" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:ABS_CENSUS_2016.ABS_CENSUS_2016[]" />
+                  <Position LocationX="325" LocationY="100" Height="52" Width="96" />
+                  <Label LocationX="279" LocationY="84.90886" Height="30.18229" Width="92" />
+                </Node>
+                <Node PartID="7" NodeType="Aggregate" MemberName="Sum Total houses" IsMidLabel="False" LabelText="Sum Total houses" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:ABS_CENSUS_2016.ABS_CENSUS_2016[]" />
+                  <Position LocationX="550" LocationY="100" Height="52" Width="96" />
+                  <Label LocationX="504" LocationY="84.90886" Height="30.18229" Width="92" />
+                </Node>
+              </Nodes>
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>

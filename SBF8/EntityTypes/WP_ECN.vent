@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="WP_ECN">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>WP_ECN</BaseType>
+        </Attribute>
+      </Attributes>
+      <DataVariables>
+        <DataVariable name="Large Business connections">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Large Business connections</InputVariableName>
+          <Units>connections</Units>
+        </DataVariable>
+        <DataVariable name="Large Business per NMI">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Large Business per NMI</InputVariableName>
+          <Units>kWh/connection</Units>
+        </DataVariable>
+        <DataVariable name="Medium Business connections">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Medium Business connections</InputVariableName>
+          <Units>connections</Units>
+        </DataVariable>
+        <DataVariable name="Medium Business kWh per NMI">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Medium Business kWh per NMI</InputVariableName>
+          <Units>kWh/connection</Units>
+        </DataVariable>
+        <DataVariable name="Residential connections">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Residential connections</InputVariableName>
+          <Units>connections</Units>
+        </DataVariable>
+        <DataVariable name="Residential kWh per NMI">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Residential kWh per NMI</InputVariableName>
+          <Units>kWh/connection</Units>
+        </DataVariable>
+        <DataVariable name="Small Business connections">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Small Business connections</InputVariableName>
+          <Units>connections</Units>
+        </DataVariable>
+        <DataVariable name="Small Business per NMI">
+          <Interpolation>Straight</Interpolation>
+          <InputVariableName>Small Business per NMI</InputVariableName>
+          <Units>kWh/connection</Units>
+        </DataVariable>
+      </DataVariables>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Note" IsMidLabel="False" LabelText="Data sourced from Western Power' AA5 submission; https://www.erawa.com.au/cproot/22444/2/AAI---Attachment-7.5---Energy-and-Customer-Number-Forecast-Report-2020-.pdf" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="600" LocationY="100" Height="60" Width="400" />
+              <Label LocationX="402" LocationY="77.36328" Height="45.27343" Width="396" />
+            </Node>
+            <Node PartID="7" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="125" LocationY="100" Height="40" Width="76" />
+              <Label LocationX="89" LocationY="92.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Data" MemberName="Medium Business kWh per NMI" IsMidLabel="False" LabelText="Medium Business kWh per NMI" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="300" LocationY="225" Height="52" Width="122" />
+              <Label LocationX="241" LocationY="209.9089" Height="30.18229" Width="118" />
+            </Node>
+            <Node PartID="19" NodeType="Data" MemberName="Large Business per NMI" IsMidLabel="False" LabelText="Large Business per NMI" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="115" LocationY="225" Height="52" Width="106" />
+              <Label LocationX="64" LocationY="209.9089" Height="30.18229" Width="102" />
+            </Node>
+            <Node PartID="23" NodeType="Data" MemberName="Small Business per NMI" IsMidLabel="False" LabelText="Small Business per NMI" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="462.5" LocationY="225" Height="52" Width="101" />
+              <Label LocationX="414" LocationY="209.9089" Height="30.18229" Width="97.00001" />
+            </Node>
+            <Node PartID="31" NodeType="Data" MemberName="Residential kWh per NMI" IsMidLabel="False" LabelText="Residential kWh per NMI" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="600" LocationY="225" Height="52" Width="76.62152" />
+              <Label LocationX="563.6892" LocationY="202.3633" Height="45.27343" Width="72.62152" />
+            </Node>
+            <Node PartID="35" NodeType="Data" MemberName="Large Business connections" IsMidLabel="False" LabelText="Large Business connections" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="109.5458" LocationY="300" Height="52" Width="100.9084" />
+              <Label LocationX="61.09159" LocationY="284.9088" Height="30.18229" Width="96.90841" />
+            </Node>
+            <Node PartID="39" NodeType="Data" MemberName="Medium Business connections" IsMidLabel="False" LabelText="Medium Business connections" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="300" LocationY="300" Height="52" Width="125.9084" />
+              <Label LocationX="239.0458" LocationY="284.9088" Height="30.18229" Width="121.9084" />
+            </Node>
+            <Node PartID="43" NodeType="Data" MemberName="Small Business connections" IsMidLabel="False" LabelText="Small Business connections" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="458.4542" LocationY="300" Height="52" Width="114.9084" />
+              <Label LocationX="403" LocationY="284.9088" Height="30.18229" Width="110.9084" />
+            </Node>
+            <Node PartID="47" NodeType="Data" MemberName="Residential connections" IsMidLabel="False" LabelText="Residential connections" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:WP_ECN" />
+              <Position LocationX="600" LocationY="300" Height="52" Width="76.62152" />
+              <Label LocationX="563.6892" LocationY="284.9088" Height="30.18229" Width="72.62152" />
+            </Node>
+          </Nodes>
+          <Links />
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Area">
+          <BaseType>EntityType:WP_ECN</BaseType>
+          <Conditions>
+            <Condition Key="Area" Value="" />
+          </Conditions>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="WP_ECN[]">
+          <BaseType>WP_ECN</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+          </Auxiliaries>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes />
+              <Links />
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>

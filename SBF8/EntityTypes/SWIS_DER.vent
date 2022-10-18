@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntitySet>
+  <Entities>
+    <EntityType name="SWIS_DER">
+      <Properties>
+        <IsSingular>false</IsSingular>
+        <IsDataEntityType>true</IsDataEntityType>
+      </Properties>
+      <Attributes>
+        <Attribute name="Area">
+          <IsKey>true</IsKey>
+          <AutoIncrement>true</AutoIncrement>
+          <BaseType>SWIS_DER</BaseType>
+        </Attribute>
+      </Attributes>
+      <Auxiliaries>
+        <Auxiliary name="actual DER capacity">
+          <Units>kW/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Capacity Raw</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Capacity Raw" OwnerTag="EntityType:SWIS_DER" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="SWIS_DER[]" VariableName="Sum actual DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+          </Uses>
+        </Auxiliary>
+        <Auxiliary name="actual DER installs">
+          <Units>systems/month</Units>
+          <IsConstant>false</IsConstant>
+          <Equation>Installations Raw</Equation>
+          <Causes>
+            <Cause CausalType="Information" VariableName="Installations Raw" OwnerTag="EntityType:SWIS_DER" />
+          </Causes>
+          <Uses>
+            <Use CausalType="InformationSource" Reference="SWIS_DER[]" VariableName="Sum actual DER installs" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+          </Uses>
+        </Auxiliary>
+      </Auxiliaries>
+      <DataVariables>
+        <DataVariable name="Capacity Raw">
+          <Interpolation>Raw</Interpolation>
+          <InputVariableName>Capacity</InputVariableName>
+          <Units>kW/month</Units>
+        </DataVariable>
+        <DataVariable name="Installations Raw">
+          <Interpolation>Raw</Interpolation>
+          <InputVariableName>Installations</InputVariableName>
+          <Units>systems/month</Units>
+        </DataVariable>
+      </DataVariables>
+      <Diagrams>
+        <Diagram name="Main">
+          <Nodes>
+            <Node PartID="3" NodeType="Attribute" MemberName="Area" IsMidLabel="False" LabelText="Area" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS_DER" />
+              <Position LocationX="125" LocationY="75" Height="40" Width="76" />
+              <Label LocationX="89" LocationY="67.45443" Height="15.09114" Width="72" />
+            </Node>
+            <Node PartID="7" NodeType="Data" MemberName="Capacity Raw" IsMidLabel="False" LabelText="Capacity Raw" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS_DER" />
+              <Position LocationX="275" LocationY="75" Height="52" Width="76" />
+              <Label LocationX="239" LocationY="59.90886" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="11" NodeType="Data" MemberName="Installations Raw" IsMidLabel="False" LabelText="Installations Raw" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS_DER" />
+              <Position LocationX="425" LocationY="75" Height="52" Width="81.20483" />
+              <Label LocationX="386.3976" LocationY="59.90886" Height="30.18229" Width="77.20483" />
+            </Node>
+            <Node PartID="15" NodeType="Auxiliary" MemberName="actual DER installs" IsMidLabel="False" LabelText="actual DER installs" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS_DER" />
+              <Position LocationX="425" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="389" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
+            <Node PartID="31" NodeType="Auxiliary" MemberName="actual DER capacity" IsMidLabel="False" LabelText="actual DER capacity" IsEditable="False" IsPrimary="True">
+              <Owner OwnerTag="EntityType:SWIS_DER" />
+              <Position LocationX="275" LocationY="225" Height="52" Width="76" />
+              <Label LocationX="239" LocationY="209.9089" Height="30.18229" Width="72" />
+            </Node>
+          </Nodes>
+          <Links>
+            <Link PartID="17" LinkType="Information" FromNode="11" FromPort="12" ToNode="15" ToPort="16" PointCount="4" LabelNodeID="0" Points="434.1525|102|445|134|445|166|434.1525|198" ManualStroke="False" />
+            <Link PartID="38" LinkType="Information" FromNode="7" FromPort="8" ToNode="31" ToPort="32" PointCount="4" LabelNodeID="0" Points="284.1525|102|295|134|295|166|284.1525|198" ManualStroke="False" />
+          </Links>
+        </Diagram>
+      </Diagrams>
+      <References>
+        <Reference name="Area">
+          <BaseType>EntityType:SWIS_DER</BaseType>
+          <Conditions>
+            <Condition Key="Area" Value="" />
+          </Conditions>
+        </Reference>
+      </References>
+      <Collections>
+        <Collection name="SWIS_DER[]">
+          <BaseType>SWIS_DER</BaseType>
+          <Properties />
+          <Auxiliaries>
+            <Auxiliary name="average actual PV capacity">
+              <Units>kW/system</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Actual SWIS DER capacity*Model.kW per GW/Installed DER systems</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Actual SWIS DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="kW per GW" OwnerTag="EntityType:Model" />
+                <Cause CausalType="Information" VariableName="Installed DER systems" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Causes>
+            </Auxiliary>
+            <Auxiliary name="Count">
+              <Units>dmnl</Units>
+              <IsConstant>false</IsConstant>
+              <Description>Built-in variable. Reports the number of entities of this type existing at the end of each time slice.</Description>
+            </Auxiliary>
+            <Auxiliary name="estimated PV output">
+              <Units>GWh/month</Units>
+              <IsConstant>false</IsConstant>
+              <Equation>Actual SWIS DER capacity*Model.normalised PV output</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Actual SWIS DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="normalised PV output" OwnerTag="EntityType:Model" />
+              </Causes>
+            </Auxiliary>
+          </Auxiliaries>
+          <Aggregates>
+            <Aggregate name="Sum actual DER capacity">
+              <Units>kW/month</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>actual DER capacity</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="actual DER capacity" OwnerTag="EntityType:SWIS_DER" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="capacity additions" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Aggregate>
+            <Aggregate name="Sum actual DER installs">
+              <Units>systems/month</Units>
+              <AggregateFunction>Sum</AggregateFunction>
+              <AggregateTargetVariable>actual DER installs</AggregateTargetVariable>
+              <Causes>
+                <Cause CausalType="Information" VariableName="actual DER installs" OwnerTag="EntityType:SWIS_DER" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="adoption rate" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Aggregate>
+          </Aggregates>
+          <Stocks>
+            <Stock name="Actual SWIS DER capacity">
+              <Units>GW</Units>
+              <Equation>0</Equation>
+              <Causes>
+                <Cause CausalType="InFlow" VariableName="capacity additions" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="average actual PV capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                <Use CausalType="InformationSource" VariableName="estimated PV output" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Stock>
+            <Stock name="Installed DER systems">
+              <Units>systems</Units>
+              <Equation>0</Equation>
+              <Causes>
+                <Cause CausalType="InFlow" VariableName="adoption rate" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InformationSource" VariableName="average actual PV capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Stock>
+          </Stocks>
+          <Flows>
+            <Flow name="adoption rate">
+              <Units>systems/month</Units>
+              <To>Installed DER systems</To>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum actual DER installs</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum actual DER installs" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InFlow" VariableName="Installed DER systems" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Flow>
+            <Flow name="capacity additions">
+              <Units>GW/month</Units>
+              <To>Actual SWIS DER capacity</To>
+              <IsConstant>false</IsConstant>
+              <Equation>Sum actual DER capacity/Model.kW per GW</Equation>
+              <Causes>
+                <Cause CausalType="Information" VariableName="Sum actual DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                <Cause CausalType="Information" Reference="Model" VariableName="kW per GW" OwnerTag="EntityType:Model" />
+              </Causes>
+              <Uses>
+                <Use CausalType="InFlow" VariableName="Actual SWIS DER capacity" OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+              </Uses>
+            </Flow>
+          </Flows>
+          <Diagrams>
+            <Diagram name="Main">
+              <Nodes>
+                <Node PartID="3" NodeType="Aggregate" MemberName="Sum actual DER capacity" IsMidLabel="False" LabelText="Sum actual DER capacity" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="450" LocationY="350" Height="52" Width="96" />
+                  <Label LocationX="404" LocationY="334.9088" Height="30.18229" Width="92" />
+                </Node>
+                <Node PartID="7" NodeType="Aggregate" MemberName="Sum actual DER installs" IsMidLabel="False" LabelText="Sum actual DER installs" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="500" LocationY="150" Height="52" Width="96" />
+                  <Label LocationX="454" LocationY="134.9089" Height="30.18229" Width="92" />
+                </Node>
+                <Node PartID="11" NodeType="Stock" MemberName="Installed DER systems" IsMidLabel="False" LabelText="Installed DER systems" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="675" LocationY="275" Height="60" Width="86" />
+                  <Label LocationX="634" LocationY="259.9088" Height="30.18229" Width="82" />
+                </Node>
+                <Node PartID="15" NodeType="Cloud" IsMidLabel="False" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="400" LocationY="275" Height="45" Width="50" />
+                  <Label LocationX="377" LocationY="267.4544" Height="15.09114" Width="46.00001" />
+                </Node>
+                <Node PartID="18" NodeType="Flow" MemberName="adoption rate" IsMidLabel="True" LabelText="adoption rate" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="527.6709" LocationY="300.9994" Height="52" Width="61.21143" />
+                  <Label LocationX="499.0652" LocationY="285.9082" Height="30.18229" Width="57.21143" />
+                </Node>
+                <Node PartID="187" NodeType="Stock" MemberName="Actual SWIS DER capacity" IsMidLabel="False" LabelText="Actual SWIS DER capacity" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="675" LocationY="425" Height="60" Width="86" />
+                  <Label LocationX="634" LocationY="409.9088" Height="30.18229" Width="82" />
+                </Node>
+                <Node PartID="197" NodeType="Cloud" IsMidLabel="False" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="400" LocationY="425" Height="45" Width="50" />
+                  <Label LocationX="377" LocationY="417.4544" Height="15.09114" Width="46" />
+                </Node>
+                <Node PartID="201" NodeType="Flow" MemberName="capacity additions" IsMidLabel="True" LabelText="capacity additions" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="527.6709" LocationY="450.9994" Height="52" Width="63.57471" />
+                  <Label LocationX="497.8835" LocationY="435.9082" Height="30.18229" Width="59.57471" />
+                </Node>
+                <Node PartID="226" NodeType="Auxiliary" MemberName="kW per GW" IsMidLabel="False" LabelText="kW per GW" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="412" LocationY="515" Height="52" Width="76" />
+                  <Label LocationX="376" LocationY="499.9088" Height="30.18229" Width="72" />
+                </Node>
+                <Node PartID="243" NodeType="Auxiliary" MemberName="normalised PV output" IsMidLabel="False" LabelText="normalised PV output" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="857.5" LocationY="365.5" Height="36" Width="137" />
+                  <Label LocationX="791" LocationY="350.4088" Height="30.18229" Width="133" />
+                </Node>
+                <Node PartID="262" NodeType="Auxiliary" MemberName="estimated PV output" IsMidLabel="False" LabelText="estimated PV output" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="875" LocationY="475" Height="52" Width="76" />
+                  <Label LocationX="839" LocationY="459.9088" Height="30.18229" Width="72" />
+                </Node>
+                <Node PartID="402" NodeType="Auxiliary" MemberName="average actual PV capacity" IsMidLabel="False" LabelText="average actual PV capacity" IsEditable="False" IsPrimary="True">
+                  <Owner OwnerTag="Collection:SWIS_DER.SWIS_DER[]" />
+                  <Position LocationX="906.5" LocationY="266" Height="36" Width="139" />
+                  <Label LocationX="839" LocationY="250.9089" Height="30.18229" Width="135" />
+                </Node>
+                <Node PartID="469" NodeType="Auxiliary" MemberName="kW per GW" IsMidLabel="False" LabelText="kW per GW" IsEditable="False" IsPrimary="False">
+                  <Owner OwnerTag="EntityType:Model" ReferenceName="Model" />
+                  <Position LocationX="947" LocationY="176" Height="52" Width="76" />
+                  <Label LocationX="911" LocationY="160.9089" Height="30.18229" Width="72" />
+                </Node>
+              </Nodes>
+              <Links>
+                <Link PartID="17" LinkType="Flow" FromNode="15" FromPort="16" ToNode="11" ToPort="12" PointCount="6" LabelNodeID="18" Points="425|274.9987|425|274.9987|527.6709|274.9987|527.6709|275|632|275|632|275" ManualStroke="False" />
+                <Link PartID="20" LinkType="Information" FromNode="7" FromPort="8" ToNode="18" ToPort="19" PointCount="4" LabelNodeID="0" Points="514.799|177|530.5453|205.7281|536.4704|238.0612|531.4459|273.9994" ManualStroke="False" />
+                <Link PartID="200" LinkType="Flow" FromNode="197" FromPort="198" ToNode="187" ToPort="188" PointCount="6" LabelNodeID="201" Points="425|424.9987|425|424.9987|527.6709|424.9987|527.6709|425|632|425|632|425" ManualStroke="False" />
+                <Link PartID="207" LinkType="Information" FromNode="3" FromPort="21" ToNode="201" ToPort="202" PointCount="4" LabelNodeID="0" Points="493.1173|377|498.6655|380.4743|510.7134|396.1407|519.3249|423.9994" ManualStroke="False" />
+                <Link PartID="230" LinkType="Information" FromNode="226" FromPort="227" ToNode="201" ToPort="202" PointCount="4" LabelNodeID="0" Points="437.1529|488|455.9452|467.8279|470.573|459.7343|494.8835|456.0152" ManualStroke="False" />
+                <Link PartID="273" LinkType="Information" FromNode="187" FromPort="235" ToNode="262" ToPort="263" PointCount="4" LabelNodeID="0" Points="719|425.6747|762.8507|426.3472|801.8507|436.0972|836|454.2587" ManualStroke="False" />
+                <Link PartID="278" LinkType="Information" FromNode="243" FromPort="244" ToNode="262" ToPort="263" PointCount="4" LabelNodeID="0" Points="870.9342|384.5|883.6687|402.5103|887.0515|423.677|881.3401|448" ManualStroke="False" />
+                <Link PartID="419" LinkType="Information" FromNode="11" FromPort="281" ToNode="402" ToPort="403" PointCount="4" LabelNodeID="0" Points="719|262.7817|757.3093|252.1437|796.3093|250.796|836|256.6327" ManualStroke="False" />
+                <Link PartID="426" LinkType="Information" FromNode="187" FromPort="283" ToNode="402" ToPort="403" PointCount="4" LabelNodeID="0" Points="707.041|394|761.4412|341.3671|815.2053|304.4406|863.7508|284" ManualStroke="False" />
+                <Link PartID="478" LinkType="Information" FromNode="469" FromPort="470" ToNode="402" ToPort="403" PointCount="4" LabelNodeID="0" Points="946.723|203|946.4884|225.874|939.8884|240.5406|931.4174|247" ManualStroke="False" />
+              </Links>
+            </Diagram>
+          </Diagrams>
+          <References>
+            <Reference name="Model">
+              <BaseType>EntityType:Model</BaseType>
+            </Reference>
+          </References>
+        </Collection>
+      </Collections>
+    </EntityType>
+  </Entities>
+</EntitySet>
