@@ -9,6 +9,30 @@ demand <- tsibble(analytics_df, index = Trading.Interval)
 
 demand$Operational.Demand..MW. %>% forecast::mstl(lambda = 0.9, iterate = 100, s.window = "periodic", t.window = 48 * 365) %>% forecast::autoplot() # assess multiple seasonal patterns
 
+
+analytics_ts <- tsibble( analytics_df )
+autoplot(analytics_ts, Operational.Demand..MW.) + 
+  labs( title = "Operational Demand",
+        subtitle = "Wholesale Electricity Market (WA)",
+        y = "MW")
+
+analytics_ts %>% 
+  gg_season(Operational.Demand..MW., labels = "both") +
+  labs(y = "MW",
+       title = "Seasonal plot: Operational Demand")
+
+analytics_ts %>% 
+  gg_season(AirTemperature, labels = "both") +
+  labs(y = "Celsius",
+       title = "Seasonal plot: Temperature")
+
+fit <- analytics_ts %>% 
+  model( ARIMA(Operational.Demand..MW. ~ cooling + heating + 
+                 fourier(period = "day", K = 10) + 
+                 fourier(period = "week", K = 5) +
+                 fourier(period = "year", K = 3)) )
+
+
 annual.demand <- demand %>% 
   index_by(Calendar.Year) %>% 
   select(Calendar.Year, Operational.Demand..MW.) %>% 
@@ -93,3 +117,4 @@ demand.longer %>%
   facet_wrap(vars(Calendar.Month, holiday )) +
   labs(title = "Wholesale Electricity Market",
        subtitle = "Operational Demand")
+

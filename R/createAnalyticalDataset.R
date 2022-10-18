@@ -6,7 +6,7 @@ library(tidyverse)
 
 WEM_data <- WEM_data %>% mutate(Trading.Interval = as.POSIXct(Trading.Interval, format = "%Y-%m-%d %H:%M:%S"))
 
-analytics_df <- left_join( WEM_data, df.30 ) %>% 
+analytics_df <- inner_join( WEM_data, df.30 ) %>% 
   select( Calendar.Year, Calendar.Month, Calendar.Day, Trading.Date, Interval.Number, Trading.Interval, Operational.Demand..MW., AirTemperature ) 
 
 analytics_df <- analytics_df %>%
