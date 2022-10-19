@@ -2,6 +2,7 @@
 # Objective: create a forecast model of operational demand
 # Author: Grant Coble-Neal
 # Reference: https://otexts.com/fpp3/
+# Dependency: createAnalyticalDataset.R
 
 library(fpp3)
 

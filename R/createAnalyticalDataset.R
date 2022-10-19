@@ -1,6 +1,7 @@
 
 # Objective: create an analytical dataset
 # Author: Grant Coble-Neal
+# Dependency: getWEMdata.R
 
 library(tidyverse)
 
