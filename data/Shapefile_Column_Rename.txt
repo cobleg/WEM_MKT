@@ -1,0 +1,2 @@
+'st_area_shape_' to 'st_area_sh'
+'st_perimeter_shape_' to 'st_perimet'
