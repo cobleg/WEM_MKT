@@ -1,0 +1,26 @@
+{
+    "year": [
+        2018
+    ],
+    "customers": [
+        {
+            "name": "John",
+            "contact": [
+                {
+                    "phone": "home",
+                    "number": "333-3334"
+                }
+            ]
+        },
+        {
+            "name": "Jane",
+            "contact": [
+                {
+                    "phone": "home",
+                    "number": "555-5556"
+                }
+            ],
+            "surname": "Shaw"
+        }
+    ]
+}
