@@ -1,6 +1,6 @@
 #
 #
-# Objective: get AEMO solution file data and explore its structure
+# Objective: get AEMO solution file data, explore its structure and extract the desired data frames
 # Author: Grant Coble-Neal
 # Dependencies: nil
 # Source: https://data.wa.aemo.com.au/public/market-data/wemde/dispatchSolution/weekAheadDispatchData/previous/
@@ -23,7 +23,7 @@ solution_file <- jsonlite::fromJSON("data/ReferenceWeekAhead-DispatchSolution_20
 # explore the data ----
 
 str(solution_file, max.level = 1) # inspect the first level
-solution_file[["data"]][["solutionData"]] %>% str(max.level = 1)
+solution_file[["data"]][["solutionData"]] %>% str(max.level = 1) # this displays the available data
 solution_file[["data"]][["solutionData"]][["schedule"]] %>% str(max.level = 1)
 solution_file[["data"]][["solutionData"]][["schedule"]][[1]] %>% str(max.level = 1)
 
@@ -38,7 +38,7 @@ Time = str_sub(primaryDispatchInterval, string_length-4, string_length)
 Date_Time = paste(Date, Time, sep = " ")
 
 # Create custom function to add date-time to each data frame
-add_date_time <- function(df = df.11){
+add_date_time <- function(df){
   df %>% mutate(
     DateTime = ymd_hm(Date_Time)
   ) %>% relocate(DateTime) -> df.0
@@ -46,8 +46,8 @@ add_date_time <- function(df = df.11){
 }
 
 # Create a custom function to select the desired data frame
-get_data_frame <- function(df.name = "schedule"){
-  solution_file %>% purrr::pluck("data", "solutionData", df, 1) -> df.0
+get_data_frame <- function(df.name = "constraints"){
+  solution_file %>% purrr::pluck("data", "solutionData", df.name, 1) -> df.0
   df.0 %>% add_date_time() -> df.1
   
   # check if the last column is a list
@@ -56,17 +56,19 @@ get_data_frame <- function(df.name = "schedule"){
     # if the last column is a list then flatten the data frame
     df.1 %>% unnest(all_of(column.number)) -> df.1
   }
-  
+
   return(df.1)
 }
 
 # Create a custom function to extract the desired data frames
 extract_data_frames <- function(my.list = c("schedule", "dispatchCaps", "constraints")){
-  list.0 <- map(my.list, get_data_frame)
-  df <- bind_rows(list.0)
-  return(df)
+  list.0 <- map(my.list, get_data_frame) %>%  setNames(my.list)
+  #df <- bind_rows(list.0)
+  return(list.0)
 }
 
 data_extract <- extract_data_frames()
 
+# Export the extracted data
+data_extract %>% iwalk(~ write_csv(.x, file = here("data", paste0(.y, ".csv"))))
 
