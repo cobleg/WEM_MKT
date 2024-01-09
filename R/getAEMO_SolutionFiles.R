@@ -24,8 +24,8 @@ solution_file <- jsonlite::fromJSON("data/ReferenceWeekAhead-DispatchSolution_20
 
 str(solution_file, max.level = 1) # inspect the first level
 solution_file[["data"]][["solutionData"]] %>% str(max.level = 1) # this displays the available data
-solution_file[["data"]][["solutionData"]][["schedule"]] %>% str(max.level = 1)
-solution_file[["data"]][["solutionData"]][["schedule"]][[1]] %>% str(max.level = 1)
+solution_file[["data"]][["solutionData"]][["dispatchTotal"]] %>% str(max.level = 1)
+solution_file[["data"]][["solutionData"]][["dispatchTotal"]][[1]] %>% str(max.level = 1)
 
 # Compile the data ----
 
@@ -46,8 +46,13 @@ add_date_time <- function(df){
 }
 
 # Create a custom function to select the desired data frame
-get_data_frame <- function(df.name = "constraints"){
-  solution_file %>% purrr::pluck("data", "solutionData", df.name, 1) -> df.0
+get_data_frame <- function(df.name = "dispatchTotal"){
+  if(df.name == "dispatchTotal"){
+    solution_file %>% purrr::pluck("data", "solutionData", df.name) -> df.0
+  }else{
+    solution_file %>% purrr::pluck("data", "solutionData", df.name, 1) -> df.0
+  }
+  
   df.0 %>% add_date_time() -> df.1
   
   # check if the last column is a list
@@ -68,6 +73,7 @@ extract_data_frames <- function(my.list = c("schedule", "dispatchCaps", "constra
 }
 
 data_extract <- extract_data_frames()
+data_extract <- extract_data_frames("dispatchTotal")
 
 # Export the extracted data
 data_extract %>% iwalk(~ write_csv(.x, file = here("data", paste0(.y, ".csv"))))
