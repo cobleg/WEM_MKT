@@ -1,2 +1,1 @@
-'st_area_shape_' to 'st_area_sh'
-'st_perimeter_shape_' to 'st_perimet'
+'st_length_shape_' to 'st_length_'

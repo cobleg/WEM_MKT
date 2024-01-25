@@ -8,8 +8,6 @@ library(clock)
 library(here)
 library(tidyverse)
 
-source(here("R","jsonExtractFunctions.R"))
-
 zone <- "Australia/Perth"
 
 from <- date_time_build(2024, 1, 9, 8, zone = zone)
@@ -79,13 +77,12 @@ df.1 <- compile_facility_schedule_details() %>% mutate(
 # Create bulk processor script to compile a time series ----
 
 # Step 1: construct the list of data files URLs
-url.dispath.solution.files <- "https://data.wa.aemo.com.au/public/market-data/wemde/dispatchSolution/dispatchData/previous/"
 from <- as.Date(c("2023-09-28"))
 to <- as.Date(Sys.Date()-1)
 dates <- date_seq(from=from, to=to, by = duration_days(1))
 
 getDSR.data <- function(date = dates[1]){
-
+  source(here("R","helperFunctions.R"))
   date.digits <- date_time_suffix(my.date_time = date)
   url_stub <- "https://data.wa.aemo.com.au/public/market-data/wemde/dispatchSolution/dispatchData/previous/DispatchSolutionReference_"
   url_DSR <- paste0(url_stub, date.digits,".zip")
@@ -114,23 +111,27 @@ getDSR.data <- function(date = dates[1]){
     DateTime = Date_Time
   ) %>% relocate(DateTime)
   
-  return(df.1)
+  # Save the data to disk 
+
+  dt.character = as.character(Date_Time)
+  dt.suffix <- date_time_suffix(dt.character)
+  save(df.1, file = here("data", paste0("RDS_", dt.suffix, ".RData")), precheck = FALSE)
+
+  # remove files once processed
+  json.files <- list.files( path=here('data'), pattern="(\\.json)$", full.names=TRUE )
+  file.remove(json.files)
+  
+  return("Process completed")
 }
 
 df <- getDSR.data()
 
-# Save the data to disk ----
-df.1 <- df
-dt.character = as.character(Date_Time)
-dt.suffix <- date_time_suffix(dt.character)
-save(df.1, file = here("data", paste0("RDS_", dt.suffix, ".RData")))
-rm(df.1)
-
-# remove files once processed
-json.files <- list.files( path=here('data'), pattern="(\\.json)$", full.names=TRUE )
-file.remove(json.files)
-
-# helper function to get list of files
-get.file.list <- function(){
-  return( list.files(path = here("data"), pattern = '*.json') )
+# Get multiple files
+for (i in 1:2){
+  print(dates[i])
+  df <- getDSR.data(date = dates[i])
 }
+
+
+
+
