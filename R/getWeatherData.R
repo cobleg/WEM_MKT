@@ -20,13 +20,15 @@ df <- data %>% bind_rows() %>%
 
 df.30 <- data.frame(date = as.POSIXct(seq(min(df$date), max(df$date), by = '30 min'))) %>% 
   left_join(df) %>% 
-  mutate(minutes = minute(date),
+  mutate(
+    Location = "Perth",
+    minutes = minute(date),
     Calendar.Year = lubridate::year(date),
     Calendar.Month = lubridate::month(date),
     Calendar.Day = lubridate::day(date), 
     AirTemperature = ifelse(minutes == 30, (lag(air_temp) + lead(air_temp))/2, air_temp), 
     Trading.Interval = date) %>%  
-  select(Calendar.Year, Calendar.Month, Calendar.Day, Trading.Interval, AirTemperature)
+  select(Location, Calendar.Year, Calendar.Month, Calendar.Day, Trading.Interval, AirTemperature)
 
 subdirectory <- c("data")
 wd <- getwd()
