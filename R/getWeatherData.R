@@ -9,7 +9,7 @@ library(worldmet)
 
 getMeta(lat = -31.95224, lon = 115.8614) # check the latitude and longitude, should indicate Perth, Western Australia & obtain weather station code
 
-year <- seq(from = 2018, to = 2022, by = 1)
+year <- seq(from = 2018, to = 2024, by = 1)
 
 data <- map(year, worldmet::importNOAA, code = "946100-99999")
 
@@ -26,9 +26,9 @@ df.30 <- data.frame(date = as.POSIXct(seq(min(df$date), max(df$date), by = '30 m
     Calendar.Year = lubridate::year(date),
     Calendar.Month = lubridate::month(date),
     Calendar.Day = lubridate::day(date), 
-    AirTemperature = ifelse(minutes == 30, (lag(air_temp) + lead(air_temp))/2, air_temp), 
-    Trading.Interval = date) %>%  
-  select(Location, Calendar.Year, Calendar.Month, Calendar.Day, Trading.Interval, AirTemperature)
+    DateTime = lubridate::format_ISO8601(date),
+    AirTemperature = ifelse(minutes == 30, (lag(air_temp) + lead(air_temp))/2, air_temp)) %>%  
+  select(Location, Calendar.Year, Calendar.Month, Calendar.Day, DateTime, AirTemperature)
 
 subdirectory <- c("data")
 wd <- getwd()
