@@ -1,0 +1,24 @@
+# SPARQL query to run on the Wikidata Query Service: https://query.wikidata.org/
+
+#Map and table of BESS facilities in the SWIS
+#added 2017-08
+#defaultView:Table
+SELECT DISTINCT ?owner ?facilityName ?nominalPowerCapacity_MW ?energyStorageCapacity_MWh ?serviceEntry_Year ?geo # (COUNT (?item) AS ?itemCount)
+WHERE {
+  ?item wdt:P31  wd:Q810924 . # instance of: battery energy storage system
+  ?item wdt:P361  wd:Q85802336 . # part of: South West Interconnected System
+  OPTIONAL { ?item wdt:P127  ?ownerID.} # owned by
+  OPTIONAL {?item wdt:P2109  ?MW.} # nominal power capacity (MW)
+  OPTIONAL {?item wdt:P4140  ?MWh.} # energy storage capacity (MWh)
+  OPTIONAL {?item wdt:P729  ?serviceEntry_Year.} # year that BESS facility begins service
+  OPTIONAL {?item wdt:P625 ?geo.} # geographic coordinates
+   
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "en" .
+    ?item rdfs:label ?facilityName .
+    ?ownerID rdfs:label ?owner .
+    ?MW rdfs:label ?nominalPowerCapacity_MW .
+    ?MWh rdfs:label ?energyStorageCapacity_MWh .
+  }
+ 
+} ORDER BY ASC(?owner) ASC(?facilityName)
