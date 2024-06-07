@@ -1,0 +1,10 @@
+# Items connected to the SWIS
+#defaultView:Graph
+SELECT ?item ?itemLabel ?pic ?linkTo
+WHERE
+{
+  ?item wdt:P361* wd:Q85802336 
+  OPTIONAL { ?item wdt:P361 ?linkTo }
+  OPTIONAL { ?item wdt:P18 ?pic }
+  SERVICE wikibase:label {bd:serviceParam wikibase:language "en" }
+}
